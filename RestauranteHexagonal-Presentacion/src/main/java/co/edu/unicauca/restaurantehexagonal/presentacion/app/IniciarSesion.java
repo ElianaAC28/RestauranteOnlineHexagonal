@@ -221,7 +221,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                             } catch (Exception ex) {
                                 Logger.getLogger(IniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
                             }
-                            MenuAdmin ins = new MenuAdmin(restId,0);
+                            MenuAdmin ins = new MenuAdmin(restId);
 
                             ins.setVisible(true);
 

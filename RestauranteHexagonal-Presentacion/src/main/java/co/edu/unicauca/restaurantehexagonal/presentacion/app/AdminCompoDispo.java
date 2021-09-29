@@ -29,6 +29,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
     
     String idComp = "";
     String idAlmu = "";
+    String restId = "1";
     /**
      * Creates new form AdminComponentes
      */
@@ -38,9 +39,10 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         setTitle("Actualizar Componente Almuerzo");        
     }
     
-    public AdminCompoDispo(String viejo, String idAlmu1){
+    public AdminCompoDispo(String viejo, String idAlmu1, String restId){
         idComp = viejo;
         idAlmu = idAlmu1;
+        this.restId = restId;
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Actualizar Componente Almuerzo");  
@@ -195,7 +197,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-         AdminActualizarAlmuerzo adcom = new AdminActualizarAlmuerzo();
+         AdminActualizarAlmuerzo adcom = new AdminActualizarAlmuerzo(restId);
         //Sacamos el ide de la tabla con los componentes
         DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel();
         
@@ -268,7 +270,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
 
     private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
         // TODO add your handling code here:
-        Contacto cont = new Contacto(5);
+        Contacto cont = new Contacto(5, idComp, idAlmu, restId);
         cont.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
@@ -277,7 +279,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
          //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp==0){
-        MenuAdmin menu = new MenuAdmin();
+        MenuAdmin menu = new MenuAdmin(restId);
         menu.setVisible(true);
         this.dispose();
         }

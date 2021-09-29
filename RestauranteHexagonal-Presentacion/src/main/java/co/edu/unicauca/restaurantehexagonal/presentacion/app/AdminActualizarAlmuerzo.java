@@ -27,6 +27,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     
+    
+    String restId = "1";
     /**
      * Creates new form AdminComponentes
      */public AdminActualizarAlmuerzo(){
@@ -36,6 +38,13 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             
         }
      
+    public AdminActualizarAlmuerzo(String restId){
+        this.restId = restId;
+        initComponents();
+        setLocationRelativeTo(null);
+        setTitle("Actualizar Almuerzo");
+            
+    }     
      
     String dato = "";
     
@@ -241,14 +250,14 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         
         
         //Utilizamos el constructor para enviar datos al otro jframe
-        AdminCompoDispo adcom = new AdminCompoDispo(dato,txtAlmu.getText());        
+        AdminCompoDispo adcom = new AdminCompoDispo(dato,txtAlmu.getText(), restId);        
         
         adcom.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnActualizarActionPerformed
     
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        Admin admin = new Admin();
+        Admin admin = new Admin(restId);
         admin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMostrarActionPerformed
@@ -306,7 +315,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
     private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
         // TODO add your handling code here:
-        Contacto cont = new Contacto(2);
+        Contacto cont = new Contacto(2, restId);
         cont.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
@@ -315,7 +324,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
       //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin();
+            MenuAdmin menu = new MenuAdmin(restId);
             menu.setVisible(true);
             this.dispose();
         }

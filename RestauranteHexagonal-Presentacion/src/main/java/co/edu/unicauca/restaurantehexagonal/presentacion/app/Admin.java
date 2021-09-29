@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
  */
 public class Admin extends javax.swing.JFrame {
 
-    String restId = "";
+    String restId = "1";
     int cantidad = 5;
     int index = 0;
 
@@ -256,7 +256,7 @@ public class Admin extends javax.swing.JFrame {
         //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin();
+            MenuAdmin menu = new MenuAdmin(restId);
             menu.setVisible(true);
             this.dispose();
         }
@@ -267,7 +267,7 @@ public class Admin extends javax.swing.JFrame {
     private void btnAddAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAlmuActionPerformed
         AdminAlmuerzo adalmu = null;
         try {
-            adalmu = new AdminAlmuerzo();
+            adalmu = new AdminAlmuerzo(restId);
         } catch (Exception ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -277,7 +277,7 @@ public class Admin extends javax.swing.JFrame {
 
     //Boton para acceder a la interfaz grafica de agregar componente
     private void btnAddCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCompActionPerformed
-        AdminCompo adcom = new AdminCompo();
+        AdminCompo adcom = new AdminCompo(restId);
         adcom.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddCompActionPerformed
@@ -285,7 +285,7 @@ public class Admin extends javax.swing.JFrame {
     //Boton para acceder a la interfaz grafica de contacto
     private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
 
-        Contacto cont = new Contacto(1);
+        Contacto cont = new Contacto(1, restId);
         cont.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
@@ -412,7 +412,7 @@ public class Admin extends javax.swing.JFrame {
         String littleMatriz[][] = new String[cantidad][3];
 
         for (int j = 0; j < cantidad; j++) {
-            if (index == objListComponentes.size() - 1) {
+            if (index == objListComponentes.size()) {
                 break;
             }
             littleMatriz[j][0] = matriz[index + j][0];

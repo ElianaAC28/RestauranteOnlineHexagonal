@@ -16,6 +16,11 @@ import javax.swing.JOptionPane;
 public class Contacto extends javax.swing.JFrame {
 
     private int numInterfaz = 6;
+    String restId = "1";
+    
+    //Atributos de la interfaz grafica AdminCompoDispo que necesitan guardarse para devolver
+    String compDisp1 = "";
+    String compDisp2 = "";
 
     /**
      * Creates new form Contactanos
@@ -27,6 +32,24 @@ public class Contacto extends javax.swing.JFrame {
     }
 
     public Contacto(int num) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setTitle("Contactanos");
+        numInterfaz = num;
+    }
+    
+    public Contacto(int num, String restId) {
+        this.restId = restId;
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setTitle("Contactanos");
+        numInterfaz = num;
+    }
+    
+    public Contacto(int num, String compDisp1, String compDisp2, String restId) {
+        this.restId = restId;
+        this.compDisp1 = compDisp1;
+        this.compDisp2 = compDisp2;
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Contactanos");
@@ -152,19 +175,19 @@ public class Contacto extends javax.swing.JFrame {
 
         switch (numInterfaz) {
             case 1:
-                Admin admin = new Admin();
+                Admin admin = new Admin(restId);
                 admin.setVisible(true);
                 this.dispose();
                 break;
             case 2:
-                AdminActualizarAlmuerzo adminAlm = new AdminActualizarAlmuerzo();
+                AdminActualizarAlmuerzo adminAlm = new AdminActualizarAlmuerzo(restId);
                 adminAlm.setVisible(true);
                 this.dispose();
                 break;
             case 3:
                 AdminAlmuerzo adminAl = null;
                 try {
-                    adminAl = new AdminAlmuerzo();
+                    adminAl = new AdminAlmuerzo(restId);
                 } catch (Exception ex) {
                     Logger.getLogger(Contacto.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -173,12 +196,12 @@ public class Contacto extends javax.swing.JFrame {
                 break;
 
             case 4:
-                AdminCompo admCom = new AdminCompo();
+                AdminCompo admCom = new AdminCompo(restId);
                 admCom.setVisible(true);
                 this.dispose();
                 break;
             case 5:
-                AdminCompoDispo admComD = new AdminCompoDispo();
+                AdminCompoDispo admComD = new AdminCompoDispo(compDisp1, compDisp2, restId);
                 admComD.setVisible(true);
                 this.dispose();
                 break;

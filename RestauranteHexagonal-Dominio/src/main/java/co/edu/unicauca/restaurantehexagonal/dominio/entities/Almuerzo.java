@@ -14,6 +14,8 @@ public class Almuerzo {
     String idAlmuerzo;
     String restId;
     String costoAlm;
+    String descripcion;
+    String linkImagen;
     
 
     public Almuerzo() {
@@ -47,6 +49,22 @@ public class Almuerzo {
 
     public void setCostoAlm(String costoAlm) {
         this.costoAlm = costoAlm;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getLinkImagen() {
+        return linkImagen;
+    }
+
+    public void setLinkImagen(String linkImagen) {
+        this.linkImagen = linkImagen;
     }
 
     

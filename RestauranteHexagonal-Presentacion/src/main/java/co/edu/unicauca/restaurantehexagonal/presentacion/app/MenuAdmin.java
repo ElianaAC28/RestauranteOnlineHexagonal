@@ -15,8 +15,8 @@ import javax.swing.JOptionPane;
  */
 public class MenuAdmin extends javax.swing.JFrame {
 
-    int numInt = 0;
-    String restId = "";
+
+    String restId = "1";
 
     /**
      * Creates new form Contactanos
@@ -26,20 +26,12 @@ public class MenuAdmin extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setTitle("Visitante");
     }
-
-    public MenuAdmin(int num) {
-        initComponents();
-        this.setLocationRelativeTo(null);
-        setTitle("Visitante");
-        numInt = num;
-    }
     
-    public MenuAdmin(String restId, int num){
+    public MenuAdmin(String restId){
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Visitante");
         this.restId = restId;
-        numInt = num;
     }
 
     /**
@@ -191,13 +183,13 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_lblInicioSesionActionPerformed
 
     private void btnAddCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCompActionPerformed
-        AdminCompo admiCom = new AdminCompo();
+        AdminCompo admiCom = new AdminCompo(restId);
         admiCom.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddCompActionPerformed
 
     private void btnUpdateAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateAlmActionPerformed
-        AdminActualizarAlmuerzo update = new AdminActualizarAlmuerzo();
+        AdminActualizarAlmuerzo update = new AdminActualizarAlmuerzo(restId);
         update.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnUpdateAlmActionPerformed
@@ -221,7 +213,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     private void btnAddAlm1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddAlm1ActionPerformed
         AdminAlmuerzo admin = null;
         try {
-            admin = new AdminAlmuerzo();
+            admin = new AdminAlmuerzo(restId);
         } catch (Exception ex) {
             Logger.getLogger(MenuAdmin.class.getName()).log(Level.SEVERE, null, ex);
         }

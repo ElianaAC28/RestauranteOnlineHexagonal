@@ -32,8 +32,21 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
      */
     List<Componente> objListComponentes = new ArrayList<Componente>();
     String tipoid;
+    
+    String restId = "1";
 
     public AdminAlmuerzo() throws Exception {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setTitle("Administrador Almuerzo");
+        setLocationRelativeTo(null); //centrar la ventana
+
+        mostrar();
+
+    }
+    
+    public AdminAlmuerzo(String restId) throws Exception {
+        this.restId = restId;
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
@@ -309,7 +322,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
     private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
         // TODO add your handling code here:
-        Contacto cont = new Contacto(3);
+        Contacto cont = new Contacto(3, restId);
         cont.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
@@ -318,12 +331,12 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
      //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin();
+            MenuAdmin menu = new MenuAdmin(restId);
             menu.setVisible(true);
             this.dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
-
+    
     private void btnCrearAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAlmuActionPerformed
         // TODO add your handling code here:
 
@@ -376,13 +389,13 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
 
-        AdminActualizarAlmuerzo update = new AdminActualizarAlmuerzo();
+        AdminActualizarAlmuerzo update = new AdminActualizarAlmuerzo(restId);
         update.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnMostrarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarCompActionPerformed
-        Admin admin = new Admin();
+        Admin admin = new Admin(restId);
         admin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMostrarCompActionPerformed

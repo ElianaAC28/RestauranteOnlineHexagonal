@@ -21,10 +21,18 @@ import javax.swing.JOptionPane;
  */
 public class AdminCompo extends javax.swing.JFrame {
 
+    String restId = "1";
     /**
      * Creates new form AdminAlmuerzo
      */
     public AdminCompo() {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        setTitle("Administrador Componentes");
+    }
+    
+    public AdminCompo(String restId) {
+        this.restId = restId;
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Administrador Componentes");
@@ -175,7 +183,7 @@ public class AdminCompo extends javax.swing.JFrame {
     private void btnAgregarAlmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAlmActionPerformed
         AdminAlmuerzo adalmu = null;
         try {
-            adalmu = new AdminAlmuerzo();
+            adalmu = new AdminAlmuerzo(restId);
         } catch (Exception ex) {
             Logger.getLogger(AdminCompo.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -184,7 +192,7 @@ public class AdminCompo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAgregarAlmActionPerformed
 
     private void btnMostrarCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarCompActionPerformed
-        Admin admin = new Admin();
+        Admin admin = new Admin(restId);
         admin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMostrarCompActionPerformed
@@ -239,7 +247,7 @@ public class AdminCompo extends javax.swing.JFrame {
 
     private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
         // TODO add your handling code here:
-        Contacto cont = new Contacto(4);
+        Contacto cont = new Contacto(4, restId);
         cont.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
@@ -248,7 +256,7 @@ public class AdminCompo extends javax.swing.JFrame {
      //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin();
+            MenuAdmin menu = new MenuAdmin(restId);
             menu.setVisible(true);
             this.dispose();
         }
