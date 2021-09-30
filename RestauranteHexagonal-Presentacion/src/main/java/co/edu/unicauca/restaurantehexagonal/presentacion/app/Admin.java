@@ -33,6 +33,8 @@ public class Admin extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Administrador");
+        btnBack.setVisible(false);
+        btnCinco.setVisible(false);
         try {
             llenarTabla(0);
         } catch (Exception ex) {
@@ -51,6 +53,8 @@ public class Admin extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Administrador");
         lblTittle.setText("Usted esta en el restaurante: " + restId);
+        btnBack.setVisible(false);
+        btnCinco.setVisible(false);
         try {
             llenarTabla(0);
         } catch (Exception ex) {
@@ -229,7 +233,7 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 320, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, 50));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 70, 50));
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setText("Contactanos");
@@ -293,6 +297,21 @@ public class Admin extends javax.swing.JFrame {
     //Boton para definir la cantidad de elementos a 20 en lista
     private void btnVeinteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVeinteActionPerformed
         cantidad = 20;
+        btnVeinte.setVisible(false);
+        if(!btnDiez.isVisible()){
+            btnDiez.setVisible(true);
+        }
+        if(!btnCinco.isVisible()){
+            btnCinco.setVisible(true);
+        }
+        
+        if(btnBack.isVisible()){
+            btnBack.setVisible(false);
+        }
+        if(!btnNext.isVisible()){
+            btnNext.setVisible(true);
+        }
+        
         try {
             llenarTabla(0);
         } catch (Exception ex) {
@@ -303,6 +322,21 @@ public class Admin extends javax.swing.JFrame {
     //Boton para definir la cantidad de elementos a 5 en lista (default)
     private void btnCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCincoActionPerformed
         cantidad = 5;
+        btnCinco.setVisible(false);
+        if(!btnDiez.isVisible()){
+            btnDiez.setVisible(true);
+        }
+        if(!btnVeinte.isVisible()){
+            btnVeinte.setVisible(true);
+        }
+        
+        if(btnBack.isVisible()){
+            btnBack.setVisible(false);
+        }
+        if(!btnNext.isVisible()){
+            btnNext.setVisible(true);
+        }
+        
         try {
             llenarTabla(0);
         } catch (Exception ex) {
@@ -313,6 +347,21 @@ public class Admin extends javax.swing.JFrame {
     //Boton para definir la cantidad de elementos a 10 en lista
     private void btnDiezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDiezActionPerformed
         cantidad = 10;
+        btnDiez.setVisible(false);
+        if(!btnCinco.isVisible()){
+            btnCinco.setVisible(true);
+        }
+        if(!btnVeinte.isVisible()){
+            btnVeinte.setVisible(true);
+        }
+        
+        if(btnBack.isVisible()){
+            btnBack.setVisible(false);
+        }
+        if(!btnNext.isVisible()){
+            btnNext.setVisible(true);
+        }
+        
         try {
             llenarTabla(0);
         } catch (Exception ex) {
@@ -330,6 +379,12 @@ public class Admin extends javax.swing.JFrame {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        if(!btnBack.isVisible()){
+            btnBack.setVisible(true);
+        }
+        if(index == returnCantidad()-cantidad){
+            btnNext.setVisible(false);
+        }
     }//GEN-LAST:event_btnNextActionPerformed
 
     //Boton para retroceder a los siguientes X elementos en la lista
@@ -341,6 +396,12 @@ public class Admin extends javax.swing.JFrame {
             } catch (Exception ex) {
                 Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
             }
+        }
+        if(!btnNext.isVisible()){
+            btnNext.setVisible(true);
+        }
+        if(index == 0){
+            btnBack.setVisible(false);
         }
     }//GEN-LAST:event_btnBackActionPerformed
 
