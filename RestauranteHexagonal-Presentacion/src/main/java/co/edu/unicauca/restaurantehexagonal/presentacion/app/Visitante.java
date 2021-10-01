@@ -85,17 +85,17 @@ public class Visitante extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel6.setText("mejores menús y llevarte lo que selecciones hasta donde te encuentres.");
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Este es nuestro menu del día, pero recuerda que debes iniciar sesión");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 550, 30));
 
         lblBienvenido.setFont(new java.awt.Font("Calibri Light", 3, 36)); // NOI18N
-        lblBienvenido.setForeground(new java.awt.Color(153, 0, 0));
+        lblBienvenido.setForeground(new java.awt.Color(255, 51, 43));
         lblBienvenido.setText("Bienvenido");
         getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 180, 70));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel7.setForeground(new java.awt.Color(255, 51, 43));
         jLabel7.setText("Entrada:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 60, 20));
 
@@ -116,12 +116,12 @@ public class Visitante extends javax.swing.JFrame {
         getContentPane().add(cbxProteina, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, 90, -1));
 
         jLabel8.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel8.setForeground(new java.awt.Color(255, 51, 43));
         jLabel8.setText("Proteina:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, 30));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, 20));
 
         jLabel9.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel9.setForeground(new java.awt.Color(255, 51, 43));
         jLabel9.setText("Principio:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, -1));
 
@@ -134,9 +134,9 @@ public class Visitante extends javax.swing.JFrame {
         getContentPane().add(cbxPrincipio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 90, -1));
 
         jLabel10.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel10.setForeground(new java.awt.Color(255, 51, 43));
         jLabel10.setText("Bebida:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 320, 50, -1));
 
         cbxBebida.setFont(new java.awt.Font("Calibri Light", 0, 12)); // NOI18N
         cbxBebida.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class Visitante extends javax.swing.JFrame {
         });
         getContentPane().add(cbxBebida, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, 90, -1));
 
-        btnRealizarPedido.setBackground(new java.awt.Color(102, 0, 0));
+        btnRealizarPedido.setBackground(new java.awt.Color(255, 51, 43));
         btnRealizarPedido.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnRealizarPedido.setForeground(new java.awt.Color(255, 255, 255));
         btnRealizarPedido.setText("Realizar Pedido");
@@ -161,11 +161,12 @@ public class Visitante extends javax.swing.JFrame {
         getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 110, 30));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel11.setText("Sabemos que el almuerzo es el plato más importante de día por eso queremos ofrecerte los");
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel11.setText("DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 560, 30));
 
         btnAtras.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnAtras.setForeground(new java.awt.Color(255, 255, 255));
         btnAtras.setText("Atras");
         btnAtras.setBorder(null);
         btnAtras.setBorderPainted(false);
@@ -177,7 +178,7 @@ public class Visitante extends javax.swing.JFrame {
         });
         getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 60, 30));
 
-        btnIniciarSesion.setBackground(new java.awt.Color(102, 0, 0));
+        btnIniciarSesion.setBackground(new java.awt.Color(255, 51, 43));
         btnIniciarSesion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnIniciarSesion.setText("Iniciar sesión");
@@ -192,6 +193,7 @@ public class Visitante extends javax.swing.JFrame {
         getContentPane().add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 90, 30));
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);

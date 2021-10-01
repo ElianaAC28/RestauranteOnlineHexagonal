@@ -62,6 +62,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         lblElegirRest.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        lblElegirRest.setForeground(new java.awt.Color(255, 255, 255));
         lblElegirRest.setText("BIENVENIDO");
         jPanel1.add(lblElegirRest);
         lblElegirRest.setBounds(280, 90, 190, 40);
@@ -78,7 +79,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.add(lblInicioSesion);
         lblInicioSesion.setBounds(370, 330, 210, 20);
 
-        btnAddComp.setBackground(new java.awt.Color(102, 0, 0));
+        btnAddComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAddComp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAddComp.setForeground(new java.awt.Color(255, 255, 255));
         btnAddComp.setText("Agregar Componentes");
@@ -93,7 +94,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.add(btnAddComp);
         btnAddComp.setBounds(100, 280, 210, 50);
 
-        btnUpdateAlm.setBackground(new java.awt.Color(102, 0, 0));
+        btnUpdateAlm.setBackground(new java.awt.Color(255, 51, 43));
         btnUpdateAlm.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnUpdateAlm.setForeground(new java.awt.Color(255, 255, 255));
         btnUpdateAlm.setText("Actualizar Almuerzo");
@@ -108,7 +109,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.add(btnUpdateAlm);
         btnUpdateAlm.setBounds(100, 220, 210, 50);
 
-        btnCerrarSesion.setBackground(new java.awt.Color(102, 0, 0));
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 51, 43));
         btnCerrarSesion.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
         btnCerrarSesion.setText("Cerrar Sesión");
@@ -135,11 +136,11 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.add(jLabel5);
         jLabel5.setBounds(410, 320, 180, 40);
 
-        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante2 - Copy.png"))); // NOI18N
         jPanel1.add(imgLogo);
-        imgLogo.setBounds(390, 180, 200, 140);
+        imgLogo.setBounds(390, 140, 300, 220);
 
-        btnMostrarComp.setBackground(new java.awt.Color(102, 0, 0));
+        btnMostrarComp.setBackground(new java.awt.Color(255, 51, 43));
         btnMostrarComp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnMostrarComp.setForeground(new java.awt.Color(255, 255, 255));
         btnMostrarComp.setText("Mostrar Componentes");
@@ -154,7 +155,7 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.add(btnMostrarComp);
         btnMostrarComp.setBounds(100, 340, 210, 50);
 
-        btnAddAlm1.setBackground(new java.awt.Color(102, 0, 0));
+        btnAddAlm1.setBackground(new java.awt.Color(255, 51, 43));
         btnAddAlm1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btnAddAlm1.setForeground(new java.awt.Color(255, 255, 255));
         btnAddAlm1.setText("Agregar Almuerzo");

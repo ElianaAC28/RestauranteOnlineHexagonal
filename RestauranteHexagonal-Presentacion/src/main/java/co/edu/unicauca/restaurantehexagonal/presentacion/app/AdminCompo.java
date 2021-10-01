@@ -75,7 +75,7 @@ public class AdminCompo extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, 70));
 
         btnAgregarAlm.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
-        btnAgregarAlm.setForeground(new java.awt.Color(153, 0, 0));
+        btnAgregarAlm.setForeground(new java.awt.Color(255, 51, 43));
         btnAgregarAlm.setText("Añadir Almuerzo");
         btnAgregarAlm.setBorder(null);
         btnAgregarAlm.setBorderPainted(false);
@@ -85,15 +85,15 @@ public class AdminCompo extends javax.swing.JFrame {
                 btnAgregarAlmActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAgregarAlm, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 120, 30));
+        getContentPane().add(btnAgregarAlm, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 160, 30));
 
         lblAddComp.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        lblAddComp.setForeground(new java.awt.Color(153, 0, 0));
+        lblAddComp.setForeground(new java.awt.Color(255, 51, 43));
         lblAddComp.setText("Agregar componentes");
         getContentPane().add(lblAddComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 390, 40));
 
         btnMostrarComp.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
-        btnMostrarComp.setForeground(new java.awt.Color(153, 0, 0));
+        btnMostrarComp.setForeground(new java.awt.Color(255, 51, 43));
         btnMostrarComp.setText("Mostrar Componentes");
         btnMostrarComp.setBorder(null);
         btnMostrarComp.setBorderPainted(false);
@@ -103,11 +103,11 @@ public class AdminCompo extends javax.swing.JFrame {
                 btnMostrarCompActionPerformed(evt);
             }
         });
-        getContentPane().add(btnMostrarComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, 170, 30));
+        getContentPane().add(btnMostrarComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 170, 30));
         getContentPane().add(txtIdComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 130, 30));
         getContentPane().add(txtNombreComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 130, 30));
 
-        btnAgregarComp.setBackground(new java.awt.Color(102, 0, 0));
+        btnAgregarComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAgregarComp.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnAgregarComp.setForeground(new java.awt.Color(255, 255, 255));
         btnAgregarComp.setText("Agregar componente");
@@ -122,34 +122,36 @@ public class AdminCompo extends javax.swing.JFrame {
         getContentPane().add(btnAgregarComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 340, 150, 30));
 
         cbTipoComp.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        cbTipoComp.setForeground(new java.awt.Color(153, 0, 51));
+        cbTipoComp.setForeground(new java.awt.Color(255, 255, 255));
         cbTipoComp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Entrada", "Principio", "Bebida" }));
         getContentPane().add(cbTipoComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 250, 120, 30));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Tipo:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 80, 30));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Nombre:");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 80, 20));
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Id:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 80, 20));
 
         lblAdmi.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        lblAdmi.setForeground(new java.awt.Color(153, 0, 0));
+        lblAdmi.setForeground(new java.awt.Color(255, 255, 255));
         lblAdmi.setText("Administrador");
         getContentPane().add(lblAdmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, 30));
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         getContentPane().add(imgContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 40, 20));
 
+        btnContacto.setBackground(new java.awt.Color(255, 255, 255));
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnContacto.setForeground(new java.awt.Color(255, 255, 255));
         btnContacto.setText("Contactanos");
         btnContacto.setBorder(null);
         btnContacto.setBorderPainted(false);
@@ -162,6 +164,7 @@ public class AdminCompo extends javax.swing.JFrame {
         getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, 30));
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
@@ -171,9 +174,10 @@ public class AdminCompo extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, 60, 30));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 60, 30));
 
         lblFondo.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
+        lblFondo.setForeground(new java.awt.Color(255, 51, 43));
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
 

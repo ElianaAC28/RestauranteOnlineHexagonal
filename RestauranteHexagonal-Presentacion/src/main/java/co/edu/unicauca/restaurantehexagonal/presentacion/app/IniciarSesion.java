@@ -120,11 +120,13 @@ public class IniciarSesion extends javax.swing.JFrame {
         btnInvitado.setBounds(550, 410, 171, 23);
 
         lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
         lblIngresePass.setText("Contraseña");
         jPanel1.add(lblIngresePass);
         lblIngresePass.setBounds(480, 260, 130, 30);
 
         lblIngreseUser.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblIngreseUser.setForeground(new java.awt.Color(34, 34, 34));
         lblIngreseUser.setText("Usuario");
         jPanel1.add(lblIngreseUser);
         lblIngreseUser.setBounds(480, 170, 80, 30);
@@ -159,7 +161,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         imgWp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/whatsapp-logo.png"))); // NOI18N
         jPanel1.add(imgWp);
-        imgWp.setBounds(110, 320, 32, 40);
+        imgWp.setBounds(40, 70, 32, 40);
 
         imgContacto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
         jPanel1.add(imgContacto4);
@@ -167,11 +169,11 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         imgInstagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/instagram_icon_125245.png"))); // NOI18N
         jPanel1.add(imgInstagram);
-        imgInstagram.setBounds(150, 320, 30, 40);
+        imgInstagram.setBounds(120, 320, 30, 40);
 
         imgFb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
         jPanel1.add(imgFb);
-        imgFb.setBounds(190, 320, 32, 40);
+        imgFb.setBounds(180, 320, 32, 40);
 
         imgWp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
         jPanel1.add(imgWp3);

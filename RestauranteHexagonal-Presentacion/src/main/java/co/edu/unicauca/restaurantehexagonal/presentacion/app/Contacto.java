@@ -83,16 +83,19 @@ public class Contacto extends javax.swing.JFrame {
         jPanel1.setLayout(null);
 
         lblAyuda.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        lblAyuda.setForeground(new java.awt.Color(255, 255, 255));
         lblAyuda.setText("Hola, ¿En qué te podemos ayudar?");
         jPanel1.add(lblAyuda);
         lblAyuda.setBounds(120, 110, 560, 50);
 
         lblWp.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        lblWp.setForeground(new java.awt.Color(255, 255, 255));
         lblWp.setText("Whatsapp: 311 7568328");
         jPanel1.add(lblWp);
         lblWp.setBounds(470, 350, 160, 40);
 
         btnAtras.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnAtras.setForeground(new java.awt.Color(255, 255, 255));
         btnAtras.setText("Atrás");
         btnAtras.setBorder(null);
         btnAtras.setBorderPainted(false);
@@ -103,13 +106,13 @@ public class Contacto extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAtras);
-        btnAtras.setBounds(540, 70, 90, 30);
+        btnAtras.setBounds(550, 70, 80, 30);
 
         imgWp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/whatsapp-logo.png"))); // NOI18N
         jPanel1.add(imgWp);
         imgWp.setBounds(430, 350, 40, 32);
 
-        btnReporte.setBackground(new java.awt.Color(102, 0, 0));
+        btnReporte.setBackground(new java.awt.Color(255, 51, 43));
         btnReporte.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnReporte.setForeground(new java.awt.Color(255, 255, 255));
         btnReporte.setText("Quiero reportar otro tipo de caso");
@@ -124,7 +127,7 @@ public class Contacto extends javax.swing.JFrame {
         jPanel1.add(btnReporte);
         btnReporte.setBounds(140, 310, 220, 50);
 
-        btnAyuda.setBackground(new java.awt.Color(102, 0, 0));
+        btnAyuda.setBackground(new java.awt.Color(255, 51, 43));
         btnAyuda.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnAyuda.setForeground(new java.awt.Color(255, 255, 255));
         btnAyuda.setText("Necesito ayuda con mi domicilio");
@@ -147,7 +150,7 @@ public class Contacto extends javax.swing.JFrame {
         jPanel1.add(imgHome);
         imgHome.setBounds(530, 60, 40, 40);
 
-        btnOrden.setBackground(new java.awt.Color(102, 0, 0));
+        btnOrden.setBackground(new java.awt.Color(255, 51, 43));
         btnOrden.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnOrden.setForeground(new java.awt.Color(255, 255, 255));
         btnOrden.setText("Mi orden fue rechazada");

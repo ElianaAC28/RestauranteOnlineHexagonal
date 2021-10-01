@@ -123,7 +123,7 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 540, 170));
 
         btnAddComp.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        btnAddComp.setForeground(new java.awt.Color(153, 0, 0));
+        btnAddComp.setForeground(new java.awt.Color(255, 51, 43));
         btnAddComp.setText("Añadir Componentes");
         btnAddComp.setBorder(null);
         btnAddComp.setBorderPainted(false);
@@ -136,7 +136,7 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(btnAddComp, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 390, -1, 30));
 
         btnAddAlmu.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        btnAddAlmu.setForeground(new java.awt.Color(153, 0, 0));
+        btnAddAlmu.setForeground(new java.awt.Color(255, 51, 43));
         btnAddAlmu.setText("Añadir Almuerzo");
         btnAddAlmu.setBorder(null);
         btnAddAlmu.setBorderPainted(false);
@@ -149,6 +149,7 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(btnAddAlmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 390, -1, 30));
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
@@ -160,8 +161,9 @@ public class Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 60, 30));
 
-        btnVeinte.setBackground(new java.awt.Color(255, 255, 255));
+        btnVeinte.setBackground(new java.awt.Color(255, 51, 43));
         btnVeinte.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnVeinte.setForeground(new java.awt.Color(255, 255, 255));
         btnVeinte.setText("20");
         btnVeinte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -170,8 +172,9 @@ public class Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnVeinte, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, 50, -1));
 
-        btnCinco.setBackground(new java.awt.Color(255, 255, 255));
+        btnCinco.setBackground(new java.awt.Color(255, 51, 43));
         btnCinco.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCinco.setForeground(new java.awt.Color(255, 255, 255));
         btnCinco.setText("5");
         btnCinco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -180,8 +183,9 @@ public class Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnCinco, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 50, -1));
 
-        btnDiez.setBackground(new java.awt.Color(255, 255, 255));
+        btnDiez.setBackground(new java.awt.Color(255, 51, 43));
         btnDiez.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnDiez.setForeground(new java.awt.Color(255, 255, 255));
         btnDiez.setText("10");
         btnDiez.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,41 +194,43 @@ public class Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnDiez, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 50, -1));
 
-        btnNext.setBackground(new java.awt.Color(255, 255, 255));
+        btnNext.setBackground(new java.awt.Color(255, 51, 43));
         btnNext.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnNext.setForeground(new java.awt.Color(255, 255, 255));
         btnNext.setText("Next");
         btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNextActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 370, -1, -1));
+        getContentPane().add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
-        btnBack.setBackground(new java.awt.Color(255, 255, 255));
+        btnBack.setBackground(new java.awt.Color(255, 51, 43));
         btnBack.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
-        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, -1));
+        getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
-        lblTittle.setText("jLabel1");
+        lblTittle.setText("-");
         getContentPane().add(lblTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 290, 40));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel5.setForeground(new java.awt.Color(255, 51, 43));
         jLabel5.setText("Cantidad de elementos");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 280, 30));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 170, 30));
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 0));
-        jLabel4.setText("En esta lista encontrara los componentes del restaurante");
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("Estos son los componentes del restaurante");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 390, 60));
 
         jLabel3.setFont(new java.awt.Font("Calibri Light", 2, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(153, 0, 0));
+        jLabel3.setForeground(new java.awt.Color(255, 51, 43));
         jLabel3.setText("Administrador");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 320, 70));
 
@@ -232,6 +238,7 @@ public class Admin extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, 50));
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnContacto.setForeground(new java.awt.Color(255, 255, 255));
         btnContacto.setText("Contactanos");
         btnContacto.setBorder(null);
         btnContacto.setBorderPainted(false);
@@ -245,7 +252,7 @@ public class Admin extends javax.swing.JFrame {
 
         lblFondo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
-        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 720, 480));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

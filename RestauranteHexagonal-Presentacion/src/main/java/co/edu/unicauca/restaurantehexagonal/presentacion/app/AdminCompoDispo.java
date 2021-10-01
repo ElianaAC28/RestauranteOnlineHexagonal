@@ -62,13 +62,14 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         lblCompDispo = new javax.swing.JLabel();
         btnSeleccionar = new javax.swing.JButton();
         btnMostrarComp = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaComp = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
         lblAdmin = new javax.swing.JLabel();
         imgContacto1 = new javax.swing.JLabel();
         btnContacto = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnContacto1 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,13 +82,13 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         jLabel2.setBounds(90, 70, 90, 60);
 
         lblCompDispo.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
-        lblCompDispo.setForeground(new java.awt.Color(153, 0, 0));
+        lblCompDispo.setForeground(new java.awt.Color(255, 51, 43));
         lblCompDispo.setText("Componentes Disponibles");
         jPanel1.add(lblCompDispo);
         lblCompDispo.setBounds(170, 110, 410, 50);
 
         btnSeleccionar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        btnSeleccionar.setForeground(new java.awt.Color(153, 0, 0));
+        btnSeleccionar.setForeground(new java.awt.Color(255, 51, 43));
         btnSeleccionar.setText("Seleccionar componente");
         btnSeleccionar.setBorder(null);
         btnSeleccionar.setBorderPainted(false);
@@ -98,10 +99,10 @@ public class AdminCompoDispo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSeleccionar);
-        btnSeleccionar.setBounds(430, 380, 190, 30);
+        btnSeleccionar.setBounds(410, 380, 210, 30);
 
         btnMostrarComp.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        btnMostrarComp.setForeground(new java.awt.Color(153, 0, 0));
+        btnMostrarComp.setForeground(new java.awt.Color(255, 51, 43));
         btnMostrarComp.setText("Mostrar Componentes");
         btnMostrarComp.setBorder(null);
         btnMostrarComp.setBorderPainted(false);
@@ -113,6 +114,12 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         });
         jPanel1.add(btnMostrarComp);
         btnMostrarComp.setBounds(90, 380, 200, 27);
+
+        jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
+        jLabel4.setText("Id:");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(-30, 0, 16, 17);
 
         tblListaComp.setAutoCreateRowSorter(true);
         tblListaComp.setFont(new java.awt.Font("Verdana", 0, 14)); // NOI18N
@@ -145,23 +152,18 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(90, 170, 540, 180);
 
-        jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 0, 51));
-        jLabel4.setText("Id:");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(-30, 0, 16, 18);
-
         lblAdmin.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        lblAdmin.setForeground(new java.awt.Color(153, 0, 0));
+        lblAdmin.setForeground(new java.awt.Color(255, 255, 255));
         lblAdmin.setText("Administrador");
         jPanel1.add(lblAdmin);
-        lblAdmin.setBounds(380, 80, 90, 20);
+        lblAdmin.setBounds(320, 80, 100, 20);
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
-        imgContacto1.setBounds(470, 60, 48, 48);
+        imgContacto1.setBounds(410, 70, 48, 40);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnContacto.setForeground(new java.awt.Color(255, 255, 255));
         btnContacto.setText("Contactanos");
         btnContacto.setBorder(null);
         btnContacto.setBorderPainted(false);
@@ -172,9 +174,10 @@ public class AdminCompoDispo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(510, 80, 77, 19);
+        btnContacto.setBounds(450, 80, 83, 17);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
         btnSalir.setText("Salir");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
@@ -185,11 +188,25 @@ public class AdminCompoDispo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(600, 80, 27, 19);
+        btnSalir.setBounds(600, 80, 29, 17);
+
+        btnContacto1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnContacto1.setForeground(new java.awt.Color(255, 255, 255));
+        btnContacto1.setText("Ayuda");
+        btnContacto1.setBorder(null);
+        btnContacto1.setBorderPainted(false);
+        btnContacto1.setContentAreaFilled(false);
+        btnContacto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContacto1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnContacto1);
+        btnContacto1.setBounds(540, 80, 50, 17);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         jPanel1.add(lblFondo);
-        lblFondo.setBounds(0, -20, 770, 530);
+        lblFondo.setBounds(0, 0, 720, 480);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 480));
 
@@ -284,6 +301,10 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         this.dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnContacto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContacto1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnContacto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -431,6 +452,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContacto;
+    private javax.swing.JButton btnContacto1;
     private javax.swing.JButton btnMostrarComp;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;
