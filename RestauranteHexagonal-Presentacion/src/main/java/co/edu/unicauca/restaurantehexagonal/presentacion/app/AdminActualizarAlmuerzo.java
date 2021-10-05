@@ -14,11 +14,16 @@ import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteReposi
 import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import static co.edu.unicauca.restaurantehexagonal.dominio.services.Messages.successMessage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -67,6 +72,8 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaComp = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
+        txtruta = new javax.swing.JTextField();
+        btnFoto = new javax.swing.JButton();
         txtAlmu = new javax.swing.JTextField();
         lblIdAlmu = new javax.swing.JLabel();
         imgUpdate = new javax.swing.JLabel();
@@ -94,7 +101,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnQuitar);
-        btnQuitar.setBounds(270, 380, 200, 20);
+        btnQuitar.setBounds(270, 410, 200, 20);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -130,7 +137,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnActualizar);
-        btnActualizar.setBounds(510, 380, 80, 20);
+        btnActualizar.setBounds(510, 410, 70, 20);
 
         btnMostrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnMostrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -144,7 +151,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrar);
-        btnMostrar.setBounds(100, 380, 90, 23);
+        btnMostrar.setBounds(80, 410, 90, 23);
 
         tblListaComp.setAutoCreateRowSorter(true);
         tblListaComp.setFont(new java.awt.Font("Calibri Light", 2, 14)); // NOI18N
@@ -181,7 +188,23 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
         jLabel4.setText("Id:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(-30, 0, 16, 17);
+        jLabel4.setBounds(-30, 0, 16, 18);
+
+        txtruta.setEditable(false);
+        jPanel1.add(txtruta);
+        txtruta.setBounds(470, 370, 160, 24);
+
+        btnFoto.setBackground(new java.awt.Color(255, 51, 43));
+        btnFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnFoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnFoto.setText("Foto");
+        btnFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFotoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFoto);
+        btnFoto.setBounds(200, 400, 70, 30);
         jPanel1.add(txtAlmu);
         txtAlmu.setBounds(220, 130, 130, 30);
 
@@ -193,7 +216,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         imgUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/update.png"))); // NOI18N
         jPanel1.add(imgUpdate);
-        imgUpdate.setBounds(590, 370, 30, 30);
+        imgUpdate.setBounds(590, 400, 30, 30);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,7 +230,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(510, 80, 82, 17);
+        btnContacto.setBounds(510, 80, 71, 18);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -221,7 +244,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(600, 80, 29, 17);
+        btnSalir.setBounds(600, 80, 24, 18);
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
@@ -229,7 +252,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         imgEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar2.png"))); // NOI18N
         jPanel1.add(imgEliminar);
-        imgEliminar.setBounds(470, 370, 20, 30);
+        imgEliminar.setBounds(470, 400, 20, 30);
 
         lblIdAlmu1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblIdAlmu1.setForeground(new java.awt.Color(255, 255, 255));
@@ -333,6 +356,42 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
+        DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel();
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        j.setFileFilter(fil);
+
+        int s = j.showOpenDialog(this);
+        if(s == JFileChooser.APPROVE_OPTION){
+            String ruta = j.getSelectedFile().getAbsolutePath();
+            txtruta.setText(ruta);
+        } //PARTE ACTUALIZAR FOTO
+        IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+        AlmuerzoService objService = new AlmuerzoService(service);
+        Almuerzo objAlmu = new Almuerzo();
+        objAlmu.setIdAlmuerzo(txtAlmu.getText());
+        objAlmu.setRestId(1 + ""); //de forma predeterminada lo guardamos en el restaurante 1
+        File ruta = new File(txtruta.getText());
+        try {
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            objAlmu.setFoto(icono);
+            String response = objService.updateFoto(objAlmu);
+            JOptionPane.showMessageDialog(null, "La Foto del Almuerzo fue Actualizada con exito", "Confrimacion", JOptionPane.INFORMATION_MESSAGE);
+            //clearcontroles();
+            txtAlmu.setEditable(true);
+            txtAlmu.setText(""); //limpiamos el txt 
+            txtruta.setText("");
+            
+        } catch (Exception ex) {
+            System.out.println(ex);
+            JOptionPane.showMessageDialog(null, ex.getMessage() +"Falla en el sistema", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        tabla1.setRowCount(0);
+    }//GEN-LAST:event_btnFotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -470,6 +529,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnContacto;
+    private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnQuitar;
     private javax.swing.JButton btnSalir;
@@ -486,5 +546,8 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdAlmu1;
     private javax.swing.JTable tblListaComp;
     private javax.swing.JTextField txtAlmu;
+    private javax.swing.JTextField txtruta;
     // End of variables declaration//GEN-END:variables
+
+
 }

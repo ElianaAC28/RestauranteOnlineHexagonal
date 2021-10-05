@@ -14,11 +14,16 @@ import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteReposi
 import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import static co.edu.unicauca.restaurantehexagonal.dominio.services.Messages.successMessage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -71,11 +76,13 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         lblAddAlmuerzo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnCrearAlmu = new javax.swing.JButton();
+        btnFoto = new javax.swing.JButton();
         btnAddComp = new javax.swing.JButton();
         txtAlmu = new javax.swing.JTextField();
         lblImagen = new javax.swing.JLabel();
         lblCosto = new javax.swing.JLabel();
         imgContacto1 = new javax.swing.JLabel();
+        txtruta = new javax.swing.JTextField();
         btnContacto = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
@@ -134,7 +141,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
         jLabel4.setText("Id:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(-30, 0, 16, 17);
+        jLabel4.setBounds(-30, 0, 16, 18);
 
         btnCrearAlmu.setBackground(new java.awt.Color(255, 51, 43));
         btnCrearAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -147,6 +154,18 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         });
         jPanel1.add(btnCrearAlmu);
         btnCrearAlmu.setBounds(310, 100, 70, 30);
+
+        btnFoto.setBackground(new java.awt.Color(255, 51, 43));
+        btnFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnFoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnFoto.setText("Foto");
+        btnFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFotoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFoto);
+        btnFoto.setBounds(560, 370, 80, 34);
 
         btnAddComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAddComp.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -171,11 +190,15 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         lblCosto.setForeground(new java.awt.Color(255, 255, 255));
         lblCosto.setText("Costo:");
         jPanel1.add(lblCosto);
-        lblCosto.setBounds(190, 380, 50, 20);
+        lblCosto.setBounds(100, 380, 50, 20);
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
         imgContacto1.setBounds(430, 50, 40, 30);
+
+        txtruta.setEditable(false);
+        jPanel1.add(txtruta);
+        txtruta.setBounds(440, 370, 110, 30);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -189,7 +212,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(470, 60, 82, 17);
+        btnContacto.setBounds(470, 60, 71, 18);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -203,7 +226,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(610, 60, 29, 17);
+        btnSalir.setBounds(610, 60, 24, 18);
 
         jLabel14.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -211,7 +234,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jPanel1.add(jLabel14);
         jLabel14.setBounds(90, 150, 460, 20);
         jPanel1.add(txtCosto);
-        txtCosto.setBounds(230, 370, 120, 30);
+        txtCosto.setBounds(140, 370, 120, 30);
 
         btnAddAlmu.setBackground(new java.awt.Color(255, 51, 43));
         btnAddAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -224,7 +247,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAddAlmu);
-        btnAddAlmu.setBounds(400, 370, 140, 30);
+        btnAddAlmu.setBounds(280, 370, 140, 30);
 
         btnUpdate.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 51, 43));
@@ -252,7 +275,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrarComp);
-        btnMostrarComp.setBounds(170, 420, 180, 23);
+        btnMostrarComp.setBounds(170, 420, 167, 23);
 
         btnContacto1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -266,7 +289,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto1);
-        btnContacto1.setBounds(560, 60, 40, 17);
+        btnContacto1.setBounds(560, 60, 35, 18);
 
         jLabel15.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -389,8 +412,12 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         objAlmu.setIdAlmuerzo(txtAlmu.getText());
         objAlmu.setRestId(1 + ""); //de forma predeterminada lo guardamos en el restaurante 1
         objAlmu.setCostoAlm(txtCosto.getText()); //fabrica hasta que le enviemos el precio
-
+        File ruta = new File(txtruta.getText());
         try {
+            byte[] icono = new byte[(int) ruta.length()];
+            InputStream input = new FileInputStream(ruta);
+            input.read(icono);
+            objAlmu.setFoto(icono);
             String response = objService.updateCosto(objAlmu);
             successMessage("Almuerzo" + response + " Creado con exito.", "Atención");
             clearcontroles();
@@ -419,6 +446,18 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_btnContacto1ActionPerformed
+
+    private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
+        JFileChooser j = new JFileChooser();
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        j.setFileFilter(fil);
+
+        int s = j.showOpenDialog(this);
+        if(s == JFileChooser.APPROVE_OPTION){
+            String ruta = j.getSelectedFile().getAbsolutePath();
+            txtruta.setText(ruta);
+        }
+    }//GEN-LAST:event_btnFotoActionPerformed
 
     private void clearCotronls() {
         txtAlmu.setText("");
@@ -579,6 +618,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnContacto1;
     private javax.swing.JButton btnCrearAlmu;
+    private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnMostrarComp;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnUpdate;
@@ -595,6 +635,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JTable tblListaComp;
     private javax.swing.JTextField txtAlmu;
     private javax.swing.JTextField txtCosto;
+    private javax.swing.JTextField txtruta;
     // End of variables declaration//GEN-END:variables
 
 }

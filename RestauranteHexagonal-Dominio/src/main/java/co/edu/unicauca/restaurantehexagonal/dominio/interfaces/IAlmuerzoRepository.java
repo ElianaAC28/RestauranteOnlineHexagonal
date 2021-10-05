@@ -30,4 +30,5 @@ public interface IAlmuerzoRepository {
     public String contarAlmu(Almuerzo parAlmuerzo);
     public String asociarComp( String almuid, String compid);
     public String updateCosto(Almuerzo parAlmuerzo);
+    public String updateFoto(Almuerzo parAlmuerzo);
 }

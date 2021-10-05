@@ -15,7 +15,7 @@ public class Almuerzo {
     String restId;
     String costoAlm;
     String descripcion;
-    String linkImagen;
+    private byte[] foto;
     
 
     public Almuerzo() {
@@ -59,12 +59,12 @@ public class Almuerzo {
         this.descripcion = descripcion;
     }
 
-    public String getLinkImagen() {
-        return linkImagen;
+    public byte[] getFoto() {
+        return foto;
     }
 
-    public void setLinkImagen(String linkImagen) {
-        this.linkImagen = linkImagen;
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
     }
 
     

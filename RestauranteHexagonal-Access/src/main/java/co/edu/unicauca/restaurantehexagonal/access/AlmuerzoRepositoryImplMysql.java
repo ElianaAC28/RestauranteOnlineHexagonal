@@ -153,9 +153,31 @@ public String updateCosto(Almuerzo parAlmuerzo) {
 try {
             this.connect();
 
-            String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ? WHERE ALMUID = ? AND RESTID = ?;";
+            String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ?, ALMUFOTO = ? WHERE ALMUID = ? AND RESTID = ?;";
             PreparedStatement pstmt2 = conn.prepareStatement(sql2);
             pstmt2.setString(1, parAlmuerzo.getCostoAlm());
+            pstmt2.setString(3, parAlmuerzo.getIdAlmuerzo());
+            pstmt2.setString(4, parAlmuerzo.getRestId());
+            pstmt2.setBytes(2, parAlmuerzo.getFoto());
+
+            pstmt2.executeUpdate();
+
+            pstmt2.close();
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al actualizar el registro", ex);
+        }
+        return (parAlmuerzo.getIdAlmuerzo());
+    }
+@Override
+public String updateFoto(Almuerzo parAlmuerzo) {
+
+try {
+            this.connect();
+
+            String sql2 = "UPDATE AlMUERZO SET ALMUFOTO = ? WHERE ALMUID = ? AND RESTID = ?;";
+            PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+            pstmt2.setBytes(1, parAlmuerzo.getFoto());
             pstmt2.setString(2, parAlmuerzo.getIdAlmuerzo());
             pstmt2.setString(3, parAlmuerzo.getRestId());
 
