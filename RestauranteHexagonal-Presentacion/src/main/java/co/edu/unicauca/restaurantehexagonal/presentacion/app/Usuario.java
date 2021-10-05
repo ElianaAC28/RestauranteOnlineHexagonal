@@ -8,8 +8,11 @@ package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteRepository;
+import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
+import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +49,7 @@ public class Usuario extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Usuario");
+        jLabel3.setText("Bienvenido a " + obtenerNombreRest());
         try {
             llenarTabla();
         } catch (Exception ex) {
@@ -78,8 +82,9 @@ public class Usuario extends javax.swing.JFrame {
         cbxBebida = new javax.swing.JComboBox<>();
         btnRealizarPedido = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        btnRestaurantes = new javax.swing.JButton();
         btnContacto = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
+        btnCerrarSesion = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -100,7 +105,7 @@ public class Usuario extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 51, 43));
         jLabel3.setText("Bienvenido");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 180, 70));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 550, 70));
 
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 0));
@@ -174,15 +179,29 @@ public class Usuario extends javax.swing.JFrame {
                 btnRealizarPedidoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, 110, 30));
+        getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 110, 30));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 560, 30));
 
+        btnRestaurantes.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnRestaurantes.setForeground(new java.awt.Color(255, 255, 255));
+        btnRestaurantes.setText("Restaurantes");
+        btnRestaurantes.setBorder(null);
+        btnRestaurantes.setBorderPainted(false);
+        btnRestaurantes.setContentAreaFilled(false);
+        btnRestaurantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRestaurantesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRestaurantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
+
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
+        btnContacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         btnContacto.setText("Contactanos");
         btnContacto.setBorder(null);
         btnContacto.setBorderPainted(false);
@@ -192,20 +211,20 @@ public class Usuario extends javax.swing.JFrame {
                 btnContactoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, 30));
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, 30));
 
-        btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
-        btnSalir.setBorder(null);
-        btnSalir.setBorderPainted(false);
-        btnSalir.setContentAreaFilled(false);
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+        btnCerrarSesion.setBackground(new java.awt.Color(255, 51, 43));
+        btnCerrarSesion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnCerrarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrarSesion.setText("Cerrar Sesion");
+        btnCerrarSesion.setBorder(null);
+        btnCerrarSesion.setBorderPainted(false);
+        btnCerrarSesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
+                btnCerrarSesionActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, 60, 30));
+        getContentPane().add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 100, 50));
 
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/si.jpg"))); // NOI18N
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 220, 180));
@@ -237,13 +256,13 @@ public class Usuario extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Su pedido se ha realizado con éxito");
     }//GEN-LAST:event_btnRealizarPedidoActionPerformed
     //Envia a la ventana donse se ouede contactar con nosotros
-    private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
-        Contacto cont = new Contacto(7);
+    private void btnRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantesActionPerformed
+        GUIRestaurante cont = new GUIRestaurante(1);
         cont.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_btnContactoActionPerformed
+    }//GEN-LAST:event_btnRestaurantesActionPerformed
     //Vuelve a LogIn
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+    private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp==0){
@@ -251,7 +270,13 @@ public class Usuario extends javax.swing.JFrame {
         log.setVisible(true);
         this.dispose();
         }
-    }//GEN-LAST:event_btnSalirActionPerformed
+    }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
+        Contacto cont = new Contacto(7);
+        cont.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnContactoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -319,12 +344,28 @@ public class Usuario extends javax.swing.JFrame {
         }
 
     }
+    
+    private String obtenerNombreRest() {
+        String nombre = "";
+        IRestauranteRepository service = Factory.getInstance().getRepositoryRestaurante();
+        RestauranteService restauranteService = new RestauranteService(service);
+        
+        Restaurante rest = new Restaurante();
+        try {
+            rest = restauranteService.findRestaurante(restId);
+        } catch (Exception ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nombre = rest.getNombreRestaurante();
+        return nombre;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnRealizarPedido;
-    private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnRestaurantes;
     private javax.swing.JComboBox<String> cbxBebida;
     private javax.swing.JComboBox<String> cbxEntrada;
     private javax.swing.JComboBox<String> cbxPrincipio;

@@ -68,7 +68,6 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         imgContacto1 = new javax.swing.JLabel();
         btnContacto = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
-        btnContacto1 = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -153,7 +152,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
-        imgContacto1.setBounds(410, 70, 48, 40);
+        imgContacto1.setBounds(460, 60, 48, 40);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -167,11 +166,11 @@ public class AdminCompoDispo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(450, 80, 82, 17);
+        btnContacto.setBounds(500, 80, 82, 17);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
+        btnSalir.setText("Menu");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
@@ -181,21 +180,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(600, 80, 29, 17);
-
-        btnContacto1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        btnContacto1.setForeground(new java.awt.Color(255, 255, 255));
-        btnContacto1.setText("Ayuda");
-        btnContacto1.setBorder(null);
-        btnContacto1.setBorderPainted(false);
-        btnContacto1.setContentAreaFilled(false);
-        btnContacto1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContacto1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnContacto1);
-        btnContacto1.setBounds(540, 80, 50, 17);
+        btnSalir.setBounds(589, 80, 40, 17);
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         jPanel1.add(lblFondo);
@@ -286,18 +271,11 @@ public class AdminCompoDispo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContactoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-         //resp =0 si, resp = 1 no.
-        int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
-        if (resp==0){
+        
         MenuAdmin menu = new MenuAdmin(restId);
         menu.setVisible(true);
         this.dispose();
-        }
     }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void btnContacto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContacto1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnContacto1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,7 +423,6 @@ public class AdminCompoDispo extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnContacto;
-    private javax.swing.JButton btnContacto1;
     private javax.swing.JButton btnMostrarComp;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnSeleccionar;

@@ -58,6 +58,12 @@ public class Admin extends javax.swing.JFrame {
         lblTittle.setText(obtenerNombreRest());
         btnBack.setVisible(false);
         btnCinco.setVisible(false);
+        if(returnCantidad()<10){
+            btnDiez.setVisible(false);
+            btnVeinte.setVisible(false);
+        }
+        if(returnCantidad()<20)
+            btnVeinte.setVisible(false);
         try {
             llenarTabla(0);
         } catch (Exception ex) {
@@ -74,7 +80,6 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaComp = new javax.swing.JTable();
         btnAddComp = new javax.swing.JButton();
@@ -95,9 +100,6 @@ public class Admin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setLayout(null);
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         tblListaComp.setAutoCreateRowSorter(true);
         tblListaComp.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
@@ -157,7 +159,7 @@ public class Admin extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
+        btnSalir.setText("Menu");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
@@ -258,7 +260,7 @@ public class Admin extends javax.swing.JFrame {
                 btnContactoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, 30));
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 140, 30));
 
         lblFondo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
@@ -270,13 +272,10 @@ public class Admin extends javax.swing.JFrame {
     //Boton salir de la sesion y devolverse a IniciarSesion
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
 
-        //resp =0 si, resp = 1 no.
-        int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
-        if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin(restId);
-            menu.setVisible(true);
-            this.dispose();
-        }
+        MenuAdmin menu = new MenuAdmin(restId);
+        menu.setVisible(true);
+        this.dispose();
+        
 
     }//GEN-LAST:event_btnSalirActionPerformed
 
@@ -395,7 +394,7 @@ public class Admin extends javax.swing.JFrame {
         if(!btnBack.isVisible()){
             btnBack.setVisible(true);
         }
-        if(index == returnCantidad()-cantidad){
+        if(index >= returnCantidad()-cantidad){
             btnNext.setVisible(false);
         }
     }//GEN-LAST:event_btnNextActionPerformed
@@ -466,7 +465,7 @@ public class Admin extends javax.swing.JFrame {
         //Componente objComponente = new Componente();
         List<Componente> objListComponentes = new ArrayList<Componente>();
 
-        objListComponentes = componenteService.listComponentes();
+        objListComponentes = componenteService.listComponentesRest(restId);
 
         String matriz[][] = new String[objListComponentes.size()][3];
 
@@ -519,7 +518,7 @@ public class Admin extends javax.swing.JFrame {
         IComponenteRepository service = Factory.getInstance().getRepositoryComponente();
         ComponenteService componenteService = new ComponenteService(service);
         List<Componente> objListComponentes = new ArrayList<Componente>();
-        objListComponentes = componenteService.listComponentes();
+        objListComponentes = componenteService.listComponentesRest(restId);
         return objListComponentes.size();
     }
     
@@ -552,7 +551,6 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblTittle;

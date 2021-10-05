@@ -8,8 +8,11 @@ package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteRepository;
+import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
+import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +48,7 @@ public class Visitante extends javax.swing.JFrame {
     public Visitante(String restId) {
         this.restId = restId;
         initComponents();
+        lblBienvenido.setText("Bienvenido a " + obtenerNombreRest());
         setLocationRelativeTo(null);
         setTitle("Visitante");
     }
@@ -73,7 +77,6 @@ public class Visitante extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
         btnIniciarSesion = new javax.swing.JButton();
-        btnSalir = new javax.swing.JButton();
         imgRes = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -92,7 +95,7 @@ public class Visitante extends javax.swing.JFrame {
         lblBienvenido.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 51, 43));
         lblBienvenido.setText("Bienvenido");
-        getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 180, 70));
+        getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 550, 70));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 51, 43));
@@ -158,7 +161,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnRealizarPedidoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, 110, 30));
+        getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 110, 30));
 
         jLabel11.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,7 +179,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 60, 30));
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 60, 30));
 
         btnIniciarSesion.setBackground(new java.awt.Color(255, 51, 43));
         btnIniciarSesion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -191,19 +194,6 @@ public class Visitante extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 90, 30));
-
-        btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
-        btnSalir.setBorder(null);
-        btnSalir.setBorderPainted(false);
-        btnSalir.setContentAreaFilled(false);
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 60, 30));
 
         imgRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/si.jpg"))); // NOI18N
         getContentPane().add(imgRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 220, 180));
@@ -241,7 +231,7 @@ public class Visitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRealizarPedidoActionPerformed
     //Aqui se devuelve a la anterior ventana
     private void btnAtrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAtrasActionPerformed
-        Visitante vist = new Visitante();
+        GUIRestaurante vist = new GUIRestaurante(0);
         vist.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAtrasActionPerformed
@@ -252,16 +242,6 @@ public class Visitante extends javax.swing.JFrame {
         login.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
-    //Vuelve a LogIn
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-         //resp =0 si, resp = 1 no.
-        int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
-        if (resp==0){
-        IniciarSesion log = new IniciarSesion();
-        log.setVisible(true);
-        this.dispose();
-        }
-    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -342,13 +322,27 @@ public class Visitante extends javax.swing.JFrame {
         }
 
     }
+    
+    private String obtenerNombreRest() {
+        String nombre = "";
+        IRestauranteRepository service = Factory.getInstance().getRepositoryRestaurante();
+        RestauranteService restauranteService = new RestauranteService(service);
+        
+        Restaurante rest = new Restaurante();
+        try {
+            rest = restauranteService.findRestaurante(restId);
+        } catch (Exception ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nombre = rest.getNombreRestaurante();
+        return nombre;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRealizarPedido;
-    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbxBebida;
     private javax.swing.JComboBox<String> cbxEntrada;
     private javax.swing.JComboBox<String> cbxPrincipio;

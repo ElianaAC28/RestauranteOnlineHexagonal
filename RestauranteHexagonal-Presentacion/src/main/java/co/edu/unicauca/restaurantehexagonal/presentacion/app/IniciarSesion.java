@@ -202,7 +202,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                 if (login.equals("usuario")) {
                     java.awt.EventQueue.invokeLater(new Runnable() {
                         public void run() {
-                            Usuario ins = new Usuario();
+                            GUIRestaurante ins = new GUIRestaurante(1);
 
                             ins.setVisible(true);
                             JOptionPane.showMessageDialog(null, "Bienvenid@", "Datos correctos", JOptionPane.INFORMATION_MESSAGE);
@@ -248,8 +248,8 @@ public class IniciarSesion extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
-        Visitante vist = new Visitante();
-        vist.setVisible(true);
+        GUIRestaurante ins = new GUIRestaurante(0);
+        ins.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnInvitadoActionPerformed
 

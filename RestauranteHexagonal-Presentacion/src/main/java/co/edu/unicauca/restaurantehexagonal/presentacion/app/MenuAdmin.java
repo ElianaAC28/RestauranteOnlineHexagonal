@@ -196,7 +196,7 @@ public class MenuAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnUpdateAlmActionPerformed
 
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
-         //resp =0 si, resp = 1 no.
+        //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
         if (resp==0){
         IniciarSesion login = new IniciarSesion();

@@ -71,6 +71,10 @@ public class ComponenteService {
         return repoComponente.contarComponentex(almuid, nomComp); 
     }
     
+    /**
+     * Metodo encargado de buscar un componente segun su almuerzo y nombre.
+     * 
+     */
     public String buscarComponente (int almuid, int nomComp){
         List<JsonError> errors = new ArrayList<>();
         if (!repoComponente.almuerzoComponentes(almuid).isEmpty()) {
@@ -97,6 +101,7 @@ public class ComponenteService {
         }
         return repoComponente.findAllComponentes(idcomp);
     }
+    
     /**
      * Metodo encargado de obtener una lista de todos los componentes
      * existentes.
@@ -111,6 +116,27 @@ public class ComponenteService {
         }
         return repoComponente.findAllComponentes();
     }
+    
+    /**
+     * Metodo encargado de obtener una lista de todos los componentes
+     * existentes.
+     * 
+     */
+    public List<Componente> listComponentesRest(String restId) {
+        List<JsonError> errors = new ArrayList<>();
+        if (!repoComponente.findAllComponentesRest(restId).isEmpty()) {
+            if (!errors.isEmpty()) {
+                errors.add(new JsonError("400", "BAD_REQUEST", "ERROR AL GENERAR PEDIDO SQL"));
+            }
+        }
+        return repoComponente.findAllComponentesRest(restId);
+    }
+    
+    /**
+     * Metodo encargado de obtener una lista de todos los componentes
+     * de un almuerzo.
+     * 
+     */
     public List<Componente> listComponentesAlmuerzo(int almuerzo) {
         List<JsonError> errors = new ArrayList<>();
         if (!repoComponente.almuerzoComponentes(almuerzo).isEmpty()) {

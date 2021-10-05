@@ -215,8 +215,13 @@ public class Contacto extends javax.swing.JFrame {
                 this.dispose();
                 break;
             case 7:
-                Usuario user = new Usuario();
+                Usuario user = new Usuario(restId);
                 user.setVisible(true);
+                this.dispose();
+                break;
+            case 8:
+                GUIRestaurante ins = new GUIRestaurante();
+                ins.setVisible(true);
                 this.dispose();
                 break;
         }

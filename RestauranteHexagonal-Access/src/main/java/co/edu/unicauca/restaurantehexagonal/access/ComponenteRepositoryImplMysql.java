@@ -150,6 +150,7 @@ public class ComponenteRepositoryImplMysql implements IComponenteRepository {
         }
         return objList;
     }
+    
     /**
      * Metodo encargado de obtener una lista de todos los componentes.
      *
@@ -166,6 +167,35 @@ public class ComponenteRepositoryImplMysql implements IComponenteRepository {
             ResultSet comp = pstmt.executeQuery();
             while (comp.next()) {
                 objComponente.setIdComponente(comp.getInt("COMPID"));
+                objComponente.setNombreComponente(comp.getString("COMPNOMBRE"));
+                objComponente.setTipoComponente(comp.getString("COMPTIPO"));
+                objList.add(objComponente);
+                objComponente = new Componente();
+            }
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(ComponenteRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante de la base de datos", ex);
+        }
+        return objList;
+    }
+    
+    /**
+     * Metodo encargado de obtener una lista de todos los componentes de un restaurante.
+     *
+     * @return Se retorna una lista con los resultados de la busqueda.
+     */
+    @Override
+    public List<Componente> findAllComponentesRest(String restId) {
+        List<Componente> objList = new ArrayList<Componente>();
+        this.connect();
+        Componente objComponente = new Componente();
+        try {
+            String sql = "SELECT * FROM componente WHERE restid = " + restId + ";";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet comp = pstmt.executeQuery();
+            while (comp.next()) {
+                objComponente.setIdComponente(comp.getInt("COMPID"));
+                objComponente.setIdRestaurante(comp.getInt("RESTID"));
                 objComponente.setNombreComponente(comp.getString("COMPNOMBRE"));
                 objComponente.setTipoComponente(comp.getString("COMPTIPO"));
                 objList.add(objComponente);

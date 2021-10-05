@@ -141,7 +141,7 @@ public class AdminCompo extends javax.swing.JFrame {
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 80, 20));
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
-        getContentPane().add(imgContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 40, 20));
+        getContentPane().add(imgContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 70, 40, 20));
 
         btnContacto.setBackground(new java.awt.Color(255, 255, 255));
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
@@ -155,11 +155,11 @@ public class AdminCompo extends javax.swing.JFrame {
                 btnContactoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, -1, 30));
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 70, -1, 30));
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
+        btnSalir.setText("Menu");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
@@ -168,7 +168,7 @@ public class AdminCompo extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 70, 60, 30));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 70, 40, 30));
 
         lblFondo.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         lblFondo.setForeground(new java.awt.Color(255, 51, 43));
@@ -251,13 +251,10 @@ public class AdminCompo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContactoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-     //resp =0 si, resp = 1 no.
-        int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
-        if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin(restId);
-            menu.setVisible(true);
-            this.dispose();
-        }
+    
+        MenuAdmin menu = new MenuAdmin(restId);
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
 
     /**

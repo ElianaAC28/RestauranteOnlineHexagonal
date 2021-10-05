@@ -15,6 +15,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -156,7 +157,30 @@ public class RestauranteRepositoryImplMysql implements IRestauranteRepository {
      */
     @Override
     public List<Restaurante> findAllRestaurantes() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Restaurante> objList = new ArrayList<Restaurante>();
+        this.connect();
+        Restaurante restaurante = new Restaurante();
+        try {
+            String sql = "SELECT * FROM restaurante;";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rest = pstmt.executeQuery();
+            while (rest.next()) {
+                restaurante.setNit(rest.getString("RESTID"));
+                restaurante.setNombreRestaurante(rest.getString("RESTNOMBRE"));
+                restaurante.setEslogan(rest.getString("RESTESLOGAN"));
+                restaurante.setPropietario(rest.getString("RESTPROPIETARIO"));
+                restaurante.setDireccion(rest.getString("RESTDIRECCION"));
+                restaurante.setTelefono(rest.getString("RESTTELEFONO"));
+                restaurante.setCiudad(rest.getString("RESTCIUDAD"));
+                restaurante.setAdministrador(rest.getString("RESTADMIN"));
+                objList.add(restaurante);
+                restaurante = new Restaurante();
+            }
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(ComponenteRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante de la base de datos", ex);
+        }
+        return objList;
     }
 
 }

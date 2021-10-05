@@ -90,7 +90,6 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         btnAddAlmu = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnMostrarComp = new javax.swing.JButton();
-        btnContacto1 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -141,7 +140,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
         jLabel4.setText("Id:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(-30, 0, 16, 18);
+        jLabel4.setBounds(-30, 0, 16, 17);
 
         btnCrearAlmu.setBackground(new java.awt.Color(255, 51, 43));
         btnCrearAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -165,7 +164,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnFoto);
-        btnFoto.setBounds(560, 370, 80, 34);
+        btnFoto.setBounds(560, 370, 80, 33);
 
         btnAddComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAddComp.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -194,7 +193,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
-        imgContacto1.setBounds(430, 50, 40, 30);
+        imgContacto1.setBounds(470, 50, 40, 30);
 
         txtruta.setEditable(false);
         jPanel1.add(txtruta);
@@ -212,11 +211,11 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(470, 60, 71, 18);
+        btnContacto.setBounds(510, 60, 82, 17);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
-        btnSalir.setText("Salir");
+        btnSalir.setText("Menu");
         btnSalir.setBorder(null);
         btnSalir.setBorderPainted(false);
         btnSalir.setContentAreaFilled(false);
@@ -226,7 +225,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(610, 60, 24, 18);
+        btnSalir.setBounds(599, 60, 40, 17);
 
         jLabel14.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -275,21 +274,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrarComp);
-        btnMostrarComp.setBounds(170, 420, 167, 23);
-
-        btnContacto1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        btnContacto1.setForeground(new java.awt.Color(255, 255, 255));
-        btnContacto1.setText("Ayuda");
-        btnContacto1.setBorder(null);
-        btnContacto1.setBorderPainted(false);
-        btnContacto1.setContentAreaFilled(false);
-        btnContacto1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnContacto1ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(btnContacto1);
-        btnContacto1.setBounds(560, 60, 35, 18);
+        btnMostrarComp.setBounds(170, 420, 180, 23);
 
         jLabel15.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -366,13 +351,10 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContactoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-     //resp =0 si, resp = 1 no.
-        int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
-        if (resp == 0) {
-            MenuAdmin menu = new MenuAdmin(restId);
-            menu.setVisible(true);
-            this.dispose();
-        }
+    
+        MenuAdmin menu = new MenuAdmin(restId);
+        menu.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
     
     private void btnCrearAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAlmuActionPerformed
@@ -441,11 +423,6 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         admin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnMostrarCompActionPerformed
-
-    private void btnContacto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContacto1ActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_btnContacto1ActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         JFileChooser j = new JFileChooser();
@@ -616,7 +593,6 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JButton btnAddAlmu;
     private javax.swing.JButton btnAddComp;
     private javax.swing.JButton btnContacto;
-    private javax.swing.JButton btnContacto1;
     private javax.swing.JButton btnCrearAlmu;
     private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnMostrarComp;
