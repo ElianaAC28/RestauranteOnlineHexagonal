@@ -89,7 +89,7 @@ public class Visitante extends javax.swing.JFrame {
         jLabel6.setText("Este es nuestro menu del día, pero recuerda que debes iniciar sesión");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 180, 550, 30));
 
-        lblBienvenido.setFont(new java.awt.Font("Calibri Light", 3, 36)); // NOI18N
+        lblBienvenido.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 51, 43));
         lblBienvenido.setText("Bienvenido");
         getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 180, 70));

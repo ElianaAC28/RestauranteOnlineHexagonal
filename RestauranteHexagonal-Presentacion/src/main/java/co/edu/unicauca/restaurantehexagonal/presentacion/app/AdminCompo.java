@@ -59,7 +59,6 @@ public class AdminCompo extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        lblAdmi = new javax.swing.JLabel();
         imgContacto1 = new javax.swing.JLabel();
         btnContacto = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -140,11 +139,6 @@ public class AdminCompo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Id:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 80, 20));
-
-        lblAdmi.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        lblAdmi.setForeground(new java.awt.Color(255, 255, 255));
-        lblAdmi.setText("Administrador");
-        getContentPane().add(lblAdmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, -1, 30));
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         getContentPane().add(imgContacto1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 70, 40, 20));
@@ -322,7 +316,6 @@ public class AdminCompo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblAddComp;
-    private javax.swing.JLabel lblAdmi;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JTextField txtIdComp;
     private javax.swing.JTextField txtNombreComp;

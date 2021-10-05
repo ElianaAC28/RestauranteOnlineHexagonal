@@ -39,7 +39,7 @@ public interface IRestauranteRepository {
      * Busca un restaurante
      * @return
      */
-    public String findRestaurante();
+    public Restaurante findRestaurante(String restId);
     
     /**
      * Busca un restaurante de un administrador

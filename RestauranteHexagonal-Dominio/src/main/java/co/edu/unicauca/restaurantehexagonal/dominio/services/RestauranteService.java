@@ -82,5 +82,22 @@ public class RestauranteService
         }
         return repoRestaurante.findRestauranteUser(userId);
     }
+    
+    /**
+     * Buscar un Restaurante utlizando un socket
+     *
+     * @param restId del restaurante
+     * @return Objeto restaurant
+     * @throws Exception
+     */
+    public Restaurante findRestaurante(String restId) throws Exception{
+        List<JsonError> errors = new ArrayList<>();
+        if (!repoRestaurante.findRestaurante(restId).toString().isEmpty()) {
+            if (!errors.isEmpty()) {
+                errors.add(new JsonError("400", "BAD_REQUEST", "ERROR AL GENERAR PEDIDO SQL"));
+            }
+        }
+        return repoRestaurante.findRestaurante(restId);
+    }
 
 }

@@ -65,7 +65,6 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaComp = new javax.swing.JTable();
-        lblAdmin = new javax.swing.JLabel();
         imgContacto1 = new javax.swing.JLabel();
         btnContacto = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
@@ -83,7 +82,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
 
         lblCompDispo.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblCompDispo.setForeground(new java.awt.Color(255, 51, 43));
-        lblCompDispo.setText("Componentes Disponibles");
+        lblCompDispo.setText("Componentes disponibles");
         jPanel1.add(lblCompDispo);
         lblCompDispo.setBounds(170, 110, 410, 50);
 
@@ -152,12 +151,6 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(90, 170, 540, 180);
 
-        lblAdmin.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        lblAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        lblAdmin.setText("Administrador");
-        jPanel1.add(lblAdmin);
-        lblAdmin.setBounds(320, 80, 100, 20);
-
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
         imgContacto1.setBounds(410, 70, 48, 40);
@@ -174,7 +167,7 @@ public class AdminCompoDispo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(450, 80, 83, 17);
+        btnContacto.setBounds(450, 80, 82, 17);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -461,7 +454,6 @@ public class AdminCompoDispo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblCompDispo;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JTable tblListaComp;

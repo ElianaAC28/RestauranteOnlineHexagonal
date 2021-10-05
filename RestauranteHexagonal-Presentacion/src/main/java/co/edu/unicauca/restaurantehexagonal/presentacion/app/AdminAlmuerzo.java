@@ -68,7 +68,6 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaComp = new javax.swing.JTable();
-        lblAdmin = new javax.swing.JLabel();
         lblAddAlmuerzo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnCrearAlmu = new javax.swing.JButton();
@@ -124,12 +123,6 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1);
         jScrollPane1.setBounds(90, 180, 550, 170);
-
-        lblAdmin.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
-        lblAdmin.setForeground(new java.awt.Color(255, 255, 255));
-        lblAdmin.setText("Administrador");
-        jPanel1.add(lblAdmin);
-        lblAdmin.setBounds(350, 50, 104, 40);
 
         lblAddAlmuerzo.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblAddAlmuerzo.setForeground(new java.awt.Color(255, 51, 43));
@@ -196,7 +189,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(470, 60, 83, 17);
+        btnContacto.setBounds(470, 60, 82, 17);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -259,7 +252,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrarComp);
-        btnMostrarComp.setBounds(170, 420, 181, 23);
+        btnMostrarComp.setBounds(170, 420, 180, 23);
 
         btnContacto1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto1.setForeground(new java.awt.Color(255, 255, 255));
@@ -273,7 +266,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto1);
-        btnContacto1.setBounds(560, 60, 41, 17);
+        btnContacto1.setBounds(560, 60, 40, 17);
 
         jLabel15.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -597,7 +590,6 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblAddAlmuerzo;
-    private javax.swing.JLabel lblAdmin;
     private javax.swing.JLabel lblCosto;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JTable tblListaComp;

@@ -8,8 +8,11 @@ package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteRepository;
+import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
+import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -52,7 +55,7 @@ public class Admin extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Administrador");
-        lblTittle.setText("Usted esta en el restaurante: " + restId);
+        lblTittle.setText(obtenerNombreRest());
         btnBack.setVisible(false);
         btnCinco.setVisible(false);
         try {
@@ -220,6 +223,8 @@ public class Admin extends javax.swing.JFrame {
         });
         getContentPane().add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 390, -1, -1));
 
+        lblTittle.setFont(new java.awt.Font("Hobo Std", 2, 36)); // NOI18N
+        lblTittle.setForeground(new java.awt.Color(255, 51, 43));
         lblTittle.setText("-");
         getContentPane().add(lblTittle, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 290, 40));
 
@@ -230,12 +235,12 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Estos son los componentes del restaurante");
+        jLabel4.setText("Lista de componentes disponibles:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 390, 60));
 
-        jLabel3.setFont(new java.awt.Font("Calibri Light", 2, 48)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 51, 43));
-        jLabel3.setText("Administrador");
+        jLabel3.setText("Componentes");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 320, 70));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
@@ -243,6 +248,7 @@ public class Admin extends javax.swing.JFrame {
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
+        btnContacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         btnContacto.setText("Contactanos");
         btnContacto.setBorder(null);
         btnContacto.setBorderPainted(false);
@@ -252,7 +258,7 @@ public class Admin extends javax.swing.JFrame {
                 btnContactoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 90, 30));
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 150, 30));
 
         lblFondo.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
@@ -516,6 +522,21 @@ public class Admin extends javax.swing.JFrame {
         objListComponentes = componenteService.listComponentes();
         return objListComponentes.size();
     }
+    
+    private String obtenerNombreRest() {
+        String nombre = "";
+        IRestauranteRepository service = Factory.getInstance().getRepositoryRestaurante();
+        RestauranteService restauranteService = new RestauranteService(service);
+        
+        Restaurante rest = new Restaurante();
+        try {
+            rest = restauranteService.findRestaurante(restId);
+        } catch (Exception ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nombre = rest.getNombreRestaurante();
+        return nombre;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddAlmu;
@@ -537,4 +558,5 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JLabel lblTittle;
     private javax.swing.JTable tblListaComp;
     // End of variables declaration//GEN-END:variables
+
 }

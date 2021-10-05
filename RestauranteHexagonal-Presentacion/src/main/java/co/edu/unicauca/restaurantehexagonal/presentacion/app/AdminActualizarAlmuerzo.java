@@ -100,11 +100,11 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         jPanel1.add(jLabel2);
         jLabel2.setBounds(90, 70, 90, 60);
 
-        jLabel5.setFont(new java.awt.Font("Calibri", 1, 24)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 51, 43));
         jLabel5.setText("Actualizar almuerzo");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(210, 80, 250, 50);
+        jLabel5.setBounds(160, 80, 320, 50);
 
         btnBuscar.setBackground(new java.awt.Color(255, 51, 43));
         btnBuscar.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
@@ -130,7 +130,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnActualizar);
-        btnActualizar.setBounds(510, 380, 81, 20);
+        btnActualizar.setBounds(510, 380, 80, 20);
 
         btnMostrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnMostrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -207,7 +207,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(510, 80, 83, 17);
+        btnContacto.setBounds(510, 80, 82, 17);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));

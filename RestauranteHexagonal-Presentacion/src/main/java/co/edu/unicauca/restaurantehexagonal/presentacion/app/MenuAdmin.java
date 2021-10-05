@@ -61,11 +61,11 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel1.setLayout(null);
 
-        lblElegirRest.setFont(new java.awt.Font("Tahoma", 1, 28)); // NOI18N
+        lblElegirRest.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblElegirRest.setForeground(new java.awt.Color(255, 255, 255));
         lblElegirRest.setText("BIENVENIDO");
         jPanel1.add(lblElegirRest);
-        lblElegirRest.setBounds(280, 90, 190, 40);
+        lblElegirRest.setBounds(270, 90, 200, 40);
 
         lblInicioSesion.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
         lblInicioSesion.setBorder(null);

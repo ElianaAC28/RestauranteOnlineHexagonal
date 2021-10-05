@@ -97,7 +97,7 @@ public class Usuario extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, 50));
 
-        jLabel3.setFont(new java.awt.Font("Calibri Light", 3, 36)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 51, 43));
         jLabel3.setText("Bienvenido");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 110, 180, 70));

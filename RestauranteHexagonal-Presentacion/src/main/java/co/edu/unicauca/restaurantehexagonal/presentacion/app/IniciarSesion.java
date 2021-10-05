@@ -107,7 +107,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         btnInvitado.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnInvitado.setForeground(new java.awt.Color(255, 255, 255));
-        btnInvitado.setText("Omitir");
+        btnInvitado.setText("Entrar como visitante");
         btnInvitado.setBorder(null);
         btnInvitado.setBorderPainted(false);
         btnInvitado.setContentAreaFilled(false);
@@ -117,7 +117,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnInvitado);
-        btnInvitado.setBounds(550, 410, 171, 23);
+        btnInvitado.setBounds(510, 420, 190, 30);
 
         lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
