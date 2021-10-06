@@ -5,7 +5,6 @@
  */
 package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
-
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
@@ -48,6 +47,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         btnContacto = new javax.swing.JButton();
         btnInvitado = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         lblIngresePass = new javax.swing.JLabel();
         lblIngreseUser = new javax.swing.JLabel();
         imgWp5 = new javax.swing.JLabel();
@@ -119,6 +119,16 @@ public class IniciarSesion extends javax.swing.JFrame {
         jPanel1.add(btnInvitado);
         btnInvitado.setBounds(510, 420, 190, 30);
 
+        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
+        jButton1.setText("REGISTRARSE");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton1);
+        jButton1.setBounds(370, 420, 140, 40);
+
         lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
         lblIngresePass.setText("Contraseña");
@@ -189,8 +199,8 @@ public class IniciarSesion extends javax.swing.JFrame {
         cont.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
-    
-    
+
+
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
         IUsuarioRepository repo = Factory.getInstance().getRepositoryUsuario();
         UsuarioService customerService = new UsuarioService(repo);
@@ -218,7 +228,7 @@ public class IniciarSesion extends javax.swing.JFrame {
                             IRestauranteRepository repo1 = Factory.getInstance().getRepositoryRestaurante();
                             RestauranteService restauranteService = new RestauranteService(repo1);
                             String restId = "";
-                            try {                            
+                            try {
                                 restId = restauranteService.findRestauranteUser(txtUsuario.getText()).getNit();
                             } catch (Exception ex) {
                                 Logger.getLogger(IniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
@@ -252,6 +262,12 @@ public class IniciarSesion extends javax.swing.JFrame {
         ins.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnInvitadoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        RegistroUsuario ins = new RegistroUsuario();
+        ins.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -431,6 +447,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel imgWp6;
     private javax.swing.JLabel imgWp7;
     private javax.swing.JLabel imgWp8;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblIngresePass;
     private javax.swing.JLabel lblIngreseUser;

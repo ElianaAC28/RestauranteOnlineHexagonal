@@ -14,7 +14,7 @@ public interface IUsuarioRepository {
      * @param userId id del usuario
      * @return  objeto de tipo Usuario
      */
-    public Usuario findUsuario(String userId);
+    public Usuario findUsuario(int userId, String userName);
         /**
      * Crea un Usuario por su id
      * @param usuario id del usuario
@@ -27,5 +27,6 @@ public interface IUsuarioRepository {
      * @return  objeto de tipo Usuario
      */
     public String autenticarUsuario(String username, String userpassword);
+    public int gestionarID();
 
 }

@@ -1,6 +1,5 @@
 package co.edu.unicauca.restaurantehexagonal.access;
 
-
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Usuario;
 import co.edu.unicauca.restaurantehexagonal.dominio.infra.Utilities;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IUsuarioRepository;
@@ -10,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -35,24 +35,25 @@ public class UsuarioRepositoryImplMysql implements IUsuarioRepository {
      * @param userId
      * @return
      */
-    public Usuario findUsuario(String userId) {
-        Usuario usuario = null;
+    public Usuario findUsuario(int userId, String userName) {
 
+        Usuario usuario = null;
         this.connect();
         try {
-            String sql = "SELECT * FROM usuario WHERE username=? ";
-            PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, userId);
-            ResultSet res = pstmt.executeQuery();
+
+            String sql = "SELECT * FROM usuario WHERE USERID='" + userId + "' or username ='"+ userName +"'";
+            Statement pstmt = conn.createStatement();
+            //pstmt.setString(1, userId);
+            ResultSet res = pstmt.executeQuery(sql);
             if (res.next()) {
                 usuario = new Usuario();
-                usuario.setUserId(res.getString("userId"));
-                usuario.setUserName(res.getString("userName"));
-                usuario.setUserPassword(res.getString("userPassword"));
-                usuario.setUserNombre(res.getString("userNombre"));
-                usuario.setUserApellido(res.getString("userApellido"));
-                usuario.setUserCelular(res.getString("userCelular"));
-                usuario.setUserEmail(res.getString("userEmail"));
+                usuario.setUserId(userId);
+//                usuario.setUserName(res.getString("userName"));
+//                usuario.setUserPassword(res.getString("userPassword"));
+//                usuario.setUserNombre(res.getString("userNombre"));
+//                usuario.setUserApellido(res.getString("userApellido"));
+//                usuario.setUserCelular(res.getString("userCelular"));
+//                usuario.setUserEmail(res.getString("userEmail"));
 
             }
             pstmt.close();
@@ -109,29 +110,54 @@ public class UsuarioRepositoryImplMysql implements IUsuarioRepository {
      * @return
      */
     @Override
-    public String createUsuario(Usuario usuario) {
+    public int gestionarID() {
+        int max = 0;
+        this.connect();
+        try {
+            String sql = "SELECT MAX(USERID)FROM usuario";
+            Statement pstmt = conn.createStatement();
+            ResultSet res = pstmt.executeQuery(sql);
 
+            max = Integer.parseInt(res.getString("MAX(USERID)"));
+            
+            pstmt.close();
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(UsuarioRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar Customer de la base de datos", ex);
+        }
+        return max;
+    }
+
+    /**
+     * Crea un usuario
+     *
+     * @param customer
+     * @return
+     */
+    @Override
+    public String createUsuario(Usuario usuario) {
         try {
 
             this.connect();
             String sql = "INSERT INTO usuario(userId, userName, userPassword, userNombre, userApellido, userCelular, userEmail) VALUES (?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, usuario.getUserId());
+            pstmt.setInt(1, usuario.getUserId());
             pstmt.setString(2, usuario.getUserName());
             pstmt.setString(3, usuario.getUserPassword());
             pstmt.setString(4, usuario.getUserNombre());
             pstmt.setString(5, usuario.getUserApellido());
             pstmt.setString(6, usuario.getUserCelular());
             pstmt.setString(7, usuario.getUserEmail());
+            
             pstmt.executeUpdate();
             pstmt.close();
             this.disconnect();
+            return "REGISTRO EXITOSO!";
         } catch (SQLException ex) {
             Logger.getLogger(UsuarioRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al insertar el registro", ex);
+            return "ERROR";
         }
-        String e = usuario.getUserId();
-        return e;
-
+        //return "REGISTRO EXITOSO!";
     }
 
     /**
