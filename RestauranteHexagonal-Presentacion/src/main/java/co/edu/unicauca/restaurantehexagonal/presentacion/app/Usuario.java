@@ -7,10 +7,13 @@ package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
 
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
+import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IAlmuerzoRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
+import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import java.awt.Image;
@@ -50,7 +53,8 @@ public class Usuario extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Usuario");
         jLabel3.setText("Bienvenido a " + obtenerNombreRest());
-        try {
+        lbldescripcion.setText("Descripcion: " + descripcion());
+         try {
             llenarTabla();
         } catch (Exception ex) {
             Logger.getLogger(AdminActualizarAlmuerzo.class.getName()).log(Level.SEVERE, null, ex);
@@ -81,7 +85,7 @@ public class Usuario extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbxBebida = new javax.swing.JComboBox<>();
         btnRealizarPedido = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        lbldescripcion = new javax.swing.JLabel();
         btnRestaurantes = new javax.swing.JButton();
         btnContacto = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
@@ -181,10 +185,10 @@ public class Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 110, 30));
 
-        jLabel11.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 560, 30));
+        lbldescripcion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        lbldescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        lbldescripcion.setText("des");
+        getContentPane().add(lbldescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 560, 30));
 
         btnRestaurantes.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnRestaurantes.setForeground(new java.awt.Color(255, 255, 255));
@@ -359,6 +363,22 @@ public class Usuario extends javax.swing.JFrame {
         nombre = rest.getNombreRestaurante();
         return nombre;
     }
+    
+    private String descripcion() 
+    {
+        String nombre = "";
+        IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+        AlmuerzoService almuerzoService = new AlmuerzoService(service);
+        
+        Almuerzo almu = new Almuerzo();
+        try {
+            almu = almuerzoService.buscar(restId);
+        } catch (Exception ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nombre = almu.getDescripcion();
+        return nombre;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -372,7 +392,6 @@ public class Usuario extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cbxProteina;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -383,6 +402,7 @@ public class Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblImagen;
+    private javax.swing.JLabel lbldescripcion;
     // End of variables declaration//GEN-END:variables
 
 }
