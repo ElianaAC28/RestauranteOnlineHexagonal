@@ -7,5 +7,6 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
 1. [Documentación de soporte](https://docs.google.com/document/d/1PZqLsyvcPECYWISqAcfbDXMYljr7zuc_/edit#heading=h.gjdgxs)
 
 2. Conexión a la base de datos (Scrpt MySql)	
-		 [Creación](https://drive.google.com/drive/u/0/folders/1alqamwpKAwbZOZJ4SJAu0r0zfo-QPE30)
+		 [Creación]([SQL_Bases - creacion.txt](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7305442/SQL_Bases.-.creacion.txt)
+)
 	 
