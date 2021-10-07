@@ -6,7 +6,7 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
 
 1. [Documentación de soporte](https://docs.google.com/document/d/1PZqLsyvcPECYWISqAcfbDXMYljr7zuc_/edit#heading=h.gjdgxs)
 
-2. Prerequisitos para ejecutar el sotfware, debe tener instaldo en su máquina los siguientes programas:
+2. Pre-requisitos para ejecutar el sotfware, debe tener instalado en su máquina los siguientes programas:
 
 	[Apache Neatbeans IDE 12.3](https://paradacreativa.es/como-instalarnetbeans/#:~:text=1%20Ingresar%20a%20la%20p%C3%A1gina%20de%20Recursos%20Web%2C,instalar%20netbeans%208.2%20en%20...%20Mas%20cosas...%20)
         
