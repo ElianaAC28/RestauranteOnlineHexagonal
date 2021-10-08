@@ -28,6 +28,7 @@ public interface IAlmuerzoRepository {
     public String updateAlmuerzo(Almuerzo parAlmuerzo);
     public String deleteCompAlmuerzo(Almuerzo parAlmuerzo);
     public List<Almuerzo> findAllAlmuerzos();
+    public List<Almuerzo> findAllAlmuerzosRest(String restId);
     public String contarAlmu(Almuerzo parAlmuerzo);
     public String asociarComp( String almuid, String compid);
     public String updateCosto(Almuerzo parAlmuerzo);

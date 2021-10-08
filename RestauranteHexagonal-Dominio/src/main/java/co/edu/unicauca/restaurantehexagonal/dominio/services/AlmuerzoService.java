@@ -48,8 +48,7 @@ public class AlmuerzoService {
     }
     
      /**
-     * Metodo encargado de obtener una lista de todos los componentes
-     * existentes.
+     * Metodo encargado de obtener una lista de todos los almuerzos de la base de datos.
      *
      */
     public List<Almuerzo> listAlmuerzos() {
@@ -60,6 +59,20 @@ public class AlmuerzoService {
             }
         }
         return repositoryAlm.findAllAlmuerzos();
+    }
+    
+     /**
+     * Metodo encargado de obtener una lista de todos los almuerzos de un restaurante.
+     *
+     */
+    public List<Almuerzo> listAlmuerzosRestaurante(String restId) {
+        List<JsonError> errors = new ArrayList<>();
+        if (!repositoryAlm.findAllAlmuerzosRest(restId).isEmpty()) {
+            if (!errors.isEmpty()) {
+                errors.add(new JsonError("400", "BAD_REQUEST", "ERROR AL GENERAR PEDIDO SQL"));
+            }
+        }
+        return repositoryAlm.findAllAlmuerzosRest(restId);
     }
 
     public String updateAlmuerzo(Almuerzo parAlmuerzo) {

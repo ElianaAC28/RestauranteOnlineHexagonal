@@ -41,7 +41,6 @@ public class  AlmuerzoRepositoryImplMysql implements IAlmuerzoRepository {
     /**
      * Lista almuerzo en la base de datos
      *
-     * @param idAlmuerzo
      * @return
      */
     public List<Almuerzo> findAllAlmuerzos() {
@@ -51,6 +50,40 @@ public class  AlmuerzoRepositoryImplMysql implements IAlmuerzoRepository {
         try {
 
             String sql = "SELECT * FROM ALMUERZO ;";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            while (res.next()) {
+
+                objAlmuerzo.setIdAlmuerzo(res.getString("ALMUID"));
+                objAlmuerzo.setRestId(res.getString("RESTID"));
+                objAlmuerzo.setCostoAlm(res.getString("ALMUCOSTO"));
+
+                objList.add(objAlmuerzo);
+                objAlmuerzo = new Almuerzo();
+
+            }
+            this.disconnect();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante de la base de datos", ex);
+        }
+        return objList;
+    }
+    
+    /**
+     * Lista almuerzo de un restaurante en la base de datos
+     *
+     * @param restId id del restaurante
+     * @return
+     */
+    public List<Almuerzo> findAllAlmuerzosRest(String restId) {
+        List<Almuerzo> objList = new ArrayList<Almuerzo>();
+        this.connect();
+        Almuerzo objAlmuerzo = new Almuerzo();
+        try {
+
+            String sql = "SELECT * FROM ALMUERZO WHERE restid = " + restId + ";";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet res = pstmt.executeQuery();

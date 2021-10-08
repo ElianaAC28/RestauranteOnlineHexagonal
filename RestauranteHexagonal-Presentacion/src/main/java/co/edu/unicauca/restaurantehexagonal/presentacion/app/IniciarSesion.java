@@ -84,7 +84,7 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(480, 350, 120, 40);
+        btnIniciarSesion.setBounds(400, 350, 120, 40);
 
         txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
@@ -120,14 +120,15 @@ public class IniciarSesion extends javax.swing.JFrame {
         btnInvitado.setBounds(510, 420, 190, 30);
 
         jButton1.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
-        jButton1.setText("REGISTRARSE");
+        jButton1.setText("Registrarse");
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(370, 420, 140, 40);
+        jButton1.setBounds(540, 350, 120, 40);
 
         lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
