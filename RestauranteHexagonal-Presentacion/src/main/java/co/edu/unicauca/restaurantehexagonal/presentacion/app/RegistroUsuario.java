@@ -49,7 +49,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        imgWp7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -68,84 +67,144 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        imgWp9 = new javax.swing.JLabel();
+        imgLogo = new javax.swing.JLabel();
+        imgInstagram = new javax.swing.JLabel();
+        imgFb = new javax.swing.JLabel();
+        imgWp10 = new javax.swing.JLabel();
+        imgWp11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(700, 480));
+        setPreferredSize(new java.awt.Dimension(700, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setMinimumSize(new java.awt.Dimension(700, 480));
+        jPanel1.setPreferredSize(new java.awt.Dimension(700, 480));
+        jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(34, 34, 34));
         jLabel1.setText("REGISTRO DE USUARIO");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(340, 40, 200, 25);
 
-        imgWp7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
+        jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel2.setText("Nombre de Usuario:");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(390, 160, 113, 18);
 
+        jLabel3.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel3.setText("Nombre(s):");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(390, 80, 63, 18);
 
+        jLabel4.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel4.setText("Apellido(s):");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, -1, -1));
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(390, 120, 62, 18);
 
+        jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel6.setText("Genero:");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, 10));
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(390, 240, 46, 18);
 
+        jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel7.setText("Celular:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
+        jPanel1.add(jLabel7);
+        jLabel7.setBounds(390, 320, 44, 18);
 
+        jLabel8.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel8.setText("Email:");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 290, -1, -1));
-        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 220, 130, -1));
+        jPanel1.add(jLabel8);
+        jLabel8.setBounds(390, 280, 35, 18);
+        jPanel1.add(jPasswordField1);
+        jPasswordField1.setBounds(470, 200, 180, 30);
 
+        jLabel9.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel9.setText("Contraseña:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, -1, -1));
-        jPanel1.add(txtNombres, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 140, -1));
-        jPanel1.add(txtApellidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 140, -1));
-        jPanel1.add(txtNomUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 100, -1));
+        jPanel1.add(jLabel9);
+        jLabel9.setBounds(390, 200, 69, 18);
+        jPanel1.add(txtNombres);
+        txtNombres.setBounds(480, 80, 180, 30);
+        jPanel1.add(txtApellidos);
+        txtApellidos.setBounds(480, 120, 180, 30);
+        jPanel1.add(txtNomUsuario);
+        txtNomUsuario.setBounds(510, 160, 150, 30);
 
+        txtGenero.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         txtGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
-        jPanel1.add(txtGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, -1, -1));
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 160, -1));
+        jPanel1.add(txtGenero);
+        txtGenero.setBounds(460, 240, 120, 30);
+        jPanel1.add(txtEmail);
+        txtEmail.setBounds(460, 280, 190, 30);
 
         txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNumeroKeyTyped(evt);
             }
         });
-        jPanel1.add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 160, -1));
+        jPanel1.add(txtNumero);
+        txtNumero.setBounds(460, 320, 190, 30);
 
+        btnRegistro.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         btnRegistro.setText("REGISTRARSE");
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 440, -1, -1));
+        jPanel1.add(btnRegistro);
+        btnRegistro.setBounds(460, 410, 150, 40);
 
+        jLabel10.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel10.setText("Cedula:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, -1, -1));
+        jPanel1.add(jLabel10);
+        jLabel10.setBounds(390, 360, 43, 18);
 
         txtID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtIDKeyTyped(evt);
             }
         });
-        jPanel1.add(txtID, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 370, 160, -1));
+        jPanel1.add(txtID);
+        txtID.setBounds(460, 360, 190, 30);
 
+        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
         jButton1.setText("SALIR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 440, 70, -1));
+        jPanel1.add(jButton1);
+        jButton1.setBounds(570, 20, 90, 30);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, -1));
+        imgWp9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
+        jPanel1.add(imgWp9);
+        imgWp9.setBounds(560, 0, 151, 537);
+
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
+        jPanel1.add(imgLogo);
+        imgLogo.setBounds(60, 130, 199, 159);
+
+        imgInstagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/instagram_icon_125245.png"))); // NOI18N
+        jPanel1.add(imgInstagram);
+        imgInstagram.setBounds(100, 320, 32, 32);
+
+        imgFb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
+        jPanel1.add(imgFb);
+        imgFb.setBounds(170, 320, 32, 32);
+
+        imgWp10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
+        jPanel1.add(imgWp10);
+        imgWp10.setBounds(330, 0, 151, 537);
+
+        imgWp11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
+        jPanel1.add(imgWp11);
+        imgWp11.setBounds(410, -10, 151, 537);
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -251,7 +310,12 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistro;
-    private javax.swing.JLabel imgWp7;
+    private javax.swing.JLabel imgFb;
+    private javax.swing.JLabel imgInstagram;
+    private javax.swing.JLabel imgLogo;
+    private javax.swing.JLabel imgWp10;
+    private javax.swing.JLabel imgWp11;
+    private javax.swing.JLabel imgWp9;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
