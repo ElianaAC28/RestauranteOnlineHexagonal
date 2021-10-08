@@ -8,6 +8,7 @@ package co.edu.unicauca.restaurantehexagonal.dominio.interfaces;
 
 
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import java.util.List;
 
 /**
@@ -31,4 +32,5 @@ public interface IAlmuerzoRepository {
     public String asociarComp( String almuid, String compid);
     public String updateCosto(Almuerzo parAlmuerzo);
     public String updateFoto(Almuerzo parAlmuerzo);
+    public Almuerzo buscaralmu(String restId);
 }

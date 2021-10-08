@@ -4,6 +4,7 @@ package co.edu.unicauca.restaurantehexagonal.dominio.services;
 
 
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.infra.JsonError;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IAlmuerzoRepository;
 import com.google.gson.Gson;
@@ -18,6 +19,7 @@ import java.util.List;
  * @author SoftwareTeam
  */
 public class AlmuerzoService {
+
     IAlmuerzoRepository repositoryAlm;
   
     
@@ -130,5 +132,18 @@ public class AlmuerzoService {
         }
         return repositoryAlm.asociarComp(almuid, compid);
     }       
+    
+    
+    public Almuerzo buscar(String restId) throws Exception
+    {
+        List<JsonError> errors = new ArrayList<>();
+        if (!repositoryAlm.buscaralmu(restId).toString().isEmpty()) 
+        {
+            if (!errors.isEmpty()) {
+                errors.add(new JsonError("400", "BAD_REQUEST", "ERROR AL GENERAR PEDIDO SQL"));
+            }
+        }
+        return repositoryAlm.buscaralmu(restId);
+    }
     
 }

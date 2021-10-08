@@ -9,7 +9,7 @@ import java.util.Date;
  */
 public class Usuario {
 
-    private String userId;
+    private int userId;
     private String userName;
     /**
      * Nombre Cliente
@@ -40,7 +40,7 @@ public class Usuario {
      */
     private String userEmail;
 
-    public Usuario(String userId, String userName, String userPassword, String userNombre, String userApellido, Date userFechaNac, String userGenero, String userCelular, String userEmail) {
+    public Usuario(int userId, String userName, String userPassword, String userNombre, String userApellido, Date userFechaNac, String userGenero, String userCelular, String userEmail) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -55,11 +55,11 @@ public class Usuario {
     public Usuario() {
     }
 
-    public String getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(String userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
     

@@ -7,12 +7,15 @@ package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
 
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
+import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IAlmuerzoRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
+import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import java.awt.Image;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,9 +52,11 @@ public class Visitante extends javax.swing.JFrame {
         this.restId = restId;
         initComponents();
         lblBienvenido.setText("Bienvenido a " + obtenerNombreRest());
+        lblDescripcion.setText("Descripcion: " + descripcion());
         setLocationRelativeTo(null);
         setTitle("Visitante");
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -74,7 +79,7 @@ public class Visitante extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         cbxBebida = new javax.swing.JComboBox<>();
         btnRealizarPedido = new javax.swing.JButton();
-        jLabel11 = new javax.swing.JLabel();
+        lblDescripcion = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
         btnIniciarSesion = new javax.swing.JButton();
         imgRes = new javax.swing.JLabel();
@@ -95,7 +100,7 @@ public class Visitante extends javax.swing.JFrame {
         lblBienvenido.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblBienvenido.setForeground(new java.awt.Color(255, 51, 43));
         lblBienvenido.setText("Bienvenido");
-        getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 550, 70));
+        getContentPane().add(lblBienvenido, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 550, 60));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 51, 43));
@@ -163,10 +168,10 @@ public class Visitante extends javax.swing.JFrame {
         });
         getContentPane().add(btnRealizarPedido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 380, 110, 30));
 
-        jLabel11.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION-DESCRIPCION");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 560, 30));
+        lblDescripcion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        lblDescripcion.setForeground(new java.awt.Color(255, 255, 255));
+        lblDescripcion.setText("Des");
+        getContentPane().add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 560, 30));
 
         btnAtras.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnAtras.setForeground(new java.awt.Color(255, 255, 255));
@@ -337,6 +342,23 @@ public class Visitante extends javax.swing.JFrame {
         nombre = rest.getNombreRestaurante();
         return nombre;
     }
+    
+    
+    private String descripcion() 
+    {
+        String nombre = "";
+        IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+        AlmuerzoService almuerzoService = new AlmuerzoService(service);
+        
+        Almuerzo almu = new Almuerzo();
+        try {
+            almu = almuerzoService.buscar(restId);
+        } catch (Exception ex) {
+            Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        nombre = almu.getDescripcion();
+        return nombre;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -350,7 +372,6 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel imgRes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -358,6 +379,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBienvenido;
+    private javax.swing.JLabel lblDescripcion;
     // End of variables declaration//GEN-END:variables
 
 }

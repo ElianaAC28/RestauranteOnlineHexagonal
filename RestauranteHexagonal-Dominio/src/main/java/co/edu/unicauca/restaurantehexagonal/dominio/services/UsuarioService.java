@@ -35,9 +35,9 @@ public class UsuarioService
     /**
      * Busca un usuario
      */
-    public Usuario findUsuario(String userId) 
+    public Usuario findUsuario(int userId, String userName) 
     {
-        return repo.findUsuario(userId);
+        return repo.findUsuario(userId,userName);
     }
     
     /**
@@ -60,7 +60,7 @@ public class UsuarioService
   
         // Validaciones y reglas de negocio
        if (
-               usuario.getUserId().isEmpty() ||
+               //usuario.getUserId().isEmpty() ||
                usuario.getUserName().isEmpty() ||
                usuario.getUserEmail().isEmpty() ||
                usuario.getUserPassword().isEmpty() ||
@@ -76,9 +76,10 @@ public class UsuarioService
         }    
         // Verifica que no se encuentre repetido repetido
         
-        Usuario customerSearched = this.findUsuario(usuario.getUserId());
+        Usuario customerSearched = this.findUsuario(usuario.getUserId(),usuario.getUserName());
         if (customerSearched != null){
-            errors.add(new JsonError("400", "BAD_REQUEST","La cédula ya existe. "));
+            errors.add(new JsonError("400", "BAD_REQUEST","La cedula o el nombre de usuario ya existen "));
+            
         }
         
        if (!errors.isEmpty()) {
@@ -88,4 +89,11 @@ public class UsuarioService
         }         
         return repo.createUsuario(usuario);
    }
+    /**
+     * Busca un usuario
+     */
+    public int gestionarID() 
+    {
+        return repo.gestionarID();
+    }
 }

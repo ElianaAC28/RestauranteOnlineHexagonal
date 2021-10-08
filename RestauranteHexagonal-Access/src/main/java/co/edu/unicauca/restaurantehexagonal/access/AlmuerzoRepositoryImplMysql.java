@@ -3,6 +3,7 @@ package co.edu.unicauca.restaurantehexagonal.access;
 
 
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
+import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.infra.Utilities;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IAlmuerzoRepository;
 import java.sql.Connection;
@@ -249,5 +250,26 @@ try {
             Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al actualizar el registro", ex);
         }
         return (parAlmuerzo.getIdAlmuerzo());
+    }
+
+@Override
+    public Almuerzo buscaralmu(String restId) 
+    {
+        Almuerzo restaurante = new Almuerzo();
+        this.connect();
+        try {
+            String sql = "SELECT ALMUDESCRIPCION FROM almuerzo WHERE restId='" + restId +"';";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet rest = pstmt.executeQuery();
+            while (rest.next()) {
+                restaurante.setDescripcion(rest.getString("ALMUDESCRIPCION"));
+                //restaurante.setIdAlmuerzo(rest.getString("ALMUID"));
+                //restaurante.setCostoAlm(rest.getString("ALMUCOSTO"));
+            }
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(ComponenteRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante de la base de datos", ex);
+        }
+        return restaurante;
     }
 }
