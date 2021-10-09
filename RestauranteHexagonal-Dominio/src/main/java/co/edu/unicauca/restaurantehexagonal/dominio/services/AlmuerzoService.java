@@ -159,4 +159,14 @@ public class AlmuerzoService {
         return repositoryAlm.buscaralmu(restId);
     }
     
+    public List<Almuerzo> foto(String idAlmu) {
+        List<JsonError> errors = new ArrayList<>();
+        if (idAlmu.isEmpty()) {
+            if (!errors.isEmpty()) {
+                errors.add(new JsonError("400", "BAD_REQUEST", "ERROR AL GENERAR PEDIDO SQL"));
+            }
+        }
+        return repositoryAlm.foto(idAlmu);
+    }
+    
 }

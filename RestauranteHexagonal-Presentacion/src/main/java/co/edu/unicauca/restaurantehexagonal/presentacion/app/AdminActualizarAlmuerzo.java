@@ -33,13 +33,14 @@ import javax.swing.table.DefaultTableModel;
 public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     
     
-    String restId = "1";
+    String restId ;
     /**
      * Creates new form AdminComponentes
      */public AdminActualizarAlmuerzo(){
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Actualizar Almuerzo");
+        String restId = "1";
             
         }
      

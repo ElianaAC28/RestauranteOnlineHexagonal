@@ -305,4 +305,30 @@ try {
         }
         return restaurante;
     }
+
+    @Override
+    public List<Almuerzo> foto(String idAlmu) {
+        List<Almuerzo> objList = new ArrayList<Almuerzo>();
+        this.connect();
+        Almuerzo objAlmuerzo = new Almuerzo();
+        try {
+
+            String sql = "SELECT ALMUFOTO FROM ALMUERZO WHERE ALMUID = "+ idAlmu +";";
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            ResultSet res = pstmt.executeQuery();
+            while (res.next()) {
+
+                objAlmuerzo.setFoto(res.getBytes("AlmuFoto"));
+                objList.add(objAlmuerzo);
+
+            }
+            this.disconnect();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante de la base de datos", ex);
+        }
+        return objList;
+    }        
+    
 }

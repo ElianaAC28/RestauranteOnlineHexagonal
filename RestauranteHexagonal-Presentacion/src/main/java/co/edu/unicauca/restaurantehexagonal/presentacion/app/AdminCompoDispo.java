@@ -29,14 +29,15 @@ public class AdminCompoDispo extends javax.swing.JFrame {
     
     String idComp = "";
     String idAlmu = "";
-    String restId = "1";
+    String restId ;
     /**
      * Creates new form AdminComponentes
      */
     public AdminCompoDispo(){
         initComponents();
         setLocationRelativeTo(null);
-        setTitle("Actualizar Componente Almuerzo");        
+        setTitle("Actualizar Componente Almuerzo");       
+        String restId = "1";
     }
     
     public AdminCompoDispo(String viejo, String idAlmu1, String restId){

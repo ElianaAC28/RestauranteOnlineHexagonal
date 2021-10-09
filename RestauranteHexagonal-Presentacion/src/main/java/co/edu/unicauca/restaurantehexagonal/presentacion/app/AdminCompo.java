@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  */
 public class AdminCompo extends javax.swing.JFrame {
 
-    String restId = "1";
+    String restId;
     /**
      * Creates new form AdminAlmuerzo
      */
@@ -29,6 +29,7 @@ public class AdminCompo extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Administrador Componentes");
+        String restId = "1";
     }
     
     public AdminCompo(String restId) {

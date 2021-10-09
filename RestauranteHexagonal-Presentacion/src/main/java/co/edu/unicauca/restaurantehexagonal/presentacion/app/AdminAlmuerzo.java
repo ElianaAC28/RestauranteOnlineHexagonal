@@ -38,14 +38,14 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     List<Componente> objListComponentes = new ArrayList<Componente>();
     String tipoid;
     
-    String restId = "1";
+    String restId ;
 
     public AdminAlmuerzo() throws Exception {
         initComponents();
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
         setLocationRelativeTo(null); //centrar la ventana
-
+        String restId = "1";
         mostrar();
 
     }

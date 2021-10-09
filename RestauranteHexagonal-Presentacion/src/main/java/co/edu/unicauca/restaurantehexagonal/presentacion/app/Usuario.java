@@ -17,10 +17,14 @@ import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -33,7 +37,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Usuario extends javax.swing.JFrame {
 
     String restId = "";
-    int almuerzo = 1;
+    int almuerzo;
 
     /**
      * Creates new form Usuario
@@ -41,6 +45,7 @@ public class Usuario extends javax.swing.JFrame {
     public Usuario() {
         initComponents();
         this.setLocationRelativeTo(null);
+        almuerzo = 1;
         try {
             llenarTabla();//llama al metodo que se encarga de llenar los cbx
         } catch (Exception ex) {
@@ -80,7 +85,6 @@ public class Usuario extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lblImagen = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         cbxEntrada = new javax.swing.JComboBox<>();
         cbxProteina = new javax.swing.JComboBox<>();
@@ -94,7 +98,7 @@ public class Usuario extends javax.swing.JFrame {
         btnRestaurantes = new javax.swing.JButton();
         btnContacto = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
+        lblImagen = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -149,10 +153,6 @@ public class Usuario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Calibri", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(153, 0, 0));
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 280, 30));
-
-        lblImagen.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        lblImagen.setForeground(new java.awt.Color(153, 0, 0));
-        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 250, 140, 110));
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
@@ -265,8 +265,8 @@ public class Usuario extends javax.swing.JFrame {
         });
         getContentPane().add(btnCerrarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 100, 50));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/si.jpg"))); // NOI18N
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 220, 180));
+        lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/si.jpg"))); // NOI18N
+        getContentPane().add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 220, 180));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         jLabel1.setText("\n");
@@ -317,22 +317,39 @@ public class Usuario extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnContactoActionPerformed
 
+    private void btnBackSelectAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackSelectAlmuActionPerformed
+        btnBackSelectAlmu.setVisible(false);
+        cbxAlmuerzos.setVisible(true);
+        btnSelectAlmuerzo.setVisible(true);
+        lblFondoAlmuerzo.setVisible(true);
+        cbxBebida.removeAllItems();
+        cbxEntrada.removeAllItems();
+        cbxPrincipio.removeAllItems();
+        cbxProteina.removeAllItems();
+        
+    }//GEN-LAST:event_btnBackSelectAlmuActionPerformed
+
     private void btnSelectAlmuerzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectAlmuerzoActionPerformed
-        String almuerz = cbxAlmuerzos.getItemAt(cbxAlmuerzos.getSelectedIndex());
+        String almu, almuerz;
+        almuerz = cbxAlmuerzos.getItemAt(cbxAlmuerzos.getSelectedIndex());
+        String[] parts = almuerz.split(" ");
+        almu = parts[1];
+        
         char idalmu = almuerz.charAt(almuerz.length()-1);
         almuerzo = Character.getNumericValue(idalmu);
         lbldescripcion.setText("Descripcion: " + descripcion());
         cbxAlmuerzos.setVisible(false);
         btnSelectAlmuerzo.setVisible(false);
         lblFondoAlmuerzo.setVisible(false);
-    }//GEN-LAST:event_btnSelectAlmuerzoActionPerformed
+        btnBackSelectAlmu.setVisible(true);
+        try{
+            llenarTabla();
+        }catch (Exception ex) {
+            Logger.getLogger(AdminActualizarAlmuerzo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        foto(almu);
 
-    private void btnBackSelectAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackSelectAlmuActionPerformed
-        btnBackSelectAlmu.setVisible(false);
-        cbxAlmuerzos.setVisible(true);
-        btnSelectAlmuerzo.setVisible(true);
-        lblFondoAlmuerzo.setVisible(true);
-    }//GEN-LAST:event_btnBackSelectAlmuActionPerformed
+    }//GEN-LAST:event_btnSelectAlmuerzoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -445,7 +462,26 @@ public class Usuario extends javax.swing.JFrame {
         return nombre;
     }
 
+    private void foto(String almu) {
+        try {
+            IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+            AlmuerzoService objService = new AlmuerzoService(service);
+            List<Almuerzo> response = new ArrayList<Almuerzo>();
 
+            response = objService.foto(almu);
+
+            byte[] bi = response.get(0).getFoto();
+            BufferedImage image = null;
+            InputStream in = new ByteArrayInputStream(bi);
+            image = ImageIO.read(in);
+            ImageIcon imgi = new ImageIcon(image.getScaledInstance(360, 170, 0));
+            lblImagen.setIcon(imgi);
+
+        } catch (Exception ex) {
+            lblImagen.setText("No imagen");
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackSelectAlmu;
     private javax.swing.JButton btnCerrarSesion;
@@ -462,7 +498,6 @@ public class Usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
