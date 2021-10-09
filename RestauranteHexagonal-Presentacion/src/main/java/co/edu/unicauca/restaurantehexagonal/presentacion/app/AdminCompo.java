@@ -206,7 +206,7 @@ public class AdminCompo extends javax.swing.JFrame {
         Componente componente = new Componente();
         
         componente.setIdComponente(Integer.parseInt(txtIdComp.getText()));
-        componente.setIdRestaurante(1); //revisar para enviar el id restaurante 
+        componente.setIdRestaurante(Integer.parseInt(restId)); //revisar para enviar el id restaurante 
         componente.setNombreComponente(txtNombreComp.getText());
         componente.setTipoComponente(cbTipoComp.getSelectedItem().toString());
         componente.setIdtipoComponente(Idtipocomponente);

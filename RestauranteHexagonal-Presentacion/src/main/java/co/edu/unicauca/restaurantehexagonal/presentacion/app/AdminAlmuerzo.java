@@ -56,8 +56,10 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
         setLocationRelativeTo(null); //centrar la ventana
-
+        txtDescripcion.setVisible(false);
         mostrar();
+        btnCerrar.setVisible(false);
+        jScrollPane2.setVisible(false);
 
     }
 
@@ -71,12 +73,16 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        btnCerrar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDescripcion = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblListaComp = new javax.swing.JTable();
         lblAddAlmuerzo = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnCrearAlmu = new javax.swing.JButton();
         btnFoto = new javax.swing.JButton();
+        btnAddDescrip = new javax.swing.JButton();
         btnAddComp = new javax.swing.JButton();
         txtAlmu = new javax.swing.JTextField();
         lblImagen = new javax.swing.JLabel();
@@ -98,6 +104,25 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
         jPanel1.setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         jPanel1.setLayout(null);
+
+        btnCerrar.setBackground(new java.awt.Color(255, 51, 43));
+        btnCerrar.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setText("Cerrar");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(320, 320, 80, 27);
+
+        txtDescripcion.setColumns(20);
+        txtDescripcion.setRows(5);
+        jScrollPane2.setViewportView(txtDescripcion);
+
+        jPanel1.add(jScrollPane2);
+        jScrollPane2.setBounds(150, 180, 410, 140);
 
         tblListaComp.setAutoCreateRowSorter(true);
         tblListaComp.setFont(new java.awt.Font("Calibri Light", 2, 14)); // NOI18N
@@ -140,7 +165,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
         jLabel4.setText("Id:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(-30, 0, 16, 17);
+        jLabel4.setBounds(-30, 0, 16, 18);
 
         btnCrearAlmu.setBackground(new java.awt.Color(255, 51, 43));
         btnCrearAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -164,7 +189,20 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnFoto);
-        btnFoto.setBounds(560, 370, 80, 33);
+        btnFoto.setBounds(560, 370, 80, 27);
+
+        btnAddDescrip.setBackground(new java.awt.Color(255, 51, 43));
+        btnAddDescrip.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnAddDescrip.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddDescrip.setText("Agregar Descripcion");
+        btnAddDescrip.setActionCommand("");
+        btnAddDescrip.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddDescripActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnAddDescrip);
+        btnAddDescrip.setBounds(430, 140, 200, 30);
 
         btnAddComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAddComp.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -211,7 +249,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(510, 60, 82, 17);
+        btnContacto.setBounds(510, 60, 71, 19);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -225,7 +263,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(599, 60, 40, 17);
+        btnSalir.setBounds(599, 60, 40, 19);
 
         jLabel14.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
@@ -274,7 +312,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrarComp);
-        btnMostrarComp.setBounds(170, 420, 180, 23);
+        btnMostrarComp.setBounds(170, 420, 167, 23);
 
         jLabel15.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -311,7 +349,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         Almuerzo objAlmu = new Almuerzo();
 
         objAlmu.setIdAlmuerzo(txtAlmu.getText());
-        objAlmu.setRestId(1 + "");
+        objAlmu.setRestId(restId);
         int ban = 0;
 
         try {
@@ -364,7 +402,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         AlmuerzoService objService = new AlmuerzoService(service);
         Almuerzo objAlmu = new Almuerzo();
         objAlmu.setIdAlmuerzo(txtAlmu.getText());
-        objAlmu.setRestId(1 + ""); //de forma predeterminada lo guardamos en el restaurante 1
+        objAlmu.setRestId(restId); //de forma predeterminada lo guardamos en el restaurante 1
         objAlmu.setCostoAlm(0 + ""); //fabrica hasta que le enviemos el precio
 
         try {
@@ -392,8 +430,9 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         AlmuerzoService objService = new AlmuerzoService(service);
         Almuerzo objAlmu = new Almuerzo();
         objAlmu.setIdAlmuerzo(txtAlmu.getText());
-        objAlmu.setRestId(1 + ""); //de forma predeterminada lo guardamos en el restaurante 1
+        objAlmu.setRestId(restId); //de forma predeterminada lo guardamos en el restaurante 1
         objAlmu.setCostoAlm(txtCosto.getText()); //fabrica hasta que le enviemos el precio
+        objAlmu.setDescripcion(txtDescripcion.getText());
         File ruta = new File(txtruta.getText());
         try {
             byte[] icono = new byte[(int) ruta.length()];
@@ -404,6 +443,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             successMessage("Almuerzo" + response + " Creado con exito.", "Atención");
             clearcontroles();
             txtAlmu.setEditable(true);
+            txtruta.setText("");
 
         } catch (Exception ex) {
             System.out.println(ex);
@@ -436,6 +476,20 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnFotoActionPerformed
 
+    private void btnAddDescripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddDescripActionPerformed
+        // TODO add your handling code here:
+        txtDescripcion.setVisible(true);
+        btnCerrar.setVisible(true);
+        jScrollPane2.setVisible(true);
+    }//GEN-LAST:event_btnAddDescripActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+        txtDescripcion.setVisible(false);
+        btnCerrar.setVisible(false);
+        jScrollPane2.setVisible(false);
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
     private void clearCotronls() {
         txtAlmu.setText("");
     }
@@ -444,6 +498,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         txtAlmu.setText("");
         txtCosto.setText("");
         btnCrearAlmu.setVisible(true);
+        txtDescripcion.setText("");
         //Sacamos el ide de la tabla con los componentes
         DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel();
         tabla1.setRowCount(0);
@@ -592,6 +647,8 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddAlmu;
     private javax.swing.JButton btnAddComp;
+    private javax.swing.JButton btnAddDescrip;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnCrearAlmu;
     private javax.swing.JButton btnFoto;
@@ -605,12 +662,14 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAddAlmuerzo;
     private javax.swing.JLabel lblCosto;
     private javax.swing.JLabel lblImagen;
     private javax.swing.JTable tblListaComp;
     private javax.swing.JTextField txtAlmu;
     private javax.swing.JTextField txtCosto;
+    private javax.swing.JTextArea txtDescripcion;
     private javax.swing.JTextField txtruta;
     // End of variables declaration//GEN-END:variables
 

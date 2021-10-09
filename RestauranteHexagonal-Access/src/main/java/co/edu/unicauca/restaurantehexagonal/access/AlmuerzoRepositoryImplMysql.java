@@ -187,11 +187,12 @@ public String updateCosto(Almuerzo parAlmuerzo) {
 try {
             this.connect();
 
-            String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ?, ALMUFOTO = ? WHERE ALMUID = ? AND RESTID = ?;";
+            String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ?, ALMUFOTO = ?, ALMUDESCRIPCION = ? WHERE ALMUID = ? AND RESTID = ?;";
             PreparedStatement pstmt2 = conn.prepareStatement(sql2);
             pstmt2.setString(1, parAlmuerzo.getCostoAlm());
-            pstmt2.setString(3, parAlmuerzo.getIdAlmuerzo());
-            pstmt2.setString(4, parAlmuerzo.getRestId());
+            pstmt2.setString(4, parAlmuerzo.getIdAlmuerzo());
+            pstmt2.setString(5, parAlmuerzo.getRestId());
+            pstmt2.setString(3, parAlmuerzo.getDescripcion());
             pstmt2.setBytes(2, parAlmuerzo.getFoto());
 
             pstmt2.executeUpdate();

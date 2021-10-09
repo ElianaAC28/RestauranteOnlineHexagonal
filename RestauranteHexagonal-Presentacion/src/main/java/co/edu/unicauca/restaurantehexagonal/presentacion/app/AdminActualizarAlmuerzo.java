@@ -14,6 +14,8 @@ import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteReposi
 import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import static co.edu.unicauca.restaurantehexagonal.dominio.services.Messages.successMessage;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -21,6 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -41,7 +45,8 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         setTitle("Actualizar Almuerzo");
         String restId = "1";
-            
+        jlImagen.setVisible(false);
+        btnCerrar.setVisible(false);    
         }
      
     public AdminActualizarAlmuerzo(String restId){
@@ -49,7 +54,8 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Actualizar Almuerzo");
-            
+        jlImagen.setVisible(false);
+        btnCerrar.setVisible(false);
     }     
      
     String dato = "";
@@ -65,6 +71,9 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnQuitar = new javax.swing.JButton();
+        btnVerFoto = new javax.swing.JButton();
+        btnCerrar = new javax.swing.JButton();
+        jlImagen = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JButton();
@@ -103,6 +112,36 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         });
         jPanel1.add(btnQuitar);
         btnQuitar.setBounds(270, 410, 200, 20);
+
+        btnVerFoto.setBackground(new java.awt.Color(255, 51, 43));
+        btnVerFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnVerFoto.setForeground(new java.awt.Color(255, 255, 255));
+        btnVerFoto.setText("Ver Foto");
+        btnVerFoto.setToolTipText("");
+        btnVerFoto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerFotoActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnVerFoto);
+        btnVerFoto.setBounds(450, 130, 83, 30);
+
+        btnCerrar.setBackground(new java.awt.Color(255, 51, 43));
+        btnCerrar.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnCerrar.setForeground(new java.awt.Color(255, 255, 255));
+        btnCerrar.setText("Cerrar");
+        btnCerrar.setToolTipText("");
+        btnCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCerrarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnCerrar);
+        btnCerrar.setBounds(340, 360, 70, 30);
+
+        jlImagen.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.add(jlImagen);
+        jlImagen.setBounds(180, 180, 380, 190);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
         jPanel1.add(jLabel2);
@@ -189,23 +228,23 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
         jLabel4.setText("Id:");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(-30, 0, 16, 17);
+        jLabel4.setBounds(-30, 0, 16, 18);
 
         txtruta.setEditable(false);
         jPanel1.add(txtruta);
-        txtruta.setBounds(470, 370, 160, 24);
+        txtruta.setBounds(470, 370, 160, 19);
 
         btnFoto.setBackground(new java.awt.Color(255, 51, 43));
         btnFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnFoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnFoto.setText("Foto");
+        btnFoto.setText("Subir Foto");
         btnFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFotoActionPerformed(evt);
             }
         });
         jPanel1.add(btnFoto);
-        btnFoto.setBounds(200, 400, 70, 30);
+        btnFoto.setBounds(180, 400, 100, 30);
         jPanel1.add(txtAlmu);
         txtAlmu.setBounds(220, 130, 130, 30);
 
@@ -231,7 +270,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(500, 80, 82, 17);
+        btnContacto.setBounds(500, 80, 71, 19);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -245,7 +284,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSalir);
-        btnSalir.setBounds(590, 80, 37, 17);
+        btnSalir.setBounds(590, 80, 35, 19);
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
@@ -370,7 +409,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         AlmuerzoService objService = new AlmuerzoService(service);
         Almuerzo objAlmu = new Almuerzo();
         objAlmu.setIdAlmuerzo(txtAlmu.getText());
-        objAlmu.setRestId(1 + ""); //de forma predeterminada lo guardamos en el restaurante 1
+        objAlmu.setRestId(restId); //de forma predeterminada lo guardamos en el restaurante 1
         File ruta = new File(txtruta.getText());
         try {
             byte[] icono = new byte[(int) ruta.length()];
@@ -390,6 +429,42 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         }
         tabla1.setRowCount(0);
     }//GEN-LAST:event_btnFotoActionPerformed
+
+    private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
+        // TODO add your handling code here:
+        jlImagen.setVisible(false);
+        btnCerrar.setVisible(false);
+        tblListaComp.setVisible(true);
+        jScrollPane1.setVisible(true);
+    }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void btnVerFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFotoActionPerformed
+        // TODO add your handling code here:
+        try {
+            IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+            AlmuerzoService objService = new AlmuerzoService(service);
+            List<Almuerzo> response = new ArrayList<Almuerzo>();
+
+            response = objService.foto(txtAlmu.getText());
+
+            byte[] bi = response.get(0).getFoto();
+            BufferedImage image = null;
+            InputStream in = new ByteArrayInputStream(bi);
+            image = ImageIO.read(in);
+            ImageIcon imgi = new ImageIcon(image.getScaledInstance(380, 190, 0));
+            jlImagen.setIcon(imgi);
+            jlImagen.setVisible(true);
+            btnCerrar.setVisible(true);
+            tblListaComp.setVisible(false);
+            jScrollPane1.setVisible(false);
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(null, "EL ALMUERZO NO CONTIENE FOTO, ACTUALICE!!", "FOTO!", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        
+        
+    }//GEN-LAST:event_btnVerFotoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -526,11 +601,13 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnQuitar;
     private javax.swing.JButton btnSalir;
+    private javax.swing.JButton btnVerFoto;
     private javax.swing.JLabel imgContacto1;
     private javax.swing.JLabel imgEliminar;
     private javax.swing.JLabel imgUpdate;
@@ -539,6 +616,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jlImagen;
     private javax.swing.JLabel lblFondo;
     private javax.swing.JLabel lblIdAlmu;
     private javax.swing.JLabel lblIdAlmu1;
