@@ -292,13 +292,13 @@ try {
         Almuerzo restaurante = new Almuerzo();
         this.connect();
         try {
-            String sql = "SELECT ALMUDESCRIPCION FROM almuerzo WHERE restId='" + restId +"';";
+            String sql = "SELECT ALMUDESCRIPCION, ALMUCOSTO FROM almuerzo WHERE restId='" + restId +"';";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rest = pstmt.executeQuery();
             while (rest.next()) {
                 restaurante.setDescripcion(rest.getString("ALMUDESCRIPCION"));
                 //restaurante.setIdAlmuerzo(rest.getString("ALMUID"));
-                //restaurante.setCostoAlm(rest.getString("ALMUCOSTO"));
+                restaurante.setCostoAlm(rest.getString("ALMUCOSTO"));
             }
             this.disconnect();
         } catch (SQLException ex) {
@@ -306,6 +306,8 @@ try {
         }
         return restaurante;
     }
+    
+    
 
     @Override
     public List<Almuerzo> foto(String idAlmu) {

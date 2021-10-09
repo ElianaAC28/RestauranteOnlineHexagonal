@@ -5,7 +5,6 @@
  */
 package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
-
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
@@ -35,31 +34,35 @@ import javax.swing.table.DefaultTableModel;
  * @author softwareTeam
  */
 public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
-    
-    
-    String restId ;
+
+    String restId;
+    String costo;
+
     /**
      * Creates new form AdminComponentes
-     */public AdminActualizarAlmuerzo(){
+     */
+    public AdminActualizarAlmuerzo() {
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Actualizar Almuerzo");
         String restId = "1";
         jlImagen.setVisible(false);
-        btnCerrar.setVisible(false);    
-        }
-     
-    public AdminActualizarAlmuerzo(String restId){
+        btnCerrar.setVisible(false);
+        txtDescrip.setVisible(false);
+    }
+
+    public AdminActualizarAlmuerzo(String restId) {
         this.restId = restId;
         initComponents();
         setLocationRelativeTo(null);
         setTitle("Actualizar Almuerzo");
         jlImagen.setVisible(false);
         btnCerrar.setVisible(false);
-    }     
-     
+        txtDescrip.setVisible(false);
+    }
+
     String dato = "";
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,6 +74,8 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         btnQuitar = new javax.swing.JButton();
+        txtDescrip = new javax.swing.JTextArea();
+        btnDesc = new javax.swing.JButton();
         btnVerFoto = new javax.swing.JButton();
         btnCerrar = new javax.swing.JButton();
         jlImagen = new javax.swing.JLabel();
@@ -112,6 +117,24 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         });
         jPanel1.add(btnQuitar);
         btnQuitar.setBounds(270, 410, 200, 20);
+
+        txtDescrip.setColumns(20);
+        txtDescrip.setRows(5);
+        jPanel1.add(txtDescrip);
+        txtDescrip.setBounds(180, 180, 380, 180);
+
+        btnDesc.setBackground(new java.awt.Color(255, 51, 43));
+        btnDesc.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnDesc.setForeground(new java.awt.Color(255, 255, 255));
+        btnDesc.setText("Descripcion");
+        btnDesc.setToolTipText("");
+        btnDesc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDesc);
+        btnDesc.setBounds(543, 130, 100, 30);
 
         btnVerFoto.setBackground(new java.awt.Color(255, 51, 43));
         btnVerFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -309,20 +332,19 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void btnActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnActualizarActionPerformed
-                
+
         DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel();
-        dato=String.valueOf(tabla1.getValueAt(tblListaComp.getSelectedRow(),0));
-        
-        
+        dato = String.valueOf(tabla1.getValueAt(tblListaComp.getSelectedRow(), 0));
+
         //Utilizamos el constructor para enviar datos al otro jframe
-        AdminCompoDispo adcom = new AdminCompoDispo(dato,txtAlmu.getText(), restId);        
-        
+        AdminCompoDispo adcom = new AdminCompoDispo(dato, txtAlmu.getText(), restId);
+
         adcom.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnActualizarActionPerformed
-    
+
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         Admin admin = new Admin(restId);
         admin.setVisible(true);
@@ -336,8 +358,13 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(AdminActualizarAlmuerzo.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+        IAlmuerzoRepository objService = Factory.getInstance().getRepositoryAlmuerzo();
+
+        Almuerzo response = objService.buscaralmu(restId);
+        txtDescrip.setText(response.getDescripcion());
+        costo = response.getCostoAlm();
+
+
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnQuitarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuitarActionPerformed
@@ -345,39 +372,38 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         int input = JOptionPane.showConfirmDialog(null, "¿Está seguro de eliminar el componente?", "Alerta!", JOptionPane.YES_NO_OPTION);
         // 0=yes, 1=no, 
         System.out.println(input);
-        if (input==0){
-            
-        
-        DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel(); // crea la tabla 1, y se le asiigna el modelo
-        dato = String.valueOf(tabla1.getValueAt(tblListaComp.getSelectedRow(),0)); // sacar el id del compoente que se selecciona en la tabla1   
-        String nombre = String.valueOf(tabla1.getValueAt(tblListaComp.getSelectedRow(),1)); // Saca el nombre de componente que se selecciona en la tabla 1 y se asigna a la variable nombre
+        if (input == 0) {
 
-        String id_Almu = txtAlmu.getText(); // Guarda el id del almuerzo que se escribe en el txt y se guarda en id_almu
-        
-        //Generar la instancia del repositoro de la factoria para ser guardada en serivicio.
-        IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo(); 
-        
-        // Creamos el almuerzoService y le amndamos el servicio creado anteriormente
-        AlmuerzoService objService= new AlmuerzoService(service);
-        
-        // creamos el objeto objAlmu de la clase Almuerzo
-        Almuerzo objAlmu = new Almuerzo();
-        
-        //Al objAlmu creado que hereda los atributos de la clase almuero y le enviamos el id del almuerzo para que sea gutado en IdAlmuero de objAlmu
-        objAlmu.setIdAlmuerzo(id_Almu);
-        objAlmu.setRestId(dato); //mandamos el id del componente a eliminar, reutilizando la variable restId
-          
-        try {
-            String response = objService.deleteCompAlmuerzo(objAlmu);
-            successMessage("Componente " + nombre + " Fue eliminado del almuerzo "+response+" con exito.", "Atención");
-            tabla1.setRowCount(0); //reset de la tabla
-            txtAlmu.setText(""); //limpiamos el txt
-        } catch (Exception ex) {
+            DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel(); // crea la tabla 1, y se le asiigna el modelo
+            dato = String.valueOf(tabla1.getValueAt(tblListaComp.getSelectedRow(), 0)); // sacar el id del compoente que se selecciona en la tabla1   
+            String nombre = String.valueOf(tabla1.getValueAt(tblListaComp.getSelectedRow(), 1)); // Saca el nombre de componente que se selecciona en la tabla 1 y se asigna a la variable nombre
+
+            String id_Almu = txtAlmu.getText(); // Guarda el id del almuerzo que se escribe en el txt y se guarda en id_almu
+
+            //Generar la instancia del repositoro de la factoria para ser guardada en serivicio.
+            IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+
+            // Creamos el almuerzoService y le amndamos el servicio creado anteriormente
+            AlmuerzoService objService = new AlmuerzoService(service);
+
+            // creamos el objeto objAlmu de la clase Almuerzo
+            Almuerzo objAlmu = new Almuerzo();
+
+            //Al objAlmu creado que hereda los atributos de la clase almuero y le enviamos el id del almuerzo para que sea gutado en IdAlmuero de objAlmu
+            objAlmu.setIdAlmuerzo(id_Almu);
+            objAlmu.setRestId(dato); //mandamos el id del componente a eliminar, reutilizando la variable restId
+
+            try {
+                String response = objService.deleteCompAlmuerzo(objAlmu);
+                successMessage("Componente " + nombre + " Fue eliminado del almuerzo " + response + " con exito.", "Atención");
+                tabla1.setRowCount(0); //reset de la tabla
+                txtAlmu.setText(""); //limpiamos el txt
+            } catch (Exception ex) {
                 System.out.println(ex);
                 successMessage(ex.getMessage() + "Error", "Atención");
             }
         }
-        
+
     }//GEN-LAST:event_btnQuitarActionPerformed
 
     private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
@@ -388,7 +414,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContactoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-      
+
         MenuAdmin menu = new MenuAdmin(restId);
         menu.setVisible(true);
         this.dispose();
@@ -397,11 +423,11 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel();
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fil);
 
         int s = j.showOpenDialog(this);
-        if(s == JFileChooser.APPROVE_OPTION){
+        if (s == JFileChooser.APPROVE_OPTION) {
             String ruta = j.getSelectedFile().getAbsolutePath();
             txtruta.setText(ruta);
         } //PARTE ACTUALIZAR FOTO
@@ -422,20 +448,37 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             txtAlmu.setEditable(true);
             txtAlmu.setText(""); //limpiamos el txt 
             txtruta.setText("");
-            
+
         } catch (Exception ex) {
             System.out.println(ex);
-            JOptionPane.showMessageDialog(null, ex.getMessage() +"Falla en el sistema", "ERROR", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, ex.getMessage() + "Falla en el sistema", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
         tabla1.setRowCount(0);
     }//GEN-LAST:event_btnFotoActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
         // TODO add your handling code here:
-        jlImagen.setVisible(false);
-        btnCerrar.setVisible(false);
+        IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+        AlmuerzoService objService = new AlmuerzoService(service);
+        jlImagen.setVisible(false);        
+        if (txtDescrip.isVisible()) {
+            Almuerzo objAlmu = new Almuerzo();
+            objAlmu.setIdAlmuerzo(txtAlmu.getText());
+            objAlmu.setRestId(restId); //de forma predeterminada lo guardamos en el restaurante 1
+            objAlmu.setCostoAlm(costo); //fabrica hasta que le enviemos el precio
+            objAlmu.setDescripcion(txtDescrip.getText());
+            try {
+                String response = objService.updateCosto(objAlmu);
+                JOptionPane.showMessageDialog(null, "DESCRIPCION ACTUALIZADA CORRECTAMENTE ", "DESCRIPCION", JOptionPane.INFORMATION_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, "OCURRIO EL SIGUENTE ERROR " + ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+        txtDescrip.setVisible(false);
+        lblIdAlmu.setVisible(true);
         tblListaComp.setVisible(true);
         jScrollPane1.setVisible(true);
+        btnCerrar.setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
 
     private void btnVerFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerFotoActionPerformed
@@ -461,10 +504,18 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, "EL ALMUERZO NO CONTIENE FOTO, ACTUALICE!!", "FOTO!", JOptionPane.ERROR_MESSAGE);
         }
-        
-        
-        
+
+
     }//GEN-LAST:event_btnVerFotoActionPerformed
+
+    private void btnDescActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescActionPerformed
+        // TODO add your handling code here:
+        txtDescrip.setVisible((true));
+        lblIdAlmu.setVisible(false);
+        btnCerrar.setVisible(true);
+        tblListaComp.setVisible(false);
+        jScrollPane1.setVisible(false);
+    }//GEN-LAST:event_btnDescActionPerformed
 
     /**
      * @param args the command line arguments
@@ -565,13 +616,13 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
                     Logger.getLogger(AdminActualizarAlmuerzo.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
-            
-            
+
         });
     }
+
     private void llenarTabla() throws Exception {
         IComponenteRepository service = Factory.getInstance().getRepositoryComponente();
-        ComponenteService componenteService= new ComponenteService(service);
+        ComponenteService componenteService = new ComponenteService(service);
 
         //Componente objComponente = new Componente();
         List<Componente> objListComponentes = new ArrayList<Componente>();
@@ -581,7 +632,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         String matriz[][] = new String[objListComponentes.size()][3];
 
         for (int i = 0; i < objListComponentes.size(); i++) {
-            matriz[i][0] = objListComponentes.get(i).getIdComponente()+"";
+            matriz[i][0] = objListComponentes.get(i).getIdComponente() + "";
             matriz[i][1] = objListComponentes.get(i).getNombreComponente();
             matriz[i][2] = objListComponentes.get(i).getTipoComponente();
         }
@@ -589,20 +640,19 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         tblListaComp.setModel(new javax.swing.table.DefaultTableModel(
                 matriz,
                 new String[]{
-                     "ID","NombreComponente", "TipoComponente"
+                    "ID", "NombreComponente", "TipoComponente"
                 }
         ));
-        
+
     }
 
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCerrar;
     private javax.swing.JButton btnContacto;
+    private javax.swing.JButton btnDesc;
     private javax.swing.JButton btnFoto;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnQuitar;
@@ -622,8 +672,8 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     private javax.swing.JLabel lblIdAlmu1;
     private javax.swing.JTable tblListaComp;
     private javax.swing.JTextField txtAlmu;
+    private javax.swing.JTextArea txtDescrip;
     private javax.swing.JTextField txtruta;
     // End of variables declaration//GEN-END:variables
-
 
 }
