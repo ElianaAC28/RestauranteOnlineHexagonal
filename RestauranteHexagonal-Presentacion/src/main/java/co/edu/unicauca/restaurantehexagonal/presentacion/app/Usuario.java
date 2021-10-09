@@ -75,6 +75,7 @@ public class Usuario extends javax.swing.JFrame {
         cbxAlmuerzos = new javax.swing.JComboBox<>();
         btnSelectAlmuerzo = new javax.swing.JButton();
         lblFondoAlmuerzo = new javax.swing.JLabel();
+        btnBackSelectAlmu = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -119,6 +120,18 @@ public class Usuario extends javax.swing.JFrame {
 
         lblFondoAlmuerzo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         getContentPane().add(lblFondoAlmuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 610, 250));
+
+        btnBackSelectAlmu.setBackground(new java.awt.Color(255, 51, 43));
+        btnBackSelectAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnBackSelectAlmu.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackSelectAlmu.setText("Volver a Seleccionar Almuerzo");
+        btnBackSelectAlmu.setBorder(null);
+        btnBackSelectAlmu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackSelectAlmuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBackSelectAlmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 190, 30));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -314,6 +327,13 @@ public class Usuario extends javax.swing.JFrame {
         lblFondoAlmuerzo.setVisible(false);
     }//GEN-LAST:event_btnSelectAlmuerzoActionPerformed
 
+    private void btnBackSelectAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackSelectAlmuActionPerformed
+        btnBackSelectAlmu.setVisible(false);
+        cbxAlmuerzos.setVisible(true);
+        btnSelectAlmuerzo.setVisible(true);
+        lblFondoAlmuerzo.setVisible(true);
+    }//GEN-LAST:event_btnBackSelectAlmuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -427,6 +447,7 @@ public class Usuario extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBackSelectAlmu;
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnRealizarPedido;
