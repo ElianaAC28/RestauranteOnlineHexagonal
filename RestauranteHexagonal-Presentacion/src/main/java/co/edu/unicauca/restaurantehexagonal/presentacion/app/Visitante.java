@@ -17,10 +17,14 @@ import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -33,6 +37,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Visitante extends javax.swing.JFrame {
 
     String restId = "";
+    int almuerzo = 1;
 
     /**
      * Creates new form Usuario
@@ -52,7 +57,7 @@ public class Visitante extends javax.swing.JFrame {
         this.restId = restId;
         initComponents();
         lblBienvenido.setText("Bienvenido a " + obtenerNombreRest());
-        lblDescripcion.setText("Descripcion: " + descripcion());
+        llenarAlmuerzos();
         setLocationRelativeTo(null);
         setTitle("Visitante");
     }
@@ -67,7 +72,10 @@ public class Visitante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        btnSelectAlmuerzo = new javax.swing.JButton();
+        cbxAlmuerzos = new javax.swing.JComboBox<>();
+        lblFondoAlmuerzo = new javax.swing.JLabel();
+        btnBackSelectAlmu = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         lblBienvenido = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -89,8 +97,35 @@ public class Visitante extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setLayout(null);
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        btnSelectAlmuerzo.setBackground(new java.awt.Color(255, 51, 43));
+        btnSelectAlmuerzo.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnSelectAlmuerzo.setForeground(new java.awt.Color(255, 255, 255));
+        btnSelectAlmuerzo.setText("Seleccionar Almuerzo");
+        btnSelectAlmuerzo.setBorder(null);
+        btnSelectAlmuerzo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectAlmuerzoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnSelectAlmuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, 160, 40));
+
+        cbxAlmuerzos.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
+        getContentPane().add(cbxAlmuerzos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 160, 30));
+
+        lblFondoAlmuerzo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
+        getContentPane().add(lblFondoAlmuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 610, 280));
+
+        btnBackSelectAlmu.setBackground(new java.awt.Color(255, 51, 43));
+        btnBackSelectAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnBackSelectAlmu.setForeground(new java.awt.Color(255, 255, 255));
+        btnBackSelectAlmu.setText("Volver a Seleccionar Almuerzo");
+        btnBackSelectAlmu.setBorder(null);
+        btnBackSelectAlmu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackSelectAlmuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBackSelectAlmu, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 190, 30));
 
         jLabel6.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -248,6 +283,40 @@ public class Visitante extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
+    private void btnSelectAlmuerzoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelectAlmuerzoActionPerformed
+        String almu, almuerz;
+        almuerz = cbxAlmuerzos.getItemAt(cbxAlmuerzos.getSelectedIndex());
+        String[] parts = almuerz.split(" ");
+        almu = parts[1];
+
+        char idalmu = almuerz.charAt(almuerz.length()-1);
+        almuerzo = Character.getNumericValue(idalmu);
+        lblDescripcion.setText("Descripcion: " + descripcion());
+        cbxAlmuerzos.setVisible(false);
+        btnSelectAlmuerzo.setVisible(false);
+        lblFondoAlmuerzo.setVisible(false);
+        btnBackSelectAlmu.setVisible(true);
+
+        try{
+            llenarTabla();
+        }catch (Exception ex) {
+            Logger.getLogger(AdminActualizarAlmuerzo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        foto(almu);
+    }//GEN-LAST:event_btnSelectAlmuerzoActionPerformed
+
+    private void btnBackSelectAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackSelectAlmuActionPerformed
+        btnBackSelectAlmu.setVisible(false);
+        cbxAlmuerzos.setVisible(true);
+        btnSelectAlmuerzo.setVisible(true);
+        lblFondoAlmuerzo.setVisible(true);
+        cbxBebida.removeAllItems();
+        cbxEntrada.removeAllItems();
+        cbxPrincipio.removeAllItems();
+        cbxProteina.removeAllItems();
+
+    }//GEN-LAST:event_btnBackSelectAlmuActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,7 +373,6 @@ public class Visitante extends javax.swing.JFrame {
         ComponenteService componenteService = new ComponenteService(service);
 
         List<Componente> objListComponentes = new ArrayList<Componente>();
-        int almuerzo = 1;
         objListComponentes = componenteService.listComponentesAlmuerzo(almuerzo);
 
         String matriz[][] = new String[objListComponentes.size()][3];
@@ -360,11 +428,47 @@ public class Visitante extends javax.swing.JFrame {
         return nombre;
     }
 
+    private void llenarAlmuerzos() {
+        IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+        AlmuerzoService almuerzoService = new AlmuerzoService(service);
+        
+        List<Almuerzo> objListAlmuerzos = new ArrayList<Almuerzo>();
+        objListAlmuerzos = almuerzoService.listAlmuerzosRestaurante(restId);
+        
+        for(Almuerzo almu : objListAlmuerzos){
+            cbxAlmuerzos.addItem("Almuerzo " + almu.getIdAlmuerzo());
+        }
+        
+        cbxAlmuerzos.setSelectedIndex(0);
+    }
+    
+    private void foto(String almu) {
+        try {
+            IAlmuerzoRepository service = Factory.getInstance().getRepositoryAlmuerzo();
+            AlmuerzoService objService = new AlmuerzoService(service);
+            List<Almuerzo> response = new ArrayList<Almuerzo>();
+
+            response = objService.foto(almu);
+
+            byte[] bi = response.get(0).getFoto();
+            BufferedImage image = null;
+            InputStream in = new ByteArrayInputStream(bi);
+            image = ImageIO.read(in);
+            ImageIcon imgi = new ImageIcon(image.getScaledInstance(360, 170, 0));
+            imgRes.setIcon(imgi);
+
+        } catch (Exception ex) {
+            imgRes.setText("No imagen");
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
+    private javax.swing.JButton btnBackSelectAlmu;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRealizarPedido;
+    private javax.swing.JButton btnSelectAlmuerzo;
+    private javax.swing.JComboBox<String> cbxAlmuerzos;
     private javax.swing.JComboBox<String> cbxBebida;
     private javax.swing.JComboBox<String> cbxEntrada;
     private javax.swing.JComboBox<String> cbxPrincipio;
@@ -377,9 +481,9 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblBienvenido;
     private javax.swing.JLabel lblDescripcion;
+    private javax.swing.JLabel lblFondoAlmuerzo;
     // End of variables declaration//GEN-END:variables
 
 }

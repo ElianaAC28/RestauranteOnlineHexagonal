@@ -37,7 +37,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class Usuario extends javax.swing.JFrame {
 
     String restId = "";
-    int almuerzo;
+    int almuerzo = 1;
 
     /**
      * Creates new form Usuario
@@ -342,6 +342,7 @@ public class Usuario extends javax.swing.JFrame {
         btnSelectAlmuerzo.setVisible(false);
         lblFondoAlmuerzo.setVisible(false);
         btnBackSelectAlmu.setVisible(true);
+        
         try{
             llenarTabla();
         }catch (Exception ex) {
