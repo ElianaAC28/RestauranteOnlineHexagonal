@@ -22,8 +22,8 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
 4. Nombre del grupo: SOFTWARE TEAM
 
         Integrantes:
-        Carlos Enrique Hoyos Joiro 
-        Daniel Alejandro Navia Cruz 
-        Eliana Andrea Camayo Ante
-        Jesus Edwin Andrada Ruiz
-        Luis Manuel Arroyo Lopez 
+        Carlos Enrique Hoyos Joiro <joiroce@unicauca.edu.co>
+        Daniel Alejandro Navia Cruz <danavia@unicauca.edu.co>
+        Eliana Andrea Camayo Ante <eacamayo@unicauca.edu.co>
+        Jesus Edwin Andrada Ruiz <jesusadrada@unicauca.edu.co>
+        Luis Manuel Arroyo Lopez <Luisarroyo@unicauca.edu.co>
