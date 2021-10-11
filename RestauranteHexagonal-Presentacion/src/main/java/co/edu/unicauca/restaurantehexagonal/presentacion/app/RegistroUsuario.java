@@ -76,7 +76,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 480));
-        setPreferredSize(new java.awt.Dimension(700, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -87,57 +86,57 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         jLabel1.setText("REGISTRO DE USUARIO");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(340, 40, 200, 25);
+        jLabel1.setBounds(340, 40, 220, 26);
 
         jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel2.setText("Nombre de Usuario:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(390, 160, 113, 18);
+        jLabel2.setBounds(360, 160, 131, 17);
 
         jLabel3.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel3.setText("Nombre(s):");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(390, 80, 63, 18);
+        jLabel3.setBounds(360, 80, 73, 17);
 
         jLabel4.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel4.setText("Apellido(s):");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(390, 120, 62, 18);
+        jLabel4.setBounds(360, 120, 74, 17);
 
         jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel6.setText("Genero:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(390, 240, 46, 18);
+        jLabel6.setBounds(360, 240, 53, 17);
 
         jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel7.setText("Celular:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(390, 320, 44, 18);
+        jLabel7.setBounds(360, 320, 44, 17);
 
         jLabel8.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel8.setText("Email:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(390, 280, 35, 18);
+        jLabel8.setBounds(360, 280, 41, 17);
         jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(470, 200, 180, 30);
+        jPasswordField1.setBounds(480, 200, 200, 30);
 
         jLabel9.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel9.setText("Contraseña:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(390, 200, 69, 18);
+        jLabel9.setBounds(360, 200, 80, 17);
         jPanel1.add(txtNombres);
-        txtNombres.setBounds(480, 80, 180, 30);
+        txtNombres.setBounds(480, 80, 200, 30);
         jPanel1.add(txtApellidos);
-        txtApellidos.setBounds(480, 120, 180, 30);
+        txtApellidos.setBounds(480, 120, 200, 30);
         jPanel1.add(txtNomUsuario);
-        txtNomUsuario.setBounds(510, 160, 150, 30);
+        txtNomUsuario.setBounds(510, 160, 170, 30);
 
         txtGenero.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         txtGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         jPanel1.add(txtGenero);
-        txtGenero.setBounds(460, 240, 120, 30);
+        txtGenero.setBounds(480, 240, 120, 30);
         jPanel1.add(txtEmail);
-        txtEmail.setBounds(460, 280, 190, 30);
+        txtEmail.setBounds(480, 280, 200, 30);
 
         txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -145,7 +144,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtNumero);
-        txtNumero.setBounds(460, 320, 190, 30);
+        txtNumero.setBounds(480, 320, 200, 30);
 
         btnRegistro.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
         btnRegistro.setText("REGISTRARSE");
@@ -160,7 +159,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jLabel10.setText("Cedula:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(390, 360, 43, 18);
+        jLabel10.setBounds(360, 360, 50, 17);
 
         txtID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -168,10 +167,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtID);
-        txtID.setBounds(460, 360, 190, 30);
+        txtID.setBounds(480, 360, 200, 30);
 
         jButton1.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
-        jButton1.setText("SALIR");
+        jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
