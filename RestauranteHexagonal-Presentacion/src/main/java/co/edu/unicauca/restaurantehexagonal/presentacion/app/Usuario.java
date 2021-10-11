@@ -227,7 +227,7 @@ public class Usuario extends javax.swing.JFrame {
 
         btnRestaurantes.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnRestaurantes.setForeground(new java.awt.Color(255, 255, 255));
-        btnRestaurantes.setText("Restaurantes");
+        btnRestaurantes.setText("Atras");
         btnRestaurantes.setBorder(null);
         btnRestaurantes.setBorderPainted(false);
         btnRestaurantes.setContentAreaFilled(false);
@@ -236,7 +236,7 @@ public class Usuario extends javax.swing.JFrame {
                 btnRestaurantesActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRestaurantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 70, -1, 30));
+        getContentPane().add(btnRestaurantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 70, 50));
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,7 +250,7 @@ public class Usuario extends javax.swing.JFrame {
                 btnContactoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, -1, 30));
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, 30));
 
         btnCerrarSesion.setBackground(new java.awt.Color(255, 51, 43));
         btnCerrarSesion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -348,7 +348,9 @@ public class Usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSelectAlmuerzoActionPerformed
 
     private void btnRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantesActionPerformed
-
+           GUIRestaurante rests = new GUIRestaurante(1);
+           rests.setVisible(true);
+           this.dispose();
     }//GEN-LAST:event_btnRestaurantesActionPerformed
 
     /**

@@ -74,6 +74,7 @@ public class Visitante extends javax.swing.JFrame {
 
         btnSelectAlmuerzo = new javax.swing.JButton();
         cbxAlmuerzos = new javax.swing.JComboBox<>();
+        btnIniciarSesion = new javax.swing.JButton();
         lblFondoAlmuerzo = new javax.swing.JLabel();
         btnBackSelectAlmu = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -89,7 +90,6 @@ public class Visitante extends javax.swing.JFrame {
         btnRealizarPedido = new javax.swing.JButton();
         lblDescripcion = new javax.swing.JLabel();
         btnAtras = new javax.swing.JButton();
-        btnIniciarSesion = new javax.swing.JButton();
         imgRes = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnContacto = new javax.swing.JButton();
@@ -112,6 +112,20 @@ public class Visitante extends javax.swing.JFrame {
 
         cbxAlmuerzos.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         getContentPane().add(cbxAlmuerzos, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 160, 30));
+
+        btnIniciarSesion.setBackground(new java.awt.Color(255, 51, 43));
+        btnIniciarSesion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciarSesion.setText("Iniciar sesión");
+        btnIniciarSesion.setBorder(null);
+        btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, 100, 50));
 
         lblFondoAlmuerzo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         getContentPane().add(lblFondoAlmuerzo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 610, 280));
@@ -209,7 +223,7 @@ public class Visitante extends javax.swing.JFrame {
         lblDescripcion.setText("Des");
         getContentPane().add(lblDescripcion, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 150, 560, 30));
 
-        btnAtras.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnAtras.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnAtras.setForeground(new java.awt.Color(255, 255, 255));
         btnAtras.setText("Atras");
         btnAtras.setBorder(null);
@@ -220,21 +234,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnAtrasActionPerformed(evt);
             }
         });
-        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 80, 60, 30));
-
-        btnIniciarSesion.setBackground(new java.awt.Color(255, 51, 43));
-        btnIniciarSesion.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
-        btnIniciarSesion.setForeground(new java.awt.Color(255, 255, 255));
-        btnIniciarSesion.setText("Iniciar sesión");
-        btnIniciarSesion.setBorder(null);
-        btnIniciarSesion.setBorderPainted(false);
-        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIniciarSesionActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 90, 30));
+        getContentPane().add(btnAtras, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 60, 70, 50));
 
         imgRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/si.jpg"))); // NOI18N
         getContentPane().add(imgRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 220, 180));
@@ -254,7 +254,7 @@ public class Visitante extends javax.swing.JFrame {
                 btnContactoActionPerformed(evt);
             }
         });
-        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, 30));
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, -1, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         jLabel1.setText(" ");
