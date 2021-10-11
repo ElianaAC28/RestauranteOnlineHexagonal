@@ -9,7 +9,12 @@ import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IUsuarioRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.UsuarioService;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Usuario;
+import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
+import static co.edu.unicauca.restaurantehexagonal.dominio.services.Messages.successMessage;
+import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
 import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -67,18 +72,51 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         txtID = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        imgWp9 = new javax.swing.JLabel();
         imgLogo = new javax.swing.JLabel();
         imgInstagram = new javax.swing.JLabel();
         imgFb = new javax.swing.JLabel();
-        imgWp10 = new javax.swing.JLabel();
-        imgWp11 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        txtPassword = new javax.swing.JPasswordField();
+        btnIniciarSesion = new javax.swing.JButton();
+        txtUsuario = new javax.swing.JTextField();
+        btnContacto = new javax.swing.JButton();
+        btnInvitado = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        lblIngresePass = new javax.swing.JLabel();
+        lblIngreseUser = new javax.swing.JLabel();
+        imgUser = new javax.swing.JLabel();
+        imgPass = new javax.swing.JLabel();
+        imgLogo1 = new javax.swing.JLabel();
+        imgWp = new javax.swing.JLabel();
+        imgInstagram1 = new javax.swing.JLabel();
+        lblregistrar = new javax.swing.JLabel();
+        imgFb1 = new javax.swing.JLabel();
+        imgWp3 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        txtPassword1 = new javax.swing.JPasswordField();
+        btnIniciarSesion1 = new javax.swing.JButton();
+        txtUsuario1 = new javax.swing.JTextField();
+        btnContacto1 = new javax.swing.JButton();
+        btnInvitado1 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        lblIngresePass1 = new javax.swing.JLabel();
+        lblIngreseUser1 = new javax.swing.JLabel();
+        imgUser1 = new javax.swing.JLabel();
+        imgPass1 = new javax.swing.JLabel();
+        imgLogo2 = new javax.swing.JLabel();
+        imgWp1 = new javax.swing.JLabel();
+        imgInstagram2 = new javax.swing.JLabel();
+        lblregistrar1 = new javax.swing.JLabel();
+        imgFb2 = new javax.swing.JLabel();
+        imgWp4 = new javax.swing.JLabel();
+        imgWp5 = new javax.swing.JLabel();
+        imgWp6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(700, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(186, 51, 43));
         jPanel1.setMinimumSize(new java.awt.Dimension(700, 480));
         jPanel1.setPreferredSize(new java.awt.Dimension(700, 480));
         jPanel1.setLayout(null);
@@ -86,57 +124,57 @@ public class RegistroUsuario extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         jLabel1.setText("REGISTRO DE USUARIO");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(340, 40, 220, 26);
+        jLabel1.setBounds(380, 30, 220, 25);
 
-        jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel2.setText("Nombre de Usuario:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(360, 160, 131, 17);
+        jLabel2.setBounds(330, 170, 150, 20);
 
-        jLabel3.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel3.setText("Nombre(s):");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(360, 80, 73, 17);
+        jLabel3.setBounds(330, 90, 100, 20);
 
-        jLabel4.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel4.setText("Apellido(s):");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(360, 120, 74, 17);
+        jLabel4.setBounds(330, 130, 100, 20);
 
-        jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel6.setText("Genero:");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(360, 240, 53, 17);
+        jLabel6.setBounds(330, 250, 80, 20);
 
-        jLabel7.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel7.setText("Celular:");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(360, 320, 44, 17);
+        jLabel7.setBounds(330, 330, 70, 20);
 
-        jLabel8.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel8.setText("Email:");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(360, 280, 41, 17);
+        jLabel8.setBounds(330, 290, 70, 20);
         jPanel1.add(jPasswordField1);
-        jPasswordField1.setBounds(480, 200, 200, 30);
+        jPasswordField1.setBounds(420, 200, 200, 30);
 
-        jLabel9.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel9.setText("Contraseña:");
         jPanel1.add(jLabel9);
-        jLabel9.setBounds(360, 200, 80, 17);
+        jLabel9.setBounds(330, 210, 100, 20);
         jPanel1.add(txtNombres);
-        txtNombres.setBounds(480, 80, 200, 30);
+        txtNombres.setBounds(420, 80, 200, 30);
         jPanel1.add(txtApellidos);
-        txtApellidos.setBounds(480, 120, 200, 30);
+        txtApellidos.setBounds(420, 120, 200, 30);
         jPanel1.add(txtNomUsuario);
-        txtNomUsuario.setBounds(510, 160, 170, 30);
+        txtNomUsuario.setBounds(480, 160, 140, 30);
 
         txtGenero.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         txtGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Femenino", "Masculino" }));
         jPanel1.add(txtGenero);
-        txtGenero.setBounds(480, 240, 120, 30);
+        txtGenero.setBounds(420, 240, 200, 30);
         jPanel1.add(txtEmail);
-        txtEmail.setBounds(480, 280, 200, 30);
+        txtEmail.setBounds(420, 280, 200, 30);
 
         txtNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -144,9 +182,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtNumero);
-        txtNumero.setBounds(480, 320, 200, 30);
+        txtNumero.setBounds(420, 320, 200, 30);
 
-        btnRegistro.setFont(new java.awt.Font("Calibri Light", 1, 15)); // NOI18N
+        btnRegistro.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnRegistro.setText("REGISTRARSE");
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -154,12 +192,12 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnRegistro);
-        btnRegistro.setBounds(460, 410, 150, 40);
+        btnRegistro.setBounds(390, 410, 150, 40);
 
-        jLabel10.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         jLabel10.setText("Cedula:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(360, 360, 50, 17);
+        jLabel10.setBounds(330, 370, 80, 20);
 
         txtID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -167,9 +205,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtID);
-        txtID.setBounds(480, 360, 200, 30);
+        txtID.setBounds(420, 360, 200, 30);
 
-        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 12)); // NOI18N
+        jButton1.setBackground(new java.awt.Color(186, 51, 43));
+        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         jButton1.setText("Volver");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -177,48 +216,438 @@ public class RegistroUsuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(570, 20, 90, 30);
-
-        imgWp9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp9);
-        imgWp9.setBounds(560, 0, 130, 480);
+        jButton1.setBounds(20, 420, 90, 40);
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
         jPanel1.add(imgLogo);
-        imgLogo.setBounds(60, 130, 199, 159);
+        imgLogo.setBounds(30, 130, 199, 159);
 
         imgInstagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/instagram_icon_125245.png"))); // NOI18N
         jPanel1.add(imgInstagram);
-        imgInstagram.setBounds(100, 320, 32, 32);
+        imgInstagram.setBounds(80, 300, 32, 32);
 
         imgFb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
         jPanel1.add(imgFb);
-        imgFb.setBounds(170, 320, 32, 32);
+        imgFb.setBounds(130, 300, 32, 32);
 
-        imgWp10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp10);
-        imgWp10.setBounds(330, 0, 151, 480);
+        jPanel2.setBackground(new java.awt.Color(186, 51, 43));
+        jPanel2.setForeground(new java.awt.Color(186, 51, 43));
+        jPanel2.setLayout(null);
 
-        imgWp11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp11);
-        imgWp11.setBounds(410, -10, 151, 490);
+        txtPassword.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jPanel2.add(txtPassword);
+        txtPassword.setBounds(430, 250, 180, 30);
+
+        btnIniciarSesion.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
+        btnIniciarSesion.setText("Iniciar Sesión");
+        btnIniciarSesion.setBorder(null);
+        btnIniciarSesion.setBorderPainted(false);
+        btnIniciarSesion.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIniciarSesion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesionActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnIniciarSesion);
+        btnIniciarSesion.setBounds(460, 300, 120, 40);
+
+        txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel2.add(txtUsuario);
+        txtUsuario.setBounds(430, 170, 180, 30);
+
+        btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnContacto.setForeground(new java.awt.Color(255, 255, 255));
+        btnContacto.setText("Contactanos");
+        btnContacto.setBorder(null);
+        btnContacto.setBorderPainted(false);
+        btnContacto.setContentAreaFilled(false);
+        btnContacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContactoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnContacto);
+        btnContacto.setBounds(550, 40, 110, 23);
+
+        btnInvitado.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnInvitado.setText("Entrar como visitante");
+        btnInvitado.setBorder(null);
+        btnInvitado.setBorderPainted(false);
+        btnInvitado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvitadoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnInvitado);
+        btnInvitado.setBounds(380, 430, 260, 30);
+
+        jButton2.setBackground(java.awt.SystemColor.text);
+        jButton2.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        jButton2.setText("Aquí");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton2.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(590, 380, 50, 23);
+
+        lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
+        lblIngresePass.setText("Contraseña");
+        jPanel2.add(lblIngresePass);
+        lblIngresePass.setBounds(490, 220, 130, 30);
+
+        lblIngreseUser.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblIngreseUser.setForeground(new java.awt.Color(34, 34, 34));
+        lblIngreseUser.setText("Usuario");
+        jPanel2.add(lblIngreseUser);
+        lblIngreseUser.setBounds(500, 140, 80, 30);
+
+        imgUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/round-account-button-with-user-inside_icon-icons.com_72596 (2).png"))); // NOI18N
+        jPanel2.add(imgUser);
+        imgUser.setBounds(460, 130, 32, 40);
+
+        imgPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/key-silhouette-security-tool-interface-symbol-of-password_icon-icons.com_54503.png"))); // NOI18N
+        jPanel2.add(imgPass);
+        imgPass.setBounds(450, 210, 40, 40);
+
+        imgLogo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
+        jPanel2.add(imgLogo1);
+        imgLogo1.setBounds(70, 140, 200, 140);
+
+        imgWp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/whatsapp-logo.png"))); // NOI18N
+        jPanel2.add(imgWp);
+        imgWp.setBounds(40, 70, 32, 40);
+
+        imgInstagram1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/instagram_icon_125245.png"))); // NOI18N
+        jPanel2.add(imgInstagram1);
+        imgInstagram1.setBounds(120, 320, 30, 40);
+
+        lblregistrar.setFont(new java.awt.Font("Calibri Light", 2, 16)); // NOI18N
+        lblregistrar.setText("¿No tienes una cuenta? regitrate");
+        jPanel2.add(lblregistrar);
+        lblregistrar.setBounds(380, 380, 240, 30);
+
+        imgFb1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
+        jPanel2.add(imgFb1);
+        imgFb1.setBounds(180, 320, 32, 40);
+
+        imgWp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
+        jPanel2.add(imgWp3);
+        imgWp3.setBounds(0, 0, 340, 480);
+
+        jPanel1.add(jPanel2);
+        jPanel2.setBounds(0, 0, 0, 0);
+
+        jPanel3.setBackground(new java.awt.Color(186, 51, 43));
+        jPanel3.setForeground(new java.awt.Color(186, 51, 43));
+        jPanel3.setLayout(null);
+
+        txtPassword1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        jPanel3.add(txtPassword1);
+        txtPassword1.setBounds(430, 250, 180, 30);
+
+        btnIniciarSesion1.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
+        btnIniciarSesion1.setText("Iniciar Sesión");
+        btnIniciarSesion1.setBorder(null);
+        btnIniciarSesion1.setBorderPainted(false);
+        btnIniciarSesion1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnIniciarSesion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIniciarSesion1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnIniciarSesion1);
+        btnIniciarSesion1.setBounds(460, 300, 120, 40);
+
+        txtUsuario1.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
+        txtUsuario1.setForeground(new java.awt.Color(102, 102, 102));
+        jPanel3.add(txtUsuario1);
+        txtUsuario1.setBounds(430, 170, 180, 30);
+
+        btnContacto1.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnContacto1.setForeground(new java.awt.Color(255, 255, 255));
+        btnContacto1.setText("Contactanos");
+        btnContacto1.setBorder(null);
+        btnContacto1.setBorderPainted(false);
+        btnContacto1.setContentAreaFilled(false);
+        btnContacto1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContacto1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnContacto1);
+        btnContacto1.setBounds(550, 40, 110, 23);
+
+        btnInvitado1.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnInvitado1.setText("Entrar como visitante");
+        btnInvitado1.setBorder(null);
+        btnInvitado1.setBorderPainted(false);
+        btnInvitado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInvitado1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(btnInvitado1);
+        btnInvitado1.setBounds(380, 430, 260, 30);
+
+        jButton3.setBackground(java.awt.SystemColor.text);
+        jButton3.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        jButton3.setText("Aquí");
+        jButton3.setBorder(null);
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton3.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton3);
+        jButton3.setBounds(590, 380, 50, 23);
+
+        lblIngresePass1.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblIngresePass1.setForeground(new java.awt.Color(34, 34, 34));
+        lblIngresePass1.setText("Contraseña");
+        jPanel3.add(lblIngresePass1);
+        lblIngresePass1.setBounds(490, 220, 130, 30);
+
+        lblIngreseUser1.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
+        lblIngreseUser1.setForeground(new java.awt.Color(34, 34, 34));
+        lblIngreseUser1.setText("Usuario");
+        jPanel3.add(lblIngreseUser1);
+        lblIngreseUser1.setBounds(500, 140, 80, 30);
+
+        imgUser1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/round-account-button-with-user-inside_icon-icons.com_72596 (2).png"))); // NOI18N
+        jPanel3.add(imgUser1);
+        imgUser1.setBounds(460, 130, 32, 40);
+
+        imgPass1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/key-silhouette-security-tool-interface-symbol-of-password_icon-icons.com_54503.png"))); // NOI18N
+        jPanel3.add(imgPass1);
+        imgPass1.setBounds(450, 210, 40, 40);
+
+        imgLogo2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
+        jPanel3.add(imgLogo2);
+        imgLogo2.setBounds(70, 140, 200, 140);
+
+        imgWp1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/whatsapp-logo.png"))); // NOI18N
+        jPanel3.add(imgWp1);
+        imgWp1.setBounds(40, 70, 32, 40);
+
+        imgInstagram2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/instagram_icon_125245.png"))); // NOI18N
+        jPanel3.add(imgInstagram2);
+        imgInstagram2.setBounds(120, 320, 30, 40);
+
+        lblregistrar1.setFont(new java.awt.Font("Calibri Light", 2, 16)); // NOI18N
+        lblregistrar1.setText("¿No tienes una cuenta? regitrate");
+        jPanel3.add(lblregistrar1);
+        lblregistrar1.setBounds(380, 380, 240, 30);
+
+        imgFb2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
+        jPanel3.add(imgFb2);
+        imgFb2.setBounds(180, 320, 32, 40);
+
+        imgWp4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
+        jPanel3.add(imgWp4);
+        imgWp4.setBounds(0, 0, 340, 480);
+
+        jPanel1.add(jPanel3);
+        jPanel3.setBounds(0, 0, 0, 0);
+
+        imgWp5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
+        jPanel1.add(imgWp5);
+        imgWp5.setBounds(250, 20, 450, 40);
+
+        imgWp6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
+        jPanel1.add(imgWp6);
+        imgWp6.setBounds(0, 0, 270, 480);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        RegistroUsuario ins = new RegistroUsuario();
+        ins.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void btnInvitado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitado1ActionPerformed
+        GUIRestaurante ins = new GUIRestaurante(0);
+        ins.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInvitado1ActionPerformed
+
+    private void btnContacto1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContacto1ActionPerformed
+        Contacto cont = new Contacto(6);
+        cont.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnContacto1ActionPerformed
+
+    private void btnIniciarSesion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesion1ActionPerformed
+        IUsuarioRepository repo = Factory.getInstance().getRepositoryUsuario();
+        UsuarioService customerService = new UsuarioService(repo);
+        try {
+            if (txtUsuario.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese datos", "Campos vacios", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String login = customerService.autenticarUsuario(txtUsuario.getText(), txtPassword.getText());
+                if (login.equals("usuario")) {
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            GUIRestaurante ins = new GUIRestaurante(1);
+
+                            ins.setVisible(true);
+                            JOptionPane.showMessageDialog(null, "Bienvenid@", "Datos correctos", JOptionPane.INFORMATION_MESSAGE);
+
+                        }
+                    });
+                    this.dispose();
+                }
+                //Si es administrador ingresará directamente al menú del administrador
+                if (login.equals("admin")) {
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            IRestauranteRepository repo1 = Factory.getInstance().getRepositoryRestaurante();
+                            RestauranteService restauranteService = new RestauranteService(repo1);
+                            String restId = "";
+                            try {
+                                restId = restauranteService.findRestauranteUser(txtUsuario.getText()).getNit();
+                            } catch (Exception ex) {
+                                Logger.getLogger(IniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            MenuAdmin ins = new MenuAdmin(restId);
+
+                            ins.setVisible(true);
+
+                            JOptionPane.showMessageDialog(null, "Bienvenid@", "Datos correctos", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    });
+                    this.dispose();
+                }
+                if (login != "admin" && login != "usuario") {
+                    JOptionPane.showMessageDialog(null, "Datos no encontrados", "Error", JOptionPane.ERROR_MESSAGE);
+
+                    txtUsuario.setText("");
+                    txtPassword.setText("");
+                }
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            successMessage(ex.getMessage() + "", "");
+        }
+    }//GEN-LAST:event_btnIniciarSesion1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        RegistroUsuario ins = new RegistroUsuario();
+        ins.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void btnInvitadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvitadoActionPerformed
+        GUIRestaurante ins = new GUIRestaurante(0);
+        ins.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnInvitadoActionPerformed
+
+    private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
+        Contacto cont = new Contacto(6);
+        cont.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnContactoActionPerformed
+
+    private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
+        IUsuarioRepository repo = Factory.getInstance().getRepositoryUsuario();
+        UsuarioService customerService = new UsuarioService(repo);
+        try {
+            if (txtUsuario.getText().isEmpty() || txtPassword.getText().isEmpty()) {
+                JOptionPane.showMessageDialog(null, "Por favor ingrese datos", "Campos vacios", JOptionPane.ERROR_MESSAGE);
+            } else {
+                String login = customerService.autenticarUsuario(txtUsuario.getText(), txtPassword.getText());
+                if (login.equals("usuario")) {
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            GUIRestaurante ins = new GUIRestaurante(1);
+
+                            ins.setVisible(true);
+                            JOptionPane.showMessageDialog(null, "Bienvenid@", "Datos correctos", JOptionPane.INFORMATION_MESSAGE);
+
+                        }
+                    });
+                    this.dispose();
+                }
+                //Si es administrador ingresará directamente al menú del administrador
+                if (login.equals("admin")) {
+                    java.awt.EventQueue.invokeLater(new Runnable() {
+                        public void run() {
+                            IRestauranteRepository repo1 = Factory.getInstance().getRepositoryRestaurante();
+                            RestauranteService restauranteService = new RestauranteService(repo1);
+                            String restId = "";
+                            try {
+                                restId = restauranteService.findRestauranteUser(txtUsuario.getText()).getNit();
+                            } catch (Exception ex) {
+                                Logger.getLogger(IniciarSesion.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            MenuAdmin ins = new MenuAdmin(restId);
+
+                            ins.setVisible(true);
+
+                            JOptionPane.showMessageDialog(null, "Bienvenid@", "Datos correctos", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    });
+                    this.dispose();
+                }
+                if (login != "admin" && login != "usuario") {
+                    JOptionPane.showMessageDialog(null, "Datos no encontrados", "Error", JOptionPane.ERROR_MESSAGE);
+
+                    txtUsuario.setText("");
+                    txtPassword.setText("");
+                }
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex);
+            successMessage(ex.getMessage() + "", "");
+        }
+    }//GEN-LAST:event_btnIniciarSesionActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        IniciarSesion ins = new IniciarSesion();
+        ins.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
+        // TODO add your handling code here:
+        char validar = evt.getKeyChar();
+        if(Character.isLetter(validar)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null, "Ingresar solo numeros" , "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_txtIDKeyTyped
+
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         IUsuarioRepository repo = Factory.getInstance().getRepositoryUsuario();
         UsuarioService customerService = new UsuarioService(repo);
 
-        
         try {
             if (txtNombres.getText().isEmpty() || txtApellidos.getText().isEmpty() || txtEmail.getText().isEmpty()
-                    || txtNumero.getText().isEmpty() || jPasswordField1.getText().isEmpty() || txtNomUsuario.getText().isEmpty()) {
+                || txtNumero.getText().isEmpty() || jPasswordField1.getText().isEmpty() || txtNomUsuario.getText().isEmpty()) {
                 JOptionPane.showMessageDialog(null, "Por favor ingrese datos", "Campos vacios", JOptionPane.ERROR_MESSAGE);
             } else {
-                
+
                 Usuario usuario = new Usuario();
                 usuario.setUserNombre(txtNombres.getText());
                 usuario.setUserApellido(txtApellidos.getText());
@@ -226,12 +655,12 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 usuario.setUserName(txtNomUsuario.getText());
                 usuario.setUserEmail(txtEmail.getText());
                 usuario.setUserCelular(txtNumero.getText());
-                usuario.setUserGenero(SeleccionGenero()); 
+                usuario.setUserGenero(SeleccionGenero());
                 usuario.setUserId(Integer.parseInt(txtID.getText()));
 
                 String registro = customerService.createUsuario(usuario);
-                
-                JOptionPane.showMessageDialog(null, registro, "ATENCION", JOptionPane.ERROR_MESSAGE);
+
+                JOptionPane.showMessageDialog(null, registro, "", JOptionPane.INFORMATION_MESSAGE);
                 txtNombres.setText("");
                 txtApellidos.setText("");
                 jPasswordField1.setText("");
@@ -240,6 +669,10 @@ public class RegistroUsuario extends javax.swing.JFrame {
                 txtNumero.setText("");
                 txtID.setText("");
             }
+            
+            IniciarSesion login = new IniciarSesion();
+            login.setVisible(true);
+            this.dispose();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e , "Error", JOptionPane.ERROR_MESSAGE);
         }
@@ -254,23 +687,6 @@ public class RegistroUsuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingresar solo numeros" , "Error", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_txtNumeroKeyTyped
-
-    private void txtIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtIDKeyTyped
-        // TODO add your handling code here:
-        char validar = evt.getKeyChar();
-        if(Character.isLetter(validar)){
-            getToolkit().beep();
-            evt.consume();
-            JOptionPane.showMessageDialog(null, "Ingresar solo numeros" , "Error", JOptionPane.ERROR_MESSAGE);
-        }        
-    }//GEN-LAST:event_txtIDKeyTyped
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        IniciarSesion ins = new IniciarSesion();
-        ins.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -308,14 +724,35 @@ public class RegistroUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnContacto;
+    private javax.swing.JButton btnContacto1;
+    private javax.swing.JButton btnIniciarSesion;
+    private javax.swing.JButton btnIniciarSesion1;
+    private javax.swing.JButton btnInvitado;
+    private javax.swing.JButton btnInvitado1;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JLabel imgFb;
+    private javax.swing.JLabel imgFb1;
+    private javax.swing.JLabel imgFb2;
     private javax.swing.JLabel imgInstagram;
+    private javax.swing.JLabel imgInstagram1;
+    private javax.swing.JLabel imgInstagram2;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JLabel imgWp10;
-    private javax.swing.JLabel imgWp11;
-    private javax.swing.JLabel imgWp9;
+    private javax.swing.JLabel imgLogo1;
+    private javax.swing.JLabel imgLogo2;
+    private javax.swing.JLabel imgPass;
+    private javax.swing.JLabel imgPass1;
+    private javax.swing.JLabel imgUser;
+    private javax.swing.JLabel imgUser1;
+    private javax.swing.JLabel imgWp;
+    private javax.swing.JLabel imgWp1;
+    private javax.swing.JLabel imgWp3;
+    private javax.swing.JLabel imgWp4;
+    private javax.swing.JLabel imgWp5;
+    private javax.swing.JLabel imgWp6;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -326,7 +763,15 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPasswordField jPasswordField1;
+    private javax.swing.JLabel lblIngresePass;
+    private javax.swing.JLabel lblIngresePass1;
+    private javax.swing.JLabel lblIngreseUser;
+    private javax.swing.JLabel lblIngreseUser1;
+    private javax.swing.JLabel lblregistrar;
+    private javax.swing.JLabel lblregistrar1;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JComboBox<String> txtGenero;
@@ -334,5 +779,9 @@ public class RegistroUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField txtNomUsuario;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtNumero;
+    private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JPasswordField txtPassword1;
+    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField txtUsuario1;
     // End of variables declaration//GEN-END:variables
 }

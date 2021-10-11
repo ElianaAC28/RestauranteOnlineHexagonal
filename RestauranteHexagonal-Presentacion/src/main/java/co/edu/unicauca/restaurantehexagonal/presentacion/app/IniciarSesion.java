@@ -27,11 +27,11 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
-        String subrayado1 = "<html><u>Aquí</u></html>";
+        String subrayado1 = "<html><u>Registrate aquí</u></html>";
         
         this.setLocationRelativeTo(null);
         setTitle("Login");
-        jButton1.setText(subrayado1);
+        btnRegistrar.setText(subrayado1);
 
     }
 
@@ -50,7 +50,7 @@ public class IniciarSesion extends javax.swing.JFrame {
         txtUsuario = new javax.swing.JTextField();
         btnContacto = new javax.swing.JButton();
         btnInvitado = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnRegistrar = new javax.swing.JButton();
         lblIngresePass = new javax.swing.JLabel();
         lblIngreseUser = new javax.swing.JLabel();
         imgUser = new javax.swing.JLabel();
@@ -118,21 +118,21 @@ public class IniciarSesion extends javax.swing.JFrame {
         jPanel1.add(btnInvitado);
         btnInvitado.setBounds(380, 430, 260, 30);
 
-        jButton1.setBackground(java.awt.SystemColor.text);
-        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        jButton1.setText("Aquí");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnRegistrar.setBackground(java.awt.SystemColor.text);
+        btnRegistrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        btnRegistrar.setText("Registrate aquí");
+        btnRegistrar.setBorder(null);
+        btnRegistrar.setBorderPainted(false);
+        btnRegistrar.setContentAreaFilled(false);
+        btnRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnRegistrar.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        btnRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnRegistrarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1);
-        jButton1.setBounds(590, 380, 50, 23);
+        jPanel1.add(btnRegistrar);
+        btnRegistrar.setBounds(480, 380, 150, 40);
 
         lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
@@ -167,9 +167,9 @@ public class IniciarSesion extends javax.swing.JFrame {
         imgInstagram.setBounds(120, 320, 30, 40);
 
         lblregistrar.setFont(new java.awt.Font("Calibri Light", 2, 16)); // NOI18N
-        lblregistrar.setText("¿No tienes una cuenta? regitrate");
+        lblregistrar.setText("¿No tienes una cuenta?");
         jPanel1.add(lblregistrar);
-        lblregistrar.setBounds(380, 380, 240, 30);
+        lblregistrar.setBounds(340, 380, 180, 40);
 
         imgFb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
         jPanel1.add(imgFb);
@@ -177,7 +177,7 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         imgWp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
         jPanel1.add(imgWp3);
-        imgWp3.setBounds(0, 0, 340, 480);
+        imgWp3.setBounds(0, 0, 320, 480);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 480));
 
@@ -253,11 +253,11 @@ public class IniciarSesion extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnInvitadoActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
         RegistroUsuario ins = new RegistroUsuario();
         ins.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnRegistrarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -425,6 +425,7 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnInvitado;
+    private javax.swing.JButton btnRegistrar;
     private javax.swing.JLabel imgFb;
     private javax.swing.JLabel imgInstagram;
     private javax.swing.JLabel imgLogo;
@@ -432,7 +433,6 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel imgUser;
     private javax.swing.JLabel imgWp;
     private javax.swing.JLabel imgWp3;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblIngresePass;
     private javax.swing.JLabel lblIngreseUser;

@@ -294,13 +294,8 @@ public class Usuario extends javax.swing.JFrame {
     private void btnRealizarPedidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRealizarPedidoActionPerformed
         JOptionPane.showMessageDialog(null, "Su pedido se ha realizado con éxito");
     }//GEN-LAST:event_btnRealizarPedidoActionPerformed
-    //Envia a la ventana donse se ouede contactar con nosotros
-    private void btnRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantesActionPerformed
-        GUIRestaurante cont = new GUIRestaurante(1);
-        cont.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_btnRestaurantesActionPerformed
-    //Vuelve a LogIn
+
+   //Vuelve a LogIn
     private void btnCerrarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarSesionActionPerformed
         //resp =0 si, resp = 1 no.
         int resp = JOptionPane.showConfirmDialog(null, "¿Está seguro que desea salir?", "Alerta!", JOptionPane.YES_NO_OPTION);
@@ -351,6 +346,10 @@ public class Usuario extends javax.swing.JFrame {
         foto(almu);
 
     }//GEN-LAST:event_btnSelectAlmuerzoActionPerformed
+
+    private void btnRestaurantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRestaurantesActionPerformed
+
+    }//GEN-LAST:event_btnRestaurantesActionPerformed
 
     /**
      * @param args the command line arguments

@@ -136,7 +136,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnQuitar);
-        btnQuitar.setBounds(270, 410, 200, 20);
+        btnQuitar.setBounds(260, 420, 200, 20);
 
         txtDescrip.setColumns(20);
         txtDescrip.setRows(5);
@@ -220,7 +220,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnActualizar);
-        btnActualizar.setBounds(510, 410, 70, 20);
+        btnActualizar.setBounds(500, 420, 110, 20);
 
         btnMostrar.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnMostrar.setForeground(new java.awt.Color(255, 255, 255));
@@ -234,7 +234,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrar);
-        btnMostrar.setBounds(80, 410, 90, 23);
+        btnMostrar.setBounds(70, 420, 90, 23);
 
         tblListaComp.setAutoCreateRowSorter(true);
         tblListaComp.setFont(new java.awt.Font("Calibri Light", 2, 14)); // NOI18N
@@ -275,7 +275,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         txtruta.setEditable(false);
         jPanel1.add(txtruta);
-        txtruta.setBounds(470, 370, 160, 19);
+        txtruta.setBounds(470, 370, 160, 20);
 
         btnFoto.setBackground(new java.awt.Color(255, 51, 43));
         btnFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -287,7 +287,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnFoto);
-        btnFoto.setBounds(180, 400, 100, 30);
+        btnFoto.setBounds(170, 410, 100, 30);
         jPanel1.add(txtAlmu);
         txtAlmu.setBounds(220, 130, 130, 30);
 
@@ -299,7 +299,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         imgUpdate.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/update.png"))); // NOI18N
         jPanel1.add(imgUpdate);
-        imgUpdate.setBounds(590, 400, 30, 30);
+        imgUpdate.setBounds(600, 410, 30, 30);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -313,7 +313,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(500, 80, 71, 19);
+        btnContacto.setBounds(500, 80, 77, 19);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -335,7 +335,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
 
         imgEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/eliminar2.png"))); // NOI18N
         jPanel1.add(imgEliminar);
-        imgEliminar.setBounds(470, 400, 20, 30);
+        imgEliminar.setBounds(450, 410, 20, 30);
 
         lblIdAlmu1.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         lblIdAlmu1.setForeground(new java.awt.Color(255, 255, 255));

@@ -45,12 +45,9 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         lblElegirRest = new javax.swing.JLabel();
-        lblInicioSesion = new javax.swing.JButton();
         btnAddComp = new javax.swing.JButton();
         btnUpdateAlm = new javax.swing.JButton();
         btnCerrarSesion = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
         imgLogo = new javax.swing.JLabel();
         btnMostrarComp = new javax.swing.JButton();
         btnAddAlm1 = new javax.swing.JButton();
@@ -66,18 +63,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         lblElegirRest.setText("BIENVENIDO");
         jPanel1.add(lblElegirRest);
         lblElegirRest.setBounds(270, 90, 200, 40);
-
-        lblInicioSesion.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
-        lblInicioSesion.setBorder(null);
-        lblInicioSesion.setBorderPainted(false);
-        lblInicioSesion.setContentAreaFilled(false);
-        lblInicioSesion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lblInicioSesionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(lblInicioSesion);
-        lblInicioSesion.setBounds(370, 330, 210, 20);
 
         btnAddComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAddComp.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -124,18 +109,6 @@ public class MenuAdmin extends javax.swing.JFrame {
         jPanel1.add(btnCerrarSesion);
         btnCerrarSesion.setBounds(550, 60, 100, 40);
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("¿Desea iniciar sesión?");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(410, 320, 180, 40);
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("¿Desea iniciar sesión?");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(410, 320, 180, 40);
-
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante2 - Copy.png"))); // NOI18N
         jPanel1.add(imgLogo);
         imgLogo.setBounds(390, 140, 300, 220);
@@ -178,10 +151,6 @@ public class MenuAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void lblInicioSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lblInicioSesionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lblInicioSesionActionPerformed
 
     private void btnAddCompActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCompActionPerformed
         AdminCompo admiCom = new AdminCompo(restId);
@@ -279,12 +248,9 @@ public class MenuAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrarComp;
     private javax.swing.JButton btnUpdateAlm;
     private javax.swing.JLabel imgLogo;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblElegirRest;
-    private javax.swing.JButton lblInicioSesion;
     // End of variables declaration//GEN-END:variables
 
     private Admin Admin() {

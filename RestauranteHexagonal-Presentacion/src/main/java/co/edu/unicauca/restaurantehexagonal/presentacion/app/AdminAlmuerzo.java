@@ -5,7 +5,6 @@
  */
 package co.edu.unicauca.restaurantehexagonal.presentacion.app;
 
-
 import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Componente;
@@ -38,20 +37,23 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
      * Creates new form AdminComponentes
      */
     List<Componente> objListComponentes = new ArrayList<Componente>();
+
     String tipoid;
-    
-    String restId ;
+
+    String restId;
 
     public AdminAlmuerzo() throws Exception {
         initComponents();
-        tblListaComp.setBackground(new Color(0,0,0,0));
-        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        String subrayado1 = "<html><u>Agregar foto</u></html>";
+        btnFoto.setText(subrayado1);
+        tblListaComp.setBackground(new Color(0, 0, 0, 0));
+        ((DefaultTableCellRenderer) tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0, 0, 0, 0));
         tblListaComp.setGridColor(Color.WHITE);
         tblListaComp.setForeground(Color.WHITE);
-        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setBackground(new Color(0, 0, 0, 0));
         jScrollPane1.setOpaque(false);
         tblListaComp.setOpaque(false);
-        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
+        ((DefaultTableCellRenderer) tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
         jScrollPane1.getViewport().setOpaque(false);
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
@@ -60,18 +62,21 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         mostrar();
 
     }
-    
+
     public AdminAlmuerzo(String restId) throws Exception {
         this.restId = restId;
+        
         initComponents();
-        tblListaComp.setBackground(new Color(0,0,0,0));
-        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+          String subrayado1 = "<html><u>Agregar foto</u></html>";
+        btnFoto.setText(subrayado1);
+        tblListaComp.setBackground(new Color(0, 0, 0, 0));
+        ((DefaultTableCellRenderer) tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0, 0, 0, 0));
         tblListaComp.setGridColor(Color.WHITE);
         tblListaComp.setForeground(Color.WHITE);
-        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setBackground(new Color(0, 0, 0, 0));
         jScrollPane1.setOpaque(false);
         tblListaComp.setOpaque(false);
-        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
+        ((DefaultTableCellRenderer) tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
         jScrollPane1.getViewport().setOpaque(false);
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
@@ -269,7 +274,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(510, 60, 71, 19);
+        btnContacto.setBounds(510, 60, 77, 19);
 
         btnSalir.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnSalir.setForeground(new java.awt.Color(255, 255, 255));
@@ -318,7 +323,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnUpdate);
-        btnUpdate.setBounds(360, 420, 190, 23);
+        btnUpdate.setBounds(370, 440, 190, 23);
 
         btnMostrarComp.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnMostrarComp.setForeground(new java.awt.Color(255, 51, 43));
@@ -332,7 +337,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrarComp);
-        btnMostrarComp.setBounds(170, 420, 167, 23);
+        btnMostrarComp.setBounds(160, 440, 171, 23);
 
         jLabel15.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
@@ -409,12 +414,12 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnContactoActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-    
+
         MenuAdmin menu = new MenuAdmin(restId);
         menu.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
-    
+
     private void btnCrearAlmuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearAlmuActionPerformed
         // TODO add your handling code here:
 
@@ -486,11 +491,11 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
         JFileChooser j = new JFileChooser();
-        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF","jpg","png","gif");
+        FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fil);
 
         int s = j.showOpenDialog(this);
-        if(s == JFileChooser.APPROVE_OPTION){
+        if (s == JFileChooser.APPROVE_OPTION) {
             String ruta = j.getSelectedFile().getAbsolutePath();
             txtruta.setText(ruta);
         }

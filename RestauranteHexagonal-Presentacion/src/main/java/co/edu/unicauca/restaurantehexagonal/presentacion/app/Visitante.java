@@ -91,8 +91,9 @@ public class Visitante extends javax.swing.JFrame {
         btnAtras = new javax.swing.JButton();
         btnIniciarSesion = new javax.swing.JButton();
         imgRes = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        btnContacto = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -238,12 +239,26 @@ public class Visitante extends javax.swing.JFrame {
         imgRes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/si.jpg"))); // NOI18N
         getContentPane().add(imgRes, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 200, 220, 180));
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 70, 50));
+
+        btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
+        btnContacto.setForeground(new java.awt.Color(255, 255, 255));
+        btnContacto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
+        btnContacto.setText("Contactanos");
+        btnContacto.setBorder(null);
+        btnContacto.setBorderPainted(false);
+        btnContacto.setContentAreaFilled(false);
+        btnContacto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnContactoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnContacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, 30));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Base2.png"))); // NOI18N
         jLabel1.setText(" ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 720, 490));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo restaurante esquina.png"))); // NOI18N
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, 70, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -316,6 +331,12 @@ public class Visitante extends javax.swing.JFrame {
         cbxProteina.removeAllItems();
 
     }//GEN-LAST:event_btnBackSelectAlmuActionPerformed
+
+    private void btnContactoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnContactoActionPerformed
+        Contacto cont = new Contacto(7);
+        cont.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnContactoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -465,6 +486,7 @@ public class Visitante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtras;
     private javax.swing.JButton btnBackSelectAlmu;
+    private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRealizarPedido;
     private javax.swing.JButton btnSelectAlmuerzo;
@@ -476,7 +498,7 @@ public class Visitante extends javax.swing.JFrame {
     private javax.swing.JLabel imgRes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
