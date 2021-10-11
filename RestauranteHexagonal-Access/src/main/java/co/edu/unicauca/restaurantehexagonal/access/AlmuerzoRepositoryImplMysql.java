@@ -187,7 +187,7 @@ public String updateCosto(Almuerzo parAlmuerzo) {
 try {
             this.connect();
 
-            String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ?, ALMUFOTO = ?, ALMUDESCRIPCION = ? WHERE ALMUID = ? AND RESTID = ?;";
+            String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ?, ALMUIMAGEN = ?, ALMUDESCRIPCION = ? WHERE ALMUID = ? AND RESTID = ?;";
             PreparedStatement pstmt2 = conn.prepareStatement(sql2);
             pstmt2.setString(1, parAlmuerzo.getCostoAlm());
             pstmt2.setString(4, parAlmuerzo.getIdAlmuerzo());
@@ -210,7 +210,7 @@ public String updateFoto(Almuerzo parAlmuerzo) {
 try {
             this.connect();
 
-            String sql2 = "UPDATE AlMUERZO SET ALMUFOTO = ? WHERE ALMUID = ? AND RESTID = ?;";
+            String sql2 = "UPDATE AlMUERZO SET ALMUIMAGEN = ? WHERE ALMUID = ? AND RESTID = ?;";
             PreparedStatement pstmt2 = conn.prepareStatement(sql2);
             pstmt2.setBytes(1, parAlmuerzo.getFoto());
             pstmt2.setString(2, parAlmuerzo.getIdAlmuerzo());
@@ -316,13 +316,13 @@ try {
         Almuerzo objAlmuerzo = new Almuerzo();
         try {
 
-            String sql = "SELECT ALMUFOTO FROM ALMUERZO WHERE ALMUID = "+ idAlmu +";";
+            String sql = "SELECT ALMUIMAGEN FROM ALMUERZO WHERE ALMUID = "+ idAlmu +";";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet res = pstmt.executeQuery();
             while (res.next()) {
 
-                objAlmuerzo.setFoto(res.getBytes("AlmuFoto"));
+                objAlmuerzo.setFoto(res.getBytes("ALMUIMAGEN"));
                 objList.add(objAlmuerzo);
 
             }
