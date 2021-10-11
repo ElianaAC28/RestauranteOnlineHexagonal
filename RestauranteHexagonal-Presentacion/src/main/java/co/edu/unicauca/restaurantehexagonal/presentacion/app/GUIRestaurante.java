@@ -9,9 +9,11 @@ import co.edu.unicauca.restaurantehexagonal.access.Factory;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IRestauranteRepository;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.RestauranteService;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,6 +29,15 @@ public class GUIRestaurante extends javax.swing.JFrame {
      */
     public GUIRestaurante() {
         initComponents();
+        tblRestaurantes.setBackground(new Color(0,0,0,0));
+        ((DefaultTableCellRenderer)tblRestaurantes.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        tblRestaurantes.setGridColor(Color.WHITE);
+        tblRestaurantes.setForeground(Color.WHITE);
+        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setOpaque(false);
+        tblRestaurantes.setOpaque(false);
+        ((DefaultTableCellRenderer)tblRestaurantes.getDefaultRenderer(Object.class)).setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
         this.setSize(720, 480);
         this.setLocationRelativeTo(null);
         llenarTabla();
@@ -34,6 +45,15 @@ public class GUIRestaurante extends javax.swing.JFrame {
     
     public GUIRestaurante(int num) {
         initComponents();
+        tblRestaurantes.setBackground(new Color(0,0,0,0));
+        ((DefaultTableCellRenderer)tblRestaurantes.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        tblRestaurantes.setGridColor(Color.WHITE);
+        tblRestaurantes.setForeground(Color.WHITE);
+        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setOpaque(false);
+        tblRestaurantes.setOpaque(false);
+        ((DefaultTableCellRenderer)tblRestaurantes.getDefaultRenderer(Object.class)).setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
         user = num;
         if(user == 1){
             btnSalir.setVisible(false);

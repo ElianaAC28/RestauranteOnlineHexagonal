@@ -14,6 +14,7 @@ import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteReposi
 import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import static co.edu.unicauca.restaurantehexagonal.dominio.services.Messages.successMessage;
+import java.awt.Color;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -24,6 +25,7 @@ import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -42,6 +44,15 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
 
     public AdminAlmuerzo() throws Exception {
         initComponents();
+        tblListaComp.setBackground(new Color(0,0,0,0));
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        tblListaComp.setGridColor(Color.WHITE);
+        tblListaComp.setForeground(Color.WHITE);
+        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setOpaque(false);
+        tblListaComp.setOpaque(false);
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
         setLocationRelativeTo(null); //centrar la ventana
@@ -53,6 +64,15 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
     public AdminAlmuerzo(String restId) throws Exception {
         this.restId = restId;
         initComponents();
+        tblListaComp.setBackground(new Color(0,0,0,0));
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        tblListaComp.setGridColor(Color.WHITE);
+        tblListaComp.setForeground(Color.WHITE);
+        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setOpaque(false);
+        tblListaComp.setOpaque(false);
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
         this.setLocationRelativeTo(null);
         setTitle("Administrador Almuerzo");
         setLocationRelativeTo(null); //centrar la ventana

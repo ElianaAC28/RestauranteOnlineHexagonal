@@ -27,8 +27,11 @@ public class IniciarSesion extends javax.swing.JFrame {
      */
     public IniciarSesion() {
         initComponents();
+        String subrayado1 = "<html><u>Aquí</u></html>";
+        
         this.setLocationRelativeTo(null);
         setTitle("Login");
+        jButton1.setText(subrayado1);
 
     }
 
@@ -50,16 +53,12 @@ public class IniciarSesion extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         lblIngresePass = new javax.swing.JLabel();
         lblIngreseUser = new javax.swing.JLabel();
-        imgWp5 = new javax.swing.JLabel();
-        imgWp8 = new javax.swing.JLabel();
-        imgWp6 = new javax.swing.JLabel();
         imgUser = new javax.swing.JLabel();
         imgPass = new javax.swing.JLabel();
-        imgWp7 = new javax.swing.JLabel();
         imgLogo = new javax.swing.JLabel();
         imgWp = new javax.swing.JLabel();
-        imgContacto4 = new javax.swing.JLabel();
         imgInstagram = new javax.swing.JLabel();
+        lblregistrar = new javax.swing.JLabel();
         imgFb = new javax.swing.JLabel();
         imgWp3 = new javax.swing.JLabel();
 
@@ -67,11 +66,13 @@ public class IniciarSesion extends javax.swing.JFrame {
         setName("Ventana"); // NOI18N
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel1.setBackground(new java.awt.Color(186, 51, 43));
+        jPanel1.setForeground(new java.awt.Color(186, 51, 43));
         jPanel1.setLayout(null);
 
         txtPassword.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         jPanel1.add(txtPassword);
-        txtPassword.setBounds(440, 290, 180, 30);
+        txtPassword.setBounds(430, 250, 180, 30);
 
         btnIniciarSesion.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
         btnIniciarSesion.setText("Iniciar Sesión");
@@ -84,12 +85,12 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnIniciarSesion);
-        btnIniciarSesion.setBounds(400, 350, 120, 40);
+        btnIniciarSesion.setBounds(460, 300, 120, 40);
 
         txtUsuario.setFont(new java.awt.Font("Calibri Light", 0, 14)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
         jPanel1.add(txtUsuario);
-        txtUsuario.setBounds(440, 200, 180, 30);
+        txtUsuario.setBounds(430, 170, 180, 30);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -103,68 +104,55 @@ public class IniciarSesion extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnContacto);
-        btnContacto.setBounds(570, 40, 110, 23);
+        btnContacto.setBounds(550, 40, 110, 23);
 
         btnInvitado.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
-        btnInvitado.setForeground(new java.awt.Color(255, 255, 255));
         btnInvitado.setText("Entrar como visitante");
         btnInvitado.setBorder(null);
         btnInvitado.setBorderPainted(false);
-        btnInvitado.setContentAreaFilled(false);
         btnInvitado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInvitadoActionPerformed(evt);
             }
         });
         jPanel1.add(btnInvitado);
-        btnInvitado.setBounds(510, 420, 190, 30);
+        btnInvitado.setBounds(380, 430, 260, 30);
 
-        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 16)); // NOI18N
-        jButton1.setText("Registrarse");
+        jButton1.setBackground(java.awt.SystemColor.text);
+        jButton1.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
+        jButton1.setText("Aquí");
         jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        jButton1.setMargin(new java.awt.Insets(0, 0, 0, 0));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton1);
-        jButton1.setBounds(540, 350, 120, 40);
+        jButton1.setBounds(590, 380, 50, 23);
 
         lblIngresePass.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblIngresePass.setForeground(new java.awt.Color(34, 34, 34));
         lblIngresePass.setText("Contraseña");
         jPanel1.add(lblIngresePass);
-        lblIngresePass.setBounds(480, 260, 130, 30);
+        lblIngresePass.setBounds(490, 220, 130, 30);
 
         lblIngreseUser.setFont(new java.awt.Font("Calibri Light", 1, 20)); // NOI18N
         lblIngreseUser.setForeground(new java.awt.Color(34, 34, 34));
         lblIngreseUser.setText("Usuario");
         jPanel1.add(lblIngreseUser);
-        lblIngreseUser.setBounds(480, 170, 80, 30);
-
-        imgWp5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp5);
-        imgWp5.setBounds(660, 0, 130, 480);
-
-        imgWp8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp8);
-        imgWp8.setBounds(510, 0, 360, 480);
-
-        imgWp6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp6);
-        imgWp6.setBounds(500, 0, 360, 480);
+        lblIngreseUser.setBounds(500, 140, 80, 30);
 
         imgUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/round-account-button-with-user-inside_icon-icons.com_72596 (2).png"))); // NOI18N
         jPanel1.add(imgUser);
-        imgUser.setBounds(440, 160, 32, 40);
+        imgUser.setBounds(460, 130, 32, 40);
 
         imgPass.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/key-silhouette-security-tool-interface-symbol-of-password_icon-icons.com_54503.png"))); // NOI18N
         jPanel1.add(imgPass);
-        imgPass.setBounds(440, 250, 40, 40);
-
-        imgWp7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
-        jPanel1.add(imgWp7);
-        imgWp7.setBounds(350, 0, 350, 480);
+        imgPass.setBounds(450, 210, 40, 40);
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
         jPanel1.add(imgLogo);
@@ -174,13 +162,14 @@ public class IniciarSesion extends javax.swing.JFrame {
         jPanel1.add(imgWp);
         imgWp.setBounds(40, 70, 32, 40);
 
-        imgContacto4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
-        jPanel1.add(imgContacto4);
-        imgContacto4.setBounds(540, 30, 32, 40);
-
         imgInstagram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/instagram_icon_125245.png"))); // NOI18N
         jPanel1.add(imgInstagram);
         imgInstagram.setBounds(120, 320, 30, 40);
+
+        lblregistrar.setFont(new java.awt.Font("Calibri Light", 2, 16)); // NOI18N
+        lblregistrar.setText("¿No tienes una cuenta? regitrate");
+        jPanel1.add(lblregistrar);
+        lblregistrar.setBounds(380, 380, 240, 30);
 
         imgFb.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fb_icon-icons.com_65434.png"))); // NOI18N
         jPanel1.add(imgFb);
@@ -188,9 +177,9 @@ public class IniciarSesion extends javax.swing.JFrame {
 
         imgWp3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/blanco.jpg"))); // NOI18N
         jPanel1.add(imgWp3);
-        imgWp3.setBounds(-40, 0, 430, 510);
+        imgWp3.setBounds(0, 0, 340, 480);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 480));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, 480));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -436,7 +425,6 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JButton btnContacto;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnInvitado;
-    private javax.swing.JLabel imgContacto4;
     private javax.swing.JLabel imgFb;
     private javax.swing.JLabel imgInstagram;
     private javax.swing.JLabel imgLogo;
@@ -444,14 +432,11 @@ public class IniciarSesion extends javax.swing.JFrame {
     private javax.swing.JLabel imgUser;
     private javax.swing.JLabel imgWp;
     private javax.swing.JLabel imgWp3;
-    private javax.swing.JLabel imgWp5;
-    private javax.swing.JLabel imgWp6;
-    private javax.swing.JLabel imgWp7;
-    private javax.swing.JLabel imgWp8;
     private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblIngresePass;
     private javax.swing.JLabel lblIngreseUser;
+    private javax.swing.JLabel lblregistrar;
     private javax.swing.JPasswordField txtPassword;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

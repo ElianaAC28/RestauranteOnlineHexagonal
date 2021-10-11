@@ -181,7 +181,7 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         imgWp9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
         jPanel1.add(imgWp9);
-        imgWp9.setBounds(560, 0, 151, 537);
+        imgWp9.setBounds(560, 0, 130, 480);
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Logo_restaurante .png"))); // NOI18N
         jPanel1.add(imgLogo);
@@ -197,13 +197,13 @@ public class RegistroUsuario extends javax.swing.JFrame {
 
         imgWp10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
         jPanel1.add(imgWp10);
-        imgWp10.setBounds(330, 0, 151, 537);
+        imgWp10.setBounds(330, 0, 151, 480);
 
         imgWp11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fondo.png"))); // NOI18N
         jPanel1.add(imgWp11);
-        imgWp11.setBounds(410, -10, 151, 537);
+        imgWp11.setBounds(410, -10, 151, 490);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 500));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 690, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

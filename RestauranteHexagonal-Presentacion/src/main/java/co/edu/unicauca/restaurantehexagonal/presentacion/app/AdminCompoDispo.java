@@ -14,11 +14,13 @@ import co.edu.unicauca.restaurantehexagonal.dominio.interfaces.IComponenteReposi
 import co.edu.unicauca.restaurantehexagonal.dominio.services.AlmuerzoService;
 import co.edu.unicauca.restaurantehexagonal.dominio.services.ComponenteService;
 import static co.edu.unicauca.restaurantehexagonal.dominio.services.Messages.successMessage;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,6 +37,15 @@ public class AdminCompoDispo extends javax.swing.JFrame {
      */
     public AdminCompoDispo(){
         initComponents();
+        tblListaComp.setBackground(new Color(0,0,0,0));
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        tblListaComp.setGridColor(Color.WHITE);
+        tblListaComp.setForeground(Color.WHITE);
+        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setOpaque(false);
+        tblListaComp.setOpaque(false);
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
         setLocationRelativeTo(null);
         setTitle("Actualizar Componente Almuerzo");       
         String restId = "1";
@@ -45,6 +56,15 @@ public class AdminCompoDispo extends javax.swing.JFrame {
         idAlmu = idAlmu1;
         this.restId = restId;
         initComponents();
+        tblListaComp.setBackground(new Color(0,0,0,0));
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setBackground(new Color(0,0,0,0));
+        tblListaComp.setGridColor(Color.WHITE);
+        tblListaComp.setForeground(Color.WHITE);
+        jScrollPane1.setBackground(new Color(0,0,0,0));
+        jScrollPane1.setOpaque(false);
+        tblListaComp.setOpaque(false);
+        ((DefaultTableCellRenderer)tblListaComp.getDefaultRenderer(Object.class)).setOpaque(false);
+        jScrollPane1.getViewport().setOpaque(false);
         setLocationRelativeTo(null);
         setTitle("Actualizar Componente Almuerzo");  
     } 
