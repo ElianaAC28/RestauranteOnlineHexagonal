@@ -178,13 +178,13 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblListaComp);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(90, 180, 550, 170);
+        jScrollPane1.setBounds(60, 180, 590, 140);
 
         lblAddAlmuerzo.setFont(new java.awt.Font("Calibri", 1, 36)); // NOI18N
         lblAddAlmuerzo.setForeground(new java.awt.Color(255, 51, 43));
         lblAddAlmuerzo.setText("Agregar almuerzo");
         jPanel1.add(lblAddAlmuerzo);
-        lblAddAlmuerzo.setBounds(70, 40, 300, 50);
+        lblAddAlmuerzo.setBounds(60, 40, 300, 50);
 
         jLabel4.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(153, 0, 51));
@@ -202,19 +202,19 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCrearAlmu);
-        btnCrearAlmu.setBounds(310, 100, 70, 30);
+        btnCrearAlmu.setBounds(280, 100, 90, 30);
 
         btnFoto.setBackground(new java.awt.Color(255, 51, 43));
         btnFoto.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         btnFoto.setForeground(new java.awt.Color(255, 255, 255));
-        btnFoto.setText("Foto");
+        btnFoto.setText("Agregar foto");
         btnFoto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFotoActionPerformed(evt);
             }
         });
         jPanel1.add(btnFoto);
-        btnFoto.setBounds(560, 370, 80, 27);
+        btnFoto.setBounds(60, 380, 120, 30);
 
         btnAddDescrip.setBackground(new java.awt.Color(255, 51, 43));
         btnAddDescrip.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -227,7 +227,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAddDescrip);
-        btnAddDescrip.setBounds(430, 140, 200, 30);
+        btnAddDescrip.setBounds(60, 420, 330, 30);
 
         btnAddComp.setBackground(new java.awt.Color(255, 51, 43));
         btnAddComp.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -240,9 +240,9 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAddComp);
-        btnAddComp.setBounds(430, 100, 200, 30);
+        btnAddComp.setBounds(450, 140, 200, 30);
         jPanel1.add(txtAlmu);
-        txtAlmu.setBounds(170, 100, 130, 30);
+        txtAlmu.setBounds(140, 100, 130, 30);
 
         lblImagen.setForeground(new java.awt.Color(153, 0, 0));
         jPanel1.add(lblImagen);
@@ -252,15 +252,20 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         lblCosto.setForeground(new java.awt.Color(255, 255, 255));
         lblCosto.setText("Costo:");
         jPanel1.add(lblCosto);
-        lblCosto.setBounds(100, 380, 50, 20);
+        lblCosto.setBounds(60, 350, 50, 20);
 
         imgContacto1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/cc.png"))); // NOI18N
         jPanel1.add(imgContacto1);
         imgContacto1.setBounds(470, 50, 40, 30);
 
         txtruta.setEditable(false);
+        txtruta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtrutaActionPerformed(evt);
+            }
+        });
         jPanel1.add(txtruta);
-        txtruta.setBounds(440, 370, 110, 30);
+        txtruta.setBounds(190, 380, 200, 30);
 
         btnContacto.setFont(new java.awt.Font("Calibri Light", 1, 14)); // NOI18N
         btnContacto.setForeground(new java.awt.Color(255, 255, 255));
@@ -294,9 +299,9 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Seleccione los componentes para crear el almuerzo");
         jPanel1.add(jLabel14);
-        jLabel14.setBounds(90, 150, 460, 20);
+        jLabel14.setBounds(60, 150, 460, 20);
         jPanel1.add(txtCosto);
-        txtCosto.setBounds(140, 370, 120, 30);
+        txtCosto.setBounds(110, 340, 280, 30);
 
         btnAddAlmu.setBackground(new java.awt.Color(255, 51, 43));
         btnAddAlmu.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
@@ -309,7 +314,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAddAlmu);
-        btnAddAlmu.setBounds(280, 370, 140, 30);
+        btnAddAlmu.setBounds(510, 370, 140, 50);
 
         btnUpdate.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnUpdate.setForeground(new java.awt.Color(255, 51, 43));
@@ -323,7 +328,7 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnUpdate);
-        btnUpdate.setBounds(370, 440, 190, 23);
+        btnUpdate.setBounds(330, 20, 190, 23);
 
         btnMostrarComp.setFont(new java.awt.Font("Calibri Light", 1, 18)); // NOI18N
         btnMostrarComp.setForeground(new java.awt.Color(255, 51, 43));
@@ -337,13 +342,13 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnMostrarComp);
-        btnMostrarComp.setBounds(160, 440, 171, 23);
+        btnMostrarComp.setBounds(510, 20, 171, 23);
 
         jLabel15.setFont(new java.awt.Font("Calibri", 1, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Id Almuerzo:");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(80, 100, 90, 20);
+        jLabel15.setBounds(60, 110, 90, 20);
 
         jLabel1.setFont(new java.awt.Font("Calibri", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 51, 43));
@@ -514,6 +519,10 @@ public class AdminAlmuerzo extends javax.swing.JFrame {
         btnCerrar.setVisible(false);
         jScrollPane2.setVisible(false);
     }//GEN-LAST:event_btnCerrarActionPerformed
+
+    private void txtrutaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtrutaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtrutaActionPerformed
 
     private void clearCotronls() {
         txtAlmu.setText("");
