@@ -79,6 +79,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         jlImagen.setVisible(false);
         btnCerrar.setVisible(false);
         txtDescrip.setVisible(false);
+        txtDescrip.setLineWrap(true);
     }
 
     String dato = "";
@@ -431,7 +432,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSalirActionPerformed
 
     private void btnFotoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFotoActionPerformed
-        DefaultTableModel tabla1 = (DefaultTableModel) tblListaComp.getModel();
+
         JFileChooser j = new JFileChooser();
         FileNameExtensionFilter fil = new FileNameExtensionFilter("JPG, PNG & GIF", "jpg", "png", "gif");
         j.setFileFilter(fil);
@@ -455,15 +456,14 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             String response = objService.updateFoto(objAlmu);
             JOptionPane.showMessageDialog(null, "La Foto del Almuerzo fue Actualizada con exito", "Confrimacion", JOptionPane.INFORMATION_MESSAGE);
             //clearcontroles();
-            txtAlmu.setEditable(true);
-            txtAlmu.setText(""); //limpiamos el txt 
+            txtAlmu.setEditable(false);
+            //txtAlmu.setText(""); //limpiamos el txt 
             txtruta.setText("");
 
         } catch (Exception ex) {
             System.out.println(ex);
             JOptionPane.showMessageDialog(null, ex.getMessage() + "Falla en el sistema", "ERROR", JOptionPane.ERROR_MESSAGE);
         }
-        tabla1.setRowCount(0);
     }//GEN-LAST:event_btnFotoActionPerformed
 
     private void btnCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrarActionPerformed
