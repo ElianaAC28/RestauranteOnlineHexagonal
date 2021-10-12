@@ -38,3 +38,4 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
         Jesus Edwin Andrada Ruiz <jesusadrada@unicauca.edu.co>
         Luis Manuel Arroyo Lopez <Luisarroyo@unicauca.edu.co>
 
+5. Link del Video: https://www.youtube.com/watch?v=cuBjYf-_dlw&t=169s
