@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: co.edu.unicauca.restaurantehexagonal.presentacion.app.ComponenteTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.039 sec

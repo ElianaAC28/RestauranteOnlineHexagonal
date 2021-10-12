@@ -73,7 +73,7 @@ public class RestauranteService
      * @return Objeto restaurant
      * @throws Exception
      */
-    public Restaurante findRestauranteUser(String userId) throws Exception{
+    public Restaurante findRestauranteUser(String userId){
         List<JsonError> errors = new ArrayList<>();
         if (!repoRestaurante.findRestauranteUser(userId).toString().isEmpty()) {
             if (!errors.isEmpty()) {
@@ -90,7 +90,7 @@ public class RestauranteService
      * @return Objeto restaurant
      * @throws Exception
      */
-    public Restaurante findRestaurante(String restId) throws Exception{
+    public Restaurante findRestaurante(String restId){
         List<JsonError> errors = new ArrayList<>();
         if (!repoRestaurante.findRestaurante(restId).toString().isEmpty()) {
             if (!errors.isEmpty()) {

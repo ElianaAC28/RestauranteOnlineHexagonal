@@ -1,0 +1,10 @@
+-------------------------------------------------------------------------------
+Test set: co.edu.unicauca.restaurantehexagonal.presentacion.app.AdminTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.133 sec <<< FAILURE!
+co.edu.unicauca.restaurantehexagonal.presentacion.app.AdminTest.testMain()  Time elapsed: 1.128 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: The test case is a prototype.
+	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:39)
+	at org.junit.jupiter.api.Assertions.fail(Assertions.java:109)
+	at co.edu.unicauca.restaurantehexagonal.presentacion.app.AdminTest.testMain(AdminTest.java:49)
+
