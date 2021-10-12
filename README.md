@@ -4,7 +4,9 @@ ONLINE RESTAURANTE 🥣🌮🥩
 
 Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicación de escritorio, desarrolada en el leguaje de programación JAVA en el entorno de desarrollo Apache Neatbeans IDE 12.3 utilizando como motor de base de datos MySql.
 
-1. [Documentación de soporte](https://docs.google.com/document/d/1PZqLsyvcPECYWISqAcfbDXMYljr7zuc_/edit#heading=h.gjdgxs)
+1. Documentación de soporte: [INFORME SPRINT 3.pdf](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7330894/INFORME.SPRINT.3.pdf)
+
+
 
 2. Pre-requisitos para ejecutar el sotfware, debe tener instalado en su máquina los siguientes programas:
 
@@ -25,7 +27,6 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
 	1. Descargue los scripts de la base de datos. 
 
 	2. Abra la carpeta Configuración de la Base de datos y siga las instrucciones que se encuentran en las imágenes.  
-
 
 
 4. Nombre del grupo: SOFTWARE TEAM
