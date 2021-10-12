@@ -15,9 +15,7 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
 	
 3. Conexión a la base de datos (Scrpt MySql)	
 
-	Creación 👉 [SQL_Bases - creacion.txt](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7305442/SQL_Bases.-.creacion.txt)
-  
-	Inserción 👉[SQL_Bases- insercion.txt](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7305469/SQL_Bases-.insercion.txt)
+	Debe desargar un [archivo comprimido]([Script de la Base de datos-20211012T015616Z-001.zip](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7326549/Script.de.la.Base.de.datos-20211012T015616Z-001.zip))
 
 4. Nombre del grupo: SOFTWARE TEAM
 
@@ -27,3 +25,4 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
         Eliana Andrea Camayo Ante <eacamayo@unicauca.edu.co>
         Jesus Edwin Andrada Ruiz <jesusadrada@unicauca.edu.co>
         Luis Manuel Arroyo Lopez <Luisarroyo@unicauca.edu.co>
+
