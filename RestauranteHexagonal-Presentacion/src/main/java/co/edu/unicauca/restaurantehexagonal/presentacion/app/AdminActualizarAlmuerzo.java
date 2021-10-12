@@ -371,7 +371,7 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
         }
         IAlmuerzoRepository objService = Factory.getInstance().getRepositoryAlmuerzo();
 
-        Almuerzo response = objService.buscaralmu(restId);
+        Almuerzo response = objService.buscaralmu(restId, txtAlmu.getText());
         txtDescrip.setText(response.getDescripcion());
         costo = response.getCostoAlm();
 
@@ -475,10 +475,9 @@ public class AdminActualizarAlmuerzo extends javax.swing.JFrame {
             Almuerzo objAlmu = new Almuerzo();
             objAlmu.setIdAlmuerzo(txtAlmu.getText());
             objAlmu.setRestId(restId); //de forma predeterminada lo guardamos en el restaurante 1
-            objAlmu.setCostoAlm(costo); //fabrica hasta que le enviemos el precio
             objAlmu.setDescripcion(txtDescrip.getText());
             try {
-                String response = objService.updateCosto(objAlmu);
+                String response = objService.updateDescrip(objAlmu);
                 JOptionPane.showMessageDialog(null, "DESCRIPCION ACTUALIZADA CORRECTAMENTE ", "DESCRIPCION", JOptionPane.INFORMATION_MESSAGE);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, "OCURRIO EL SIGUENTE ERROR " + ex.toString(), "ERROR", JOptionPane.ERROR_MESSAGE);

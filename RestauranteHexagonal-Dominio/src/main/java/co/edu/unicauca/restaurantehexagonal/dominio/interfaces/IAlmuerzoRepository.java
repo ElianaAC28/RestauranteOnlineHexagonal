@@ -32,7 +32,8 @@ public interface IAlmuerzoRepository {
     public String contarAlmu(Almuerzo parAlmuerzo);
     public String asociarComp( String almuid, String compid);
     public String updateCosto(Almuerzo parAlmuerzo);
+    public String updateDescrip(Almuerzo parAlmuerzo);
     public String updateFoto(Almuerzo parAlmuerzo);
     public List<Almuerzo> foto(String idAlmu);
-    public Almuerzo buscaralmu(String restId);
+    public Almuerzo buscaralmu(String restId, String idAlmu);
 }

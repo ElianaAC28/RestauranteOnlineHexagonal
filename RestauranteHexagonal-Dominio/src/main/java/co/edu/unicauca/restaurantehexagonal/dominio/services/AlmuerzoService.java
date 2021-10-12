@@ -100,6 +100,20 @@ public class AlmuerzoService {
         }
         return repositoryAlm.updateCosto(parAlmuerzo);
     }
+    
+    public String updateDescrip(Almuerzo parAlmuerzo) {
+        List<JsonError> errors = new ArrayList<>();
+        if (parAlmuerzo.getIdAlmuerzo()== null || parAlmuerzo.getRestId()==null || parAlmuerzo.getDescripcion()== null ) {
+            errors.add(new JsonError("400", "BAD_REQUEST", "LA INFORMACION  ES OBLIGATORIA "));
+        }
+        if (!errors.isEmpty()) {
+            Gson gson = new Gson();
+            String errorJson = gson.toJson(errors);
+            return errorJson;
+        }
+        return repositoryAlm.updateDescrip(parAlmuerzo);
+    }
+    
     public String updateFoto(Almuerzo parAlmuerzo) {
         List<JsonError> errors = new ArrayList<>();
         if (parAlmuerzo.getIdAlmuerzo()== null || parAlmuerzo.getRestId()==null ) {
@@ -147,16 +161,16 @@ public class AlmuerzoService {
     }       
     
     
-    public Almuerzo buscar(String restId) throws Exception
+    public Almuerzo buscar(String restId, String idAlmu) throws Exception
     {
         List<JsonError> errors = new ArrayList<>();
-        if (!repositoryAlm.buscaralmu(restId).toString().isEmpty()) 
+        if (!repositoryAlm.buscaralmu(restId, idAlmu).toString().isEmpty() ) 
         {
             if (!errors.isEmpty()) {
                 errors.add(new JsonError("400", "BAD_REQUEST", "ERROR AL GENERAR PEDIDO SQL"));
             }
         }
-        return repositoryAlm.buscaralmu(restId);
+        return repositoryAlm.buscaralmu(restId, idAlmu);
     }
     
     public List<Almuerzo> foto(String idAlmu) {

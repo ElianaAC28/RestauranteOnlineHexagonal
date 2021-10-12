@@ -1,7 +1,5 @@
 package co.edu.unicauca.restaurantehexagonal.access;
 
-
-
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Almuerzo;
 import co.edu.unicauca.restaurantehexagonal.dominio.entities.Restaurante;
 import co.edu.unicauca.restaurantehexagonal.dominio.infra.Utilities;
@@ -22,22 +20,21 @@ import javax.swing.JOptionPane;
  *
  * @author SoftwareTeam
  */
-public class  AlmuerzoRepositoryImplMysql implements IAlmuerzoRepository {
+public class AlmuerzoRepositoryImplMysql implements IAlmuerzoRepository {
 
     /**
      * Conección con Mysql
      */
     public Connection conn;
- public Connection conn2;
+    public Connection conn2;
 
-  /*  public String findAlmuerzo(Almuerzo parAlmuerzo) {
+    /*  public String findAlmuerzo(Almuerzo parAlmuerzo) {
         return "s";
     }
      public String createAlmuerzoID(Almuerzo parAlmuerzo){
         return "a";
     }
-   */
-
+     */
     /**
      * Lista almuerzo en la base de datos
      *
@@ -70,7 +67,7 @@ public class  AlmuerzoRepositoryImplMysql implements IAlmuerzoRepository {
         }
         return objList;
     }
-    
+
     /**
      * Lista almuerzo de un restaurante en la base de datos
      *
@@ -138,10 +135,10 @@ public class  AlmuerzoRepositoryImplMysql implements IAlmuerzoRepository {
         }
     }
 
-@Override
-public String createAlmuerzo(Almuerzo parAlmuerzo) {
+    @Override
+    public String createAlmuerzo(Almuerzo parAlmuerzo) {
 
-try {
+        try {
             this.connect();
 
             String sql2 = "INSERT INTO ALMUERZO (ALMUID, RESTID, ALMUCOSTO) VALUES (?,?,?)";
@@ -159,10 +156,11 @@ try {
         }
         return (parAlmuerzo.getIdAlmuerzo());
     }
-@Override
-public String updateAlmuerzo(Almuerzo parAlmuerzo) {
 
-try {
+    @Override
+    public String updateAlmuerzo(Almuerzo parAlmuerzo) {
+
+        try {
             this.connect();
 
             String sql2 = "UPDATE TIENE SET COMPID = ? WHERE ALMUID = ? AND COMPID = ?;";
@@ -181,10 +179,10 @@ try {
         return (parAlmuerzo.getIdAlmuerzo());
     }
 
-@Override
-public String updateCosto(Almuerzo parAlmuerzo) {
+    @Override
+    public String updateCosto(Almuerzo parAlmuerzo) {
 
-try {
+        try {
             this.connect();
 
             String sql2 = "UPDATE AlMUERZO SET ALMUCOSTO = ?, ALMUIMAGEN = ?, ALMUDESCRIPCION = ? WHERE ALMUID = ? AND RESTID = ?;";
@@ -204,10 +202,11 @@ try {
         }
         return (parAlmuerzo.getIdAlmuerzo());
     }
-@Override
-public String updateFoto(Almuerzo parAlmuerzo) {
 
-try {
+    @Override
+    public String updateFoto(Almuerzo parAlmuerzo) {
+
+        try {
             this.connect();
 
             String sql2 = "UPDATE AlMUERZO SET ALMUIMAGEN = ? WHERE ALMUID = ? AND RESTID = ?;";
@@ -226,15 +225,15 @@ try {
         return (parAlmuerzo.getIdAlmuerzo());
     }
 
-@Override
+    @Override
     public String contarAlmu(Almuerzo parAlmuerzo) {
-        int cont=0;
+        int cont = 0;
         try {
             this.connect();
-            String sql = "select count(*) from Almuerzo where almuid ="+parAlmuerzo.getIdAlmuerzo()+" and restid ="+parAlmuerzo.getRestId()+";";
+            String sql = "select count(*) from Almuerzo where almuid =" + parAlmuerzo.getIdAlmuerzo() + " and restid =" + parAlmuerzo.getRestId() + ";";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet comp = pstmt.executeQuery();
-            if(comp.next()){
+            if (comp.next()) {
                 cont = comp.getInt(1);
             }
             pstmt.close();
@@ -243,11 +242,11 @@ try {
         } catch (SQLException ex) {
             Logger.getLogger(ComponenteRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al insertar el registro", ex);
         }
-        return cont+"";    
-    
+        return cont + "";
+
     }
 
-    public String asociarComp(String almuid, String compid){
+    public String asociarComp(String almuid, String compid) {
         try {
             this.connect();
 
@@ -263,12 +262,12 @@ try {
         } catch (SQLException ex) {
             Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al actualizar el registro", ex);
         }
-        return (almuid+"");
+        return (almuid + "");
     }
-    
-public String deleteCompAlmuerzo(Almuerzo parAlmuerzo) {
 
-try {
+    public String deleteCompAlmuerzo(Almuerzo parAlmuerzo) {
+
+        try {
             this.connect();
 
             String sql2 = "DELETE FROM TIENE WHERE ALMUID = ? AND COMPID = ?;";
@@ -286,13 +285,12 @@ try {
         return (parAlmuerzo.getIdAlmuerzo());
     }
 
-@Override
-    public Almuerzo buscaralmu(String restId) 
-    {
+    @Override
+    public Almuerzo buscaralmu(String restId, String idAlmuerzo) {
         Almuerzo restaurante = new Almuerzo();
         this.connect();
         try {
-            String sql = "SELECT ALMUDESCRIPCION, ALMUCOSTO FROM almuerzo WHERE restId='" + restId +"';";
+            String sql = "SELECT ALMUDESCRIPCION, ALMUCOSTO FROM almuerzo WHERE restId= " + restId + " and ALMUID = " + idAlmuerzo + " ;";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet rest = pstmt.executeQuery();
             while (rest.next()) {
@@ -306,8 +304,28 @@ try {
         }
         return restaurante;
     }
-    
-    
+
+    @Override
+    public String updateDescrip(Almuerzo parAlmuerzo) {
+
+        try {
+            this.connect();
+
+            String sql2 = "UPDATE AlMUERZO SET ALMUDESCRIPCION = ? WHERE ALMUID = ? AND RESTID = ?;";
+            PreparedStatement pstmt2 = conn.prepareStatement(sql2);
+            pstmt2.setString(1, parAlmuerzo.getDescripcion());
+            pstmt2.setString(2, parAlmuerzo.getIdAlmuerzo());
+            pstmt2.setString(3, parAlmuerzo.getRestId());
+
+            pstmt2.executeUpdate();
+
+            pstmt2.close();
+            this.disconnect();
+        } catch (SQLException ex) {
+            Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al actualizar el registro", ex);
+        }
+        return (parAlmuerzo.getIdAlmuerzo());
+    }
 
     @Override
     public List<Almuerzo> foto(String idAlmu) {
@@ -316,7 +334,7 @@ try {
         Almuerzo objAlmuerzo = new Almuerzo();
         try {
 
-            String sql = "SELECT ALMUIMAGEN FROM ALMUERZO WHERE ALMUID = "+ idAlmu +";";
+            String sql = "SELECT ALMUIMAGEN FROM ALMUERZO WHERE ALMUID = " + idAlmu + ";";
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             ResultSet res = pstmt.executeQuery();
@@ -332,6 +350,6 @@ try {
             Logger.getLogger(AlmuerzoRepositoryImplMysql.class.getName()).log(Level.SEVERE, "Error al consultar el restaurante de la base de datos", ex);
         }
         return objList;
-    }        
-    
+    }
+
 }

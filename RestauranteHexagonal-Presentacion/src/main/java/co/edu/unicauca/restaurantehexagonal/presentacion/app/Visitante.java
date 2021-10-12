@@ -441,7 +441,7 @@ public class Visitante extends javax.swing.JFrame {
         
         Almuerzo almu = new Almuerzo();
         try {
-            almu = almuerzoService.buscar(restId);
+            almu = almuerzoService.buscar(restId, almuerzo+"");
         } catch (Exception ex) {
             Logger.getLogger(Admin.class.getName()).log(Level.SEVERE, null, ex);
         }
