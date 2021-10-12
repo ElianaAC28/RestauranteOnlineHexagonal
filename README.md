@@ -15,7 +15,18 @@ Proyecto propuesto para el curso de Ingeniería de Software II,  es una aplicaci
 	
 3. Conexión a la base de datos (Scrpt MySql)	
 
-	Debe desargar un [archivo comprimido]([Script de la Base de datos-20211012T015616Z-001.zip](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7326549/Script.de.la.Base.de.datos-20211012T015616Z-001.zip))
+	Debe desargar el siguiente archivo comprimido: [CREACION E INSERCION DE LA BD.zip](https://github.com/ElianaAC28/RestauranteOnlineHexagonal/files/7326580/CREACION.E.INSERCION.DE.LA.BD.zip)
+
+	
+	Donde encontrará dos carpetas y deberá seguir las instrucciones para configurar la base de datos.
+
+	NOTA: Tenga en cuenta que, debe crear antes la base de datos, con nombre “bdrestauranteonline” en la herramienta MySql Workbech.
+
+	1. Descargue los scripts de la base de datos. 
+
+	2. Abra la carpeta Configuración de la Base de datos y siga las instrucciones que se encuentran en las imágenes.  
+
+
 
 4. Nombre del grupo: SOFTWARE TEAM
 
